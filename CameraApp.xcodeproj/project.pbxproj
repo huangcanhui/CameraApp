@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C97338C82192CF810016B440 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338C72192CF810016B440 /* AppDelegate.m */; };
-		C97338CB2192CF810016B440 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338CA2192CF810016B440 /* ViewController.m */; };
 		C97338CE2192CF810016B440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97338CC2192CF810016B440 /* Main.storyboard */; };
 		C97338D02192CF830016B440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97338CF2192CF830016B440 /* Assets.xcassets */; };
 		C97338D32192CF830016B440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97338D12192CF830016B440 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,11 @@
 		C98ED75B219331B60017A479 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED75A219331B60017A479 /* APIClient.m */; };
 		C98ED78E21966ECF0017A479 /* CHProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C98ED78D21966ECF0017A479 /* CHProgressHUD.bundle */; };
 		C98ED79D219924E60017A479 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED79C219924E60017A479 /* CHTime.m */; };
+		C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = C994193221A3A7AB0010524D /* AppDelegate+AppService.m */; };
+		C994193621A3AAC40010524D /* CameraHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994193521A3AAC40010524D /* CameraHomeViewController.m */; };
+		C994194121A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C994194021A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m */; };
+		C994194421A3B5940010524D /* CHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994194321A3B5940010524D /* CHNavigationController.m */; };
+		C994194721A3B8160010524D /* UIView+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = C994194621A3B8160010524D /* UIView+CH.m */; };
 		F44E130B164888A0BEE8AAC9 /* libPods-CameraApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5FAA60EEB040A0CCC0C74E /* libPods-CameraApp.a */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +49,6 @@
 		C97338C32192CF810016B440 /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97338C62192CF810016B440 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C97338C72192CF810016B440 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C97338C92192CF810016B440 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C97338CA2192CF810016B440 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C97338CD2192CF810016B440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C97338CF2192CF830016B440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C97338D22192CF830016B440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,6 +71,16 @@
 		C98ED78D21966ECF0017A479 /* CHProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CHProgressHUD.bundle; sourceTree = "<group>"; };
 		C98ED79B219924E60017A479 /* CHTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTime.h; sourceTree = "<group>"; };
 		C98ED79C219924E60017A479 /* CHTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTime.m; sourceTree = "<group>"; };
+		C994193121A3A7AB0010524D /* AppDelegate+AppService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+AppService.h"; sourceTree = "<group>"; };
+		C994193221A3A7AB0010524D /* AppDelegate+AppService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+AppService.m"; sourceTree = "<group>"; };
+		C994193421A3AAC40010524D /* CameraHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraHomeViewController.h; sourceTree = "<group>"; };
+		C994193521A3AAC40010524D /* CameraHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraHomeViewController.m; sourceTree = "<group>"; };
+		C994193F21A3B3690010524D /* UIViewController+AlertViewAndActionSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertViewAndActionSheet.h"; sourceTree = "<group>"; };
+		C994194021A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertViewAndActionSheet.m"; sourceTree = "<group>"; };
+		C994194221A3B5940010524D /* CHNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHNavigationController.h; sourceTree = "<group>"; };
+		C994194321A3B5940010524D /* CHNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNavigationController.m; sourceTree = "<group>"; };
+		C994194521A3B8160010524D /* UIView+CH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CH.h"; sourceTree = "<group>"; };
+		C994194621A3B8160010524D /* UIView+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CH.m"; sourceTree = "<group>"; };
 		E2DF13393A24D610D46E1B32 /* Pods-CameraApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,8 +159,6 @@
 				C98ED7432192D31F0017A479 /* Utils */,
 				C98ED7422192D3080017A479 /* Modules */,
 				C98ED7462192D3BF0017A479 /* Support File */,
-				C97338C92192CF810016B440 /* ViewController.h */,
-				C97338CA2192CF810016B440 /* ViewController.m */,
 				C97338D42192CF830016B440 /* Info.plist */,
 			);
 			path = CameraApp;
@@ -197,6 +207,8 @@
 		C98ED7442192D35A0017A479 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C994193E21A3B3050010524D /* WebviewController */,
+				C994193C21A3B2E00010524D /* NavigationController */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -206,6 +218,8 @@
 			children = (
 				C97338C62192CF810016B440 /* AppDelegate.h */,
 				C97338C72192CF810016B440 /* AppDelegate.m */,
+				C994193121A3A7AB0010524D /* AppDelegate+AppService.h */,
+				C994193221A3A7AB0010524D /* AppDelegate+AppService.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -254,6 +268,8 @@
 		C98ED74A2192D4820017A479 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C994193421A3AAC40010524D /* CameraHomeViewController.h */,
+				C994193521A3AAC40010524D /* CameraHomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,8 +330,28 @@
 		C98ED762219565980017A479 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C994193F21A3B3690010524D /* UIViewController+AlertViewAndActionSheet.h */,
+				C994194021A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m */,
+				C994194521A3B8160010524D /* UIView+CH.h */,
+				C994194621A3B8160010524D /* UIView+CH.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		C994193C21A3B2E00010524D /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				C994194221A3B5940010524D /* CHNavigationController.h */,
+				C994194321A3B5940010524D /* CHNavigationController.m */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		C994193E21A3B3050010524D /* WebviewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebviewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,11 +534,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */,
 				C98ED75B219331B60017A479 /* APIClient.m in Sources */,
+				C994193621A3AAC40010524D /* CameraHomeViewController.m in Sources */,
+				C994194721A3B8160010524D /* UIView+CH.m in Sources */,
 				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
-				C97338CB2192CF810016B440 /* ViewController.m in Sources */,
 				C97338D62192CF830016B440 /* main.m in Sources */,
 				C97338C82192CF810016B440 /* AppDelegate.m in Sources */,
+				C994194421A3B5940010524D /* CHNavigationController.m in Sources */,
+				C994194121A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				C98ED7582192DCE50017A479 /* CHProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

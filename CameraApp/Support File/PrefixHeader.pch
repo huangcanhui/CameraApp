@@ -15,6 +15,7 @@
 
 #import "CHProgressHUD.h"
 #import "APIClient.h"
+#import "UIView+CH.h"
 
 
 #endif /* PrefixHeader_pch */
