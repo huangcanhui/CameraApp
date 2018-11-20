@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CHProgressHUD.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = HexColor(0xffffff);
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    btn.backgroundColor = [UIColor blueColor];
+    [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:btn];
+}
+
+- (void)clickBtn:(UIButton *)btn
+{
+//    [CHProgressHUD showMessage:@"加载中，请售后"];
+//    [CHProgressHUD showLoading:@"加载中"];
+    [CHProgressHUD showSuccess:@"成功了"];
+    
+    NSLog(@"点击了");
 }
 
 

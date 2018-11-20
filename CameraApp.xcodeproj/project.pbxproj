@@ -15,6 +15,11 @@
 		C97338D62192CF830016B440 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338D52192CF830016B440 /* main.m */; };
 		C97338E02192CF830016B440 /* CameraAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338DF2192CF830016B440 /* CameraAppTests.m */; };
 		C97338EB2192CF840016B440 /* CameraAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338EA2192CF840016B440 /* CameraAppUITests.m */; };
+		C98ED7582192DCE50017A479 /* CHProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED7572192DCE50017A479 /* CHProgressHUD.m */; };
+		C98ED75B219331B60017A479 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED75A219331B60017A479 /* APIClient.m */; };
+		C98ED78E21966ECF0017A479 /* CHProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C98ED78D21966ECF0017A479 /* CHProgressHUD.bundle */; };
+		C98ED79D219924E60017A479 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED79C219924E60017A479 /* CHTime.m */; };
+		F44E130B164888A0BEE8AAC9 /* libPods-CameraApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5FAA60EEB040A0CCC0C74E /* libPods-CameraApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D5FAA60EEB040A0CCC0C74E /* libPods-CameraApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CameraApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B98D6032D2C354FDEABF3906 /* Pods-CameraApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp.release.xcconfig"; sourceTree = "<group>"; };
 		C97338C32192CF810016B440 /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97338C62192CF810016B440 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C97338C72192CF810016B440 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +58,18 @@
 		C97338E62192CF840016B440 /* CameraAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97338EA2192CF840016B440 /* CameraAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraAppUITests.m; sourceTree = "<group>"; };
 		C97338EC2192CF840016B440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C98ED7522192D5730017A479 /* SystemsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemsMacros.h; sourceTree = "<group>"; };
+		C98ED7532192D5960017A479 /* ApiMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiMacros.h; sourceTree = "<group>"; };
+		C98ED7542192D5B00017A479 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C98ED7552192D6090017A479 /* ThirdPartyMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdPartyMacros.h; sourceTree = "<group>"; };
+		C98ED7562192DCE50017A479 /* CHProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHProgressHUD.h; sourceTree = "<group>"; };
+		C98ED7572192DCE50017A479 /* CHProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHProgressHUD.m; sourceTree = "<group>"; };
+		C98ED759219331B60017A479 /* APIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		C98ED75A219331B60017A479 /* APIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		C98ED78D21966ECF0017A479 /* CHProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CHProgressHUD.bundle; sourceTree = "<group>"; };
+		C98ED79B219924E60017A479 /* CHTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTime.h; sourceTree = "<group>"; };
+		C98ED79C219924E60017A479 /* CHTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTime.m; sourceTree = "<group>"; };
+		E2DF13393A24D610D46E1B32 /* Pods-CameraApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44E130B164888A0BEE8AAC9 /* libPods-CameraApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +98,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2203700023EF1392110B4911 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2DF13393A24D610D46E1B32 /* Pods-CameraApp.debug.xcconfig */,
+				B98D6032D2C354FDEABF3906 /* Pods-CameraApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8808BC593CBDA5390B9C1A4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D5FAA60EEB040A0CCC0C74E /* libPods-CameraApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C97338BA2192CF810016B440 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +122,8 @@
 				C97338DE2192CF830016B440 /* CameraAppTests */,
 				C97338E92192CF840016B440 /* CameraAppUITests */,
 				C97338C42192CF810016B440 /* Products */,
+				2203700023EF1392110B4911 /* Pods */,
+				8808BC593CBDA5390B9C1A4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,15 +140,16 @@
 		C97338C52192CF810016B440 /* CameraApp */ = {
 			isa = PBXGroup;
 			children = (
-				C97338C62192CF810016B440 /* AppDelegate.h */,
-				C97338C72192CF810016B440 /* AppDelegate.m */,
+				C98ED7452192D3740017A479 /* AppDelegate */,
+				C98ED7472192D4460017A479 /* Define */,
+				C98ED7442192D35A0017A479 /* Base */,
+				C98ED762219565980017A479 /* Category */,
+				C98ED7432192D31F0017A479 /* Utils */,
+				C98ED7422192D3080017A479 /* Modules */,
+				C98ED7462192D3BF0017A479 /* Support File */,
 				C97338C92192CF810016B440 /* ViewController.h */,
 				C97338CA2192CF810016B440 /* ViewController.m */,
-				C97338CC2192CF810016B440 /* Main.storyboard */,
-				C97338CF2192CF830016B440 /* Assets.xcassets */,
-				C97338D12192CF830016B440 /* LaunchScreen.storyboard */,
 				C97338D42192CF830016B440 /* Info.plist */,
-				C97338D52192CF830016B440 /* main.m */,
 			);
 			path = CameraApp;
 			sourceTree = "<group>";
@@ -132,6 +172,152 @@
 			path = CameraAppUITests;
 			sourceTree = "<group>";
 		};
+		C98ED7422192D3080017A479 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C98ED7482192D4820017A479 /* Home */,
+				C98ED74D2192D4AD0017A479 /* Personal */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C98ED7432192D31F0017A479 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C98ED7562192DCE50017A479 /* CHProgressHUD.h */,
+				C98ED7572192DCE50017A479 /* CHProgressHUD.m */,
+				C98ED759219331B60017A479 /* APIClient.h */,
+				C98ED75A219331B60017A479 /* APIClient.m */,
+				C98ED79B219924E60017A479 /* CHTime.h */,
+				C98ED79C219924E60017A479 /* CHTime.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C98ED7442192D35A0017A479 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C98ED7452192D3740017A479 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C97338C62192CF810016B440 /* AppDelegate.h */,
+				C97338C72192CF810016B440 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C98ED7462192D3BF0017A479 /* Support File */ = {
+			isa = PBXGroup;
+			children = (
+				C98ED78D21966ECF0017A479 /* CHProgressHUD.bundle */,
+				C97338CC2192CF810016B440 /* Main.storyboard */,
+				C97338CF2192CF830016B440 /* Assets.xcassets */,
+				C97338D12192CF830016B440 /* LaunchScreen.storyboard */,
+				C97338D52192CF830016B440 /* main.m */,
+				C98ED7542192D5B00017A479 /* PrefixHeader.pch */,
+			);
+			path = "Support File";
+			sourceTree = "<group>";
+		};
+		C98ED7472192D4460017A479 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				C98ED7522192D5730017A479 /* SystemsMacros.h */,
+				C98ED7532192D5960017A479 /* ApiMacros.h */,
+				C98ED7552192D6090017A479 /* ThirdPartyMacros.h */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		C98ED7482192D4820017A479 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C98ED7492192D4820017A479 /* ViewModel */,
+				C98ED74A2192D4820017A479 /* Controller */,
+				C98ED74B2192D4820017A479 /* Model */,
+				C98ED74C2192D4820017A479 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C98ED7492192D4820017A479 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C98ED74A2192D4820017A479 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C98ED74B2192D4820017A479 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C98ED74C2192D4820017A479 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C98ED74D2192D4AD0017A479 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				C98ED74E2192D4AD0017A479 /* ViewModel */,
+				C98ED74F2192D4AD0017A479 /* Controller */,
+				C98ED7502192D4AD0017A479 /* Model */,
+				C98ED7512192D4AD0017A479 /* View */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		C98ED74E2192D4AD0017A479 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C98ED74F2192D4AD0017A479 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C98ED7502192D4AD0017A479 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C98ED7512192D4AD0017A479 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C98ED762219565980017A479 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +325,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C97338EF2192CF840016B440 /* Build configuration list for PBXNativeTarget "CameraApp" */;
 			buildPhases = (
+				7212AF8A11661FC4BC9157C6 /* [CP] Check Pods Manifest.lock */,
 				C97338BF2192CF810016B440 /* Sources */,
 				C97338C02192CF810016B440 /* Frameworks */,
 				C97338C12192CF810016B440 /* Resources */,
+				AF99AD64658272E2D79ABD4A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C97338D32192CF830016B440 /* LaunchScreen.storyboard in Resources */,
+				C98ED78E21966ECF0017A479 /* CHProgressHUD.bundle in Resources */,
 				C97338D02192CF830016B440 /* Assets.xcassets in Resources */,
 				C97338CE2192CF810016B440 /* Main.storyboard in Resources */,
 			);
@@ -257,14 +446,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7212AF8A11661FC4BC9157C6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CameraApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF99AD64658272E2D79ABD4A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C97338BF2192CF810016B440 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98ED75B219331B60017A479 /* APIClient.m in Sources */,
+				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
 				C97338CB2192CF810016B440 /* ViewController.m in Sources */,
 				C97338D62192CF830016B440 /* main.m in Sources */,
 				C97338C82192CF810016B440 /* AppDelegate.m in Sources */,
+				C98ED7582192DCE50017A479 /* CHProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,10 +672,14 @@
 		};
 		C97338F02192CF840016B440 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2DF13393A24D610D46E1B32 /* Pods-CameraApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JN7QK688A;
+				GCC_PREFIX_HEADER = "/Users/aieffei/Desktop/CameraApp/CameraApp/Support File/PrefixHeader.pch";
 				INFOPLIST_FILE = CameraApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,15 +687,20 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fangline.CameraApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
 		C97338F12192CF840016B440 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B98D6032D2C354FDEABF3906 /* Pods-CameraApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JN7QK688A;
+				GCC_PREFIX_HEADER = "/Users/aieffei/Desktop/CameraApp/CameraApp/Support File/PrefixHeader.pch";
 				INFOPLIST_FILE = CameraApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +708,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fangline.CameraApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};

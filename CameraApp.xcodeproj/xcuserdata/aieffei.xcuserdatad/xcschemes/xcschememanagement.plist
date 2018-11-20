@@ -7,7 +7,25 @@
 		<key>CameraApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C97338C22192CF810016B440</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C97338DA2192CF830016B440</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C97338E52192CF840016B440</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
