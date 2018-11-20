@@ -23,6 +23,13 @@
 		C994194121A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C994194021A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m */; };
 		C994194421A3B5940010524D /* CHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994194321A3B5940010524D /* CHNavigationController.m */; };
 		C994194721A3B8160010524D /* UIView+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = C994194621A3B8160010524D /* UIView+CH.m */; };
+		C994194A21A3DBA80010524D /* CHPhotoLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994194921A3DBA80010524D /* CHPhotoLibraryViewController.m */; };
+		C994194D21A3E4740010524D /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = C994194C21A3E4740010524D /* Urls.plist */; };
+		C994195021A3E5390010524D /* Debug_DevelopmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C994194F21A3E5390010524D /* Debug_DevelopmentModel.m */; };
+		C994195321A3E5A50010524D /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994195221A3E5A50010524D /* DebugViewController.m */; };
+		C994195621A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994195521A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m */; };
+		C994195921A3EEBD0010524D /* CHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C994195821A3EEBD0010524D /* CHUtil.m */; };
+		C994195B21A3EF460010524D /* config.strings in Resources */ = {isa = PBXBuildFile; fileRef = C994195A21A3EF460010524D /* config.strings */; };
 		F44E130B164888A0BEE8AAC9 /* libPods-CameraApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5FAA60EEB040A0CCC0C74E /* libPods-CameraApp.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +88,18 @@
 		C994194321A3B5940010524D /* CHNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHNavigationController.m; sourceTree = "<group>"; };
 		C994194521A3B8160010524D /* UIView+CH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CH.h"; sourceTree = "<group>"; };
 		C994194621A3B8160010524D /* UIView+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CH.m"; sourceTree = "<group>"; };
+		C994194821A3DBA80010524D /* CHPhotoLibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPhotoLibraryViewController.h; sourceTree = "<group>"; };
+		C994194921A3DBA80010524D /* CHPhotoLibraryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPhotoLibraryViewController.m; sourceTree = "<group>"; };
+		C994194C21A3E4740010524D /* Urls.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Urls.plist; sourceTree = "<group>"; };
+		C994194E21A3E5390010524D /* Debug_DevelopmentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug_DevelopmentModel.h; sourceTree = "<group>"; };
+		C994194F21A3E5390010524D /* Debug_DevelopmentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Debug_DevelopmentModel.m; sourceTree = "<group>"; };
+		C994195121A3E5A50010524D /* DebugViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebugViewController.h; sourceTree = "<group>"; };
+		C994195221A3E5A50010524D /* DebugViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DebugViewController.m; sourceTree = "<group>"; };
+		C994195421A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CameraHomeViewController+Debug_DevelopmentViewController.h"; sourceTree = "<group>"; };
+		C994195521A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CameraHomeViewController+Debug_DevelopmentViewController.m"; sourceTree = "<group>"; };
+		C994195721A3EEBD0010524D /* CHUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHUtil.h; sourceTree = "<group>"; };
+		C994195821A3EEBD0010524D /* CHUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHUtil.m; sourceTree = "<group>"; };
+		C994195A21A3EF460010524D /* config.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = config.strings; sourceTree = "<group>"; };
 		E2DF13393A24D610D46E1B32 /* Pods-CameraApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +204,7 @@
 		C98ED7422192D3080017A479 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C994194B21A3E4610010524D /* Debug_Development */,
 				C98ED7482192D4820017A479 /* Home */,
 				C98ED74D2192D4AD0017A479 /* Personal */,
 			);
@@ -200,6 +220,9 @@
 				C98ED75A219331B60017A479 /* APIClient.m */,
 				C98ED79B219924E60017A479 /* CHTime.h */,
 				C98ED79C219924E60017A479 /* CHTime.m */,
+				C994195721A3EEBD0010524D /* CHUtil.h */,
+				C994195821A3EEBD0010524D /* CHUtil.m */,
+				C994195A21A3EF460010524D /* config.strings */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -270,6 +293,8 @@
 			children = (
 				C994193421A3AAC40010524D /* CameraHomeViewController.h */,
 				C994193521A3AAC40010524D /* CameraHomeViewController.m */,
+				C994194821A3DBA80010524D /* CHPhotoLibraryViewController.h */,
+				C994194921A3DBA80010524D /* CHPhotoLibraryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -352,6 +377,20 @@
 			children = (
 			);
 			path = WebviewController;
+			sourceTree = "<group>";
+		};
+		C994194B21A3E4610010524D /* Debug_Development */ = {
+			isa = PBXGroup;
+			children = (
+				C994194C21A3E4740010524D /* Urls.plist */,
+				C994194E21A3E5390010524D /* Debug_DevelopmentModel.h */,
+				C994194F21A3E5390010524D /* Debug_DevelopmentModel.m */,
+				C994195121A3E5A50010524D /* DebugViewController.h */,
+				C994195221A3E5A50010524D /* DebugViewController.m */,
+				C994195421A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.h */,
+				C994195521A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m */,
+			);
+			path = Debug_Development;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,10 +498,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C994195B21A3EF460010524D /* config.strings in Resources */,
 				C97338D32192CF830016B440 /* LaunchScreen.storyboard in Resources */,
 				C98ED78E21966ECF0017A479 /* CHProgressHUD.bundle in Resources */,
 				C97338D02192CF830016B440 /* Assets.xcassets in Resources */,
 				C97338CE2192CF810016B440 /* Main.storyboard in Resources */,
+				C994194D21A3E4740010524D /* Urls.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,11 +580,16 @@
 				C994193621A3AAC40010524D /* CameraHomeViewController.m in Sources */,
 				C994194721A3B8160010524D /* UIView+CH.m in Sources */,
 				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
+				C994195921A3EEBD0010524D /* CHUtil.m in Sources */,
+				C994195621A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m in Sources */,
+				C994194A21A3DBA80010524D /* CHPhotoLibraryViewController.m in Sources */,
 				C97338D62192CF830016B440 /* main.m in Sources */,
 				C97338C82192CF810016B440 /* AppDelegate.m in Sources */,
 				C994194421A3B5940010524D /* CHNavigationController.m in Sources */,
+				C994195021A3E5390010524D /* Debug_DevelopmentModel.m in Sources */,
 				C994194121A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				C98ED7582192DCE50017A479 /* CHProgressHUD.m in Sources */,
+				C994195321A3E5A50010524D /* DebugViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

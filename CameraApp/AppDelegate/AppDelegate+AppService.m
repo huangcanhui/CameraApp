@@ -27,7 +27,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     CameraHomeViewController *vc = [CameraHomeViewController new];
-    self.window.rootViewController = vc;
+    CHNavigationController *naVC = [[CHNavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = naVC;
     [self.window makeKeyAndVisible];
 }
 

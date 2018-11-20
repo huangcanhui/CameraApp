@@ -9,7 +9,7 @@
 #import "APIClient.h"
 #import <AFNetworking/AFNetworking.h>
 
-static NSString *baseUrl = SERVER_URL;
+//static NSString *baseUrl = SERVER_URL;
 
 @interface AFHttpClient : AFHTTPSessionManager
 /**
@@ -27,7 +27,7 @@ static NSString *baseUrl = SERVER_URL;
     static dispatch_once_t oncetoken;
     dispatch_once(&oncetoken, ^{
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        client = [[AFHttpClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl] sessionConfiguration:configuration];
+        client = [[AFHttpClient alloc] initWithBaseURL:[NSURL URLWithString:SERVER_URL] sessionConfiguration:configuration];
         //接收的参数类型
         client.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/plain", @"text/gif", nil];
         //设置超时时间, 默认为60
@@ -45,7 +45,7 @@ static NSString *baseUrl = SERVER_URL;
 + (void)getWithPath:(NSString *)path params:(NSDictionary *)params success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure
 {
     //获取完整的url路径
-    NSString *url = [baseUrl stringByAppendingString:path];
+    NSString *url = [SERVER_URL stringByAppendingString:path];
     [[AFHttpClient shareClient] GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -56,7 +56,7 @@ static NSString *baseUrl = SERVER_URL;
 + (void)postWithPath:(NSString *)path params:(NSDictionary *)params success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure
 {
     //获取完整的url路径
-    NSString *url = [baseUrl stringByAppendingString:path];
+    NSString *url = [SERVER_URL stringByAppendingString:path];
     [[AFHttpClient shareClient] POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -67,7 +67,7 @@ static NSString *baseUrl = SERVER_URL;
 + (void)downloadWithPath:(NSString *)path success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure progress:(HttpDownloadProgressBlock)progress
 {
     //获取完整的url路径
-    NSString *url = [baseUrl stringByAppendingString:path];
+    NSString *url = [SERVER_URL stringByAppendingString:path];
     //下载
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSURLSessionDownloadTask *downloadTask = [[AFHttpClient shareClient] downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -89,7 +89,7 @@ static NSString *baseUrl = SERVER_URL;
 + (void)uploadImageWithPath:(NSString *)path params:(NSDictionary *)params thumbName:(NSString *)thumbName image:(UIImage *)image success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure progress:(HttpUploadProgressBlock)progress
 {
     //获取完整的url路径
-    NSString *url = [baseUrl stringByAppendingString:path];
+    NSString *url = [SERVER_URL stringByAppendingString:path];
     NSData *data = UIImagePNGRepresentation(image);
     [[AFHttpClient shareClient] POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:data name:thumbName fileName:@"01.png" mimeType:@"image/png"];

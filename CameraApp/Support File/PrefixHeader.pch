@@ -8,14 +8,18 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
-
+//Define
 #import "SystemsMacros.h"
 #import "ApiMacros.h"
 #import "ThirdPartyMacros.h"
-
+//工具类
 #import "CHProgressHUD.h"
 #import "APIClient.h"
+#import "CHNavigationController.h"
+#import "CHUtil.h"
+//Category
 #import "UIView+CH.h"
+#import "UIViewController+AlertViewAndActionSheet.h"
 
 
 #endif /* PrefixHeader_pch */
