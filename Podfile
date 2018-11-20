@@ -4,5 +4,6 @@ target 'CameraApp' do
  pod 'AFNetworking';
  pod 'MJRefresh';
  pod 'MJExtension';
- pod 'SDWebImage'
+ pod 'SDWebImage';
+ pod 'WechatOpenSDK'
 end
