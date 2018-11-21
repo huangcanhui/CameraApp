@@ -34,4 +34,8 @@
 //根据ip6的屏幕来拉伸
 #define kRealValue(with) ((with)*(KScreenWidth/375.0f))
 
+//强、弱指针的引用
+#define weakSelf(wself) __typeof(*&self) __weak wself = self
+#define strongSelf(wself,sself) __typeof(*&wself) __strong sself = wself ;
+
 #endif /* SystemsMacros_h */
