@@ -38,6 +38,7 @@
 @property (nonatomic, strong)UIButton *takePhotoButton;//拍照按钮
 @property (nonatomic, strong)UIButton *tutorialButton; //引导按钮
 @property (nonatomic, strong)CHSpringView *springView; //弹簧视图
+
 @end
 
 @implementation CameraHomeViewController
@@ -377,6 +378,5 @@
         [self setMotionManager:nil];
     }
 }
-
 
 @end

@@ -5,5 +5,6 @@ target 'CameraApp' do
  pod 'MJRefresh';
  pod 'MJExtension';
  pod 'SDWebImage';
- pod 'WechatOpenSDK'
+ pod 'WechatOpenSDK';
+ pod 'JQFMDB'
 end

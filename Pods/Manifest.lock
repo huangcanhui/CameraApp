@@ -14,6 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - JQFMDB (1.1.6):
+    - FMDB
   - MBProgressHUD (1.1.0)
   - MJExtension (3.0.15.1)
   - MJRefresh (3.1.15.7)
@@ -24,6 +29,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - JQFMDB
   - MBProgressHUD
   - MJExtension
   - MJRefresh
@@ -33,6 +39,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - FMDB
+    - JQFMDB
     - MBProgressHUD
     - MJExtension
     - MJRefresh
@@ -41,12 +49,14 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  JQFMDB: 39ab0d6d7c26fd30e51c4dd92edcb27506a34c3a
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
 
-PODFILE CHECKSUM: 471df5cc3600cfb36c970aaf64cba165e05cb414
+PODFILE CHECKSUM: 48555dd4566298fdfad3d84bc26acaacac66d639
 
 COCOAPODS: 1.5.3
