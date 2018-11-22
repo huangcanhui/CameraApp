@@ -10,8 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CHPhotoLibraryViewController : UIViewController
+typedef NS_ENUM(NSInteger, enterType) {
+    enterTypeOnCamera = 0 , //通过相机页面进入
+    enterTypeOnPhotoLibrary , //通过图库进入
+};
 
+@interface CHPhotoLibraryViewController : UIViewController
+/**
+ * 进入页面的方式
+ */
+@property (nonatomic, assign)enterType type;
 
 @end
 

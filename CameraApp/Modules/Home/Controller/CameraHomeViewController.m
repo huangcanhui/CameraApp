@@ -9,6 +9,7 @@
 #import "CameraHomeViewController.h"
 
 #import "CHPhotoLibraryViewController.h"
+#import "CHPhotoLibraryListViewController.h"
 #import "CHTipsViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMotion/CoreMotion.h>
@@ -43,6 +44,7 @@
 @property (nonatomic, strong)UIButton *tutorialButton; //引导按钮
 @property (nonatomic, strong)CHSpringView *springView; //弹簧视图
 @property (nonatomic, strong)CHImageLibraryButton *imageLibraryButton; //图片视图
+@property (nonatomic, assign)BOOL isnewPhoto; //是否新照片
 @end
 
 @implementation CameraHomeViewController
@@ -81,6 +83,8 @@
     self.view.backgroundColor = HexColor(0xffffff);
     
     _needShowAssistantLine = NO;
+    
+    _isnewPhoto = NO;
     
     [self getUserPhotoAuthorization];
     
@@ -345,8 +349,14 @@
     JQFMDB *db = [JQFMDB shareDatabase];
     [db jq_createTable:@"user" dicOrModel:[Personal class]]; //建表
     NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid='%d'", [db lastInsertPrimaryKeyId:@"user"]];
-    for (Personal *personal in array) {
-        _imageLibraryButton.imageData = personal.photoData;
+    if (array.count != 0) {
+        _imageLibraryButton.userInteractionEnabled = YES;
+        _isnewPhoto = NO;
+        for (Personal *personal in array) {
+            _imageLibraryButton.imageData = personal.photoData;
+        }
+    } else {
+        _imageLibraryButton.userInteractionEnabled = NO;
     }
 }
 
@@ -363,6 +373,8 @@
     //取最后一张图片
     NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid='%d'", [db lastInsertPrimaryKeyId:@"user"]];
     for (Personal *personal in array) {
+        _isnewPhoto = YES;
+        _imageLibraryButton.userInteractionEnabled = YES;
         _imageLibraryButton.imageData = personal.photoData;
     }
 
@@ -391,8 +403,13 @@
     if (!_imageLibraryButton) {
         weakSelf(wself);
         _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
-            CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
-            [wself.navigationController pushViewController:photoVC animated:YES];
+            if (_isnewPhoto) {
+                CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
+                [wself.navigationController pushViewController:photoVC animated:YES];
+            } else {
+                CHPhotoLibraryListViewController *listVC = [CHPhotoLibraryListViewController new];
+                [wself.navigationController pushViewController:listVC animated:YES];
+            }
         }];
         _imageLibraryButton.center = CGPointMake(50, CGRectGetHeight(self.bottomView.bounds) / 2);
     }
