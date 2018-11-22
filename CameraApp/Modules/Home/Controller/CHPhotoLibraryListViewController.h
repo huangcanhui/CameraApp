@@ -1,8 +1,8 @@
 //
-//  CHPhotoLibraryViewController.h
+//  CHPhotoLibraryListViewController.h
 //  CameraApp
 //
-//  Created by aieffei on 2018/11/20.
+//  Created by aieffei on 2018/11/22.
 //  Copyright © 2018年 黄灿辉. All rights reserved.
 //
 
@@ -10,8 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CHPhotoLibraryViewController : UIViewController
-
+@interface CHPhotoLibraryListViewController : UIViewController
 
 @end
 

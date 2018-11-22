@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Debug_Development/DebugViewController.m"
-            timestampString = "564477077.420032"
+            timestampString = "564549880.509958"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Debug_Development/DebugViewController.m"
-            timestampString = "564477077.420202"
+            timestampString = "564549880.510195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -74,12 +74,156 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
-            timestampString = "564477077.4203219"
+            timestampString = "564569522.524781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "-takePhotoButton"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/JQFMDB/JQFMDB/JQFMDB/JQFMDB.m"
+            timestampString = "564551688.373642"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "-insertTable:dicOrModel:columnArr:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/JQFMDB/JQFMDB/JQFMDB/JQFMDB.m"
+            timestampString = "564551688.3738019"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "-getModelPropertyKeyValue:tableName:clomnArr:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/JQFMDB/JQFMDB/JQFMDB/JQFMDB.m"
+            timestampString = "564551688.373924"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "+shareDatabase:path:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/JQFMDB/JQFMDB/JQFMDB/JQFMDB.m"
+            timestampString = "564551688.37406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "-getColumnArr:db:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/JQFMDB/JQFMDB/JQFMDB/JQFMDB.m"
+            timestampString = "564551688.374172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "-createTable:model:excludeName:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/JQFMDB/JQFMDB/JQFMDB/JQFMDB.m"
+            timestampString = "564551688.3742959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "-createTable:dictionary:excludeName:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/JQFMDB/JQFMDB/JQFMDB/JQFMDB.m"
+            timestampString = "564551688.374409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-jq_createTable:dicOrModel:excludeName:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/JQFMDB/JQFMDB/JQFMDB/JQFMDB.m"
+            timestampString = "564551688.374552"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-modelToDictionary:excludePropertyName:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/FMDB/src/fmdb/FMDatabase.m"
+            timestampString = "564549603.76878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1007"
+            endingLineNumber = "1007"
+            landmarkName = "-executeUpdate:error:withArgumentsInArray:orDictionary:orVAList:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

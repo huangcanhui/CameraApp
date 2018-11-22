@@ -7,9 +7,11 @@
 //
 
 #import "CHTipsViewController.h"
+#import "JQFMDB.h"
+#import "DBObject.h"
 
 @interface CHTipsViewController ()
-
+@property (nonatomic, strong)JQFMDB *db;
 @end
 
 @implementation CHTipsViewController
@@ -20,6 +22,9 @@
     self.view.backgroundColor = HexColor(0xffffff);
     
     self.navigationItem.title = @"引导页面";
+    
+    NSArray *array = [self.db jq_lookupTable:@"PHOTO" dicOrModel:[DBObject class] whereFormat:nil];
+    NSLog(@"查找数据表中的数据:%@", array);
 }
 
 /*

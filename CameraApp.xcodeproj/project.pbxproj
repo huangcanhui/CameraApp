@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C919BB1921A660E600AE9E36 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB0C21A660E500AE9E36 /* FMDatabaseQueue.m */; };
+		C919BB1A21A660E600AE9E36 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB0F21A660E500AE9E36 /* FMDatabaseAdditions.m */; };
+		C919BB1B21A660E600AE9E36 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1021A660E500AE9E36 /* FMDatabase.m */; };
+		C919BB1C21A660E600AE9E36 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1421A660E500AE9E36 /* FMDatabasePool.m */; };
+		C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1521A660E500AE9E36 /* FMResultSet.m */; };
+		C919BB1E21A660E600AE9E36 /* JQFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1721A660E600AE9E36 /* JQFMDB.m */; };
+		C919BB2121A6618E00AE9E36 /* Personal.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB2021A6618E00AE9E36 /* Personal.m */; };
 		C97338C82192CF810016B440 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338C72192CF810016B440 /* AppDelegate.m */; };
 		C97338CE2192CF810016B440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97338CC2192CF810016B440 /* Main.storyboard */; };
 		C97338D02192CF830016B440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97338CF2192CF830016B440 /* Assets.xcassets */; };
@@ -35,6 +42,9 @@
 		C994196521A4F4F60010524D /* ImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196421A4F4F60010524D /* ImageObject.m */; };
 		C994196821A4FE3E0010524D /* CHTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196721A4FE3E0010524D /* CHTipsViewController.m */; };
 		C994196B21A5087A0010524D /* CHSpringView.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196A21A5087A0010524D /* CHSpringView.m */; };
+		C994196E21A556170010524D /* DBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196D21A556170010524D /* DBObject.m */; };
+		C9C0567921A69CF600FE6160 /* CHPhotoLibraryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C0567821A69CF600FE6160 /* CHPhotoLibraryListViewController.m */; };
+		C9E5222721A68E8A008CF74E /* CHImageLibraryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E5222621A68E8A008CF74E /* CHImageLibraryButton.m */; };
 		F44E130B164888A0BEE8AAC9 /* libPods-CameraApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5FAA60EEB040A0CCC0C74E /* libPods-CameraApp.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +68,21 @@
 /* Begin PBXFileReference section */
 		8D5FAA60EEB040A0CCC0C74E /* libPods-CameraApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CameraApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98D6032D2C354FDEABF3906 /* Pods-CameraApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp.release.xcconfig"; sourceTree = "<group>"; };
+		C919BB0B21A660E500AE9E36 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		C919BB0C21A660E500AE9E36 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		C919BB0D21A660E500AE9E36 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		C919BB0E21A660E500AE9E36 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		C919BB0F21A660E500AE9E36 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		C919BB1021A660E500AE9E36 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		C919BB1121A660E500AE9E36 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		C919BB1221A660E500AE9E36 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		C919BB1321A660E500AE9E36 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		C919BB1421A660E500AE9E36 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		C919BB1521A660E500AE9E36 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		C919BB1721A660E600AE9E36 /* JQFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQFMDB.m; sourceTree = "<group>"; };
+		C919BB1821A660E600AE9E36 /* JQFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQFMDB.h; sourceTree = "<group>"; };
+		C919BB1F21A6618E00AE9E36 /* Personal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Personal.h; sourceTree = "<group>"; };
+		C919BB2021A6618E00AE9E36 /* Personal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Personal.m; sourceTree = "<group>"; };
 		C97338C32192CF810016B440 /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97338C62192CF810016B440 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C97338C72192CF810016B440 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +141,12 @@
 		C994196721A4FE3E0010524D /* CHTipsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTipsViewController.m; sourceTree = "<group>"; };
 		C994196921A5087A0010524D /* CHSpringView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSpringView.h; sourceTree = "<group>"; };
 		C994196A21A5087A0010524D /* CHSpringView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSpringView.m; sourceTree = "<group>"; };
+		C994196C21A556170010524D /* DBObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBObject.h; sourceTree = "<group>"; };
+		C994196D21A556170010524D /* DBObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBObject.m; sourceTree = "<group>"; };
+		C9C0567721A69CF600FE6160 /* CHPhotoLibraryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPhotoLibraryListViewController.h; sourceTree = "<group>"; };
+		C9C0567821A69CF600FE6160 /* CHPhotoLibraryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPhotoLibraryListViewController.m; sourceTree = "<group>"; };
+		C9E5222521A68E8A008CF74E /* CHImageLibraryButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHImageLibraryButton.h; sourceTree = "<group>"; };
+		C9E5222621A68E8A008CF74E /* CHImageLibraryButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHImageLibraryButton.m; sourceTree = "<group>"; };
 		E2DF13393A24D610D46E1B32 /* Pods-CameraApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +193,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C919BB0921A660CF00AE9E36 /* ThrityPart */ = {
+			isa = PBXGroup;
+			children = (
+				C919BB0A21A660E500AE9E36 /* fmdb */,
+				C919BB1621A660E600AE9E36 /* JQFMDB */,
+			);
+			path = ThrityPart;
+			sourceTree = "<group>";
+		};
+		C919BB0A21A660E500AE9E36 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				C919BB0B21A660E500AE9E36 /* FMDatabase.h */,
+				C919BB0C21A660E500AE9E36 /* FMDatabaseQueue.m */,
+				C919BB0D21A660E500AE9E36 /* FMResultSet.h */,
+				C919BB0E21A660E500AE9E36 /* FMDatabasePool.h */,
+				C919BB0F21A660E500AE9E36 /* FMDatabaseAdditions.m */,
+				C919BB1021A660E500AE9E36 /* FMDatabase.m */,
+				C919BB1121A660E500AE9E36 /* FMDatabaseQueue.h */,
+				C919BB1221A660E500AE9E36 /* FMDB.h */,
+				C919BB1321A660E500AE9E36 /* FMDatabaseAdditions.h */,
+				C919BB1421A660E500AE9E36 /* FMDatabasePool.m */,
+				C919BB1521A660E500AE9E36 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		C919BB1621A660E600AE9E36 /* JQFMDB */ = {
+			isa = PBXGroup;
+			children = (
+				C919BB1721A660E600AE9E36 /* JQFMDB.m */,
+				C919BB1821A660E600AE9E36 /* JQFMDB.h */,
+			);
+			path = JQFMDB;
+			sourceTree = "<group>";
+		};
 		C97338BA2192CF810016B440 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +257,7 @@
 				C98ED7452192D3740017A479 /* AppDelegate */,
 				C98ED7472192D4460017A479 /* Define */,
 				C98ED7442192D35A0017A479 /* Base */,
+				C919BB0921A660CF00AE9E36 /* ThrityPart */,
 				C98ED762219565980017A479 /* Category */,
 				C98ED7432192D31F0017A479 /* Utils */,
 				C98ED7422192D3080017A479 /* Modules */,
@@ -318,6 +386,8 @@
 				C994194921A3DBA80010524D /* CHPhotoLibraryViewController.m */,
 				C994196621A4FE3E0010524D /* CHTipsViewController.h */,
 				C994196721A4FE3E0010524D /* CHTipsViewController.m */,
+				C9C0567721A69CF600FE6160 /* CHPhotoLibraryListViewController.h */,
+				C9C0567821A69CF600FE6160 /* CHPhotoLibraryListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -327,6 +397,10 @@
 			children = (
 				C994196321A4F4F60010524D /* ImageObject.h */,
 				C994196421A4F4F60010524D /* ImageObject.m */,
+				C994196C21A556170010524D /* DBObject.h */,
+				C994196D21A556170010524D /* DBObject.m */,
+				C919BB1F21A6618E00AE9E36 /* Personal.h */,
+				C919BB2021A6618E00AE9E36 /* Personal.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +410,8 @@
 			children = (
 				C994196921A5087A0010524D /* CHSpringView.h */,
 				C994196A21A5087A0010524D /* CHSpringView.m */,
+				C9E5222521A68E8A008CF74E /* CHImageLibraryButton.h */,
+				C9E5222621A68E8A008CF74E /* CHImageLibraryButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -603,23 +679,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				C994196521A4F4F60010524D /* ImageObject.m in Sources */,
+				C919BB2121A6618E00AE9E36 /* Personal.m in Sources */,
 				C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */,
 				C98ED75B219331B60017A479 /* APIClient.m in Sources */,
 				C994193621A3AAC40010524D /* CameraHomeViewController.m in Sources */,
 				C994194721A3B8160010524D /* UIView+CH.m in Sources */,
 				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
+				C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */,
 				C994195921A3EEBD0010524D /* CHUtil.m in Sources */,
 				C994195621A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m in Sources */,
+				C9C0567921A69CF600FE6160 /* CHPhotoLibraryListViewController.m in Sources */,
 				C994194A21A3DBA80010524D /* CHPhotoLibraryViewController.m in Sources */,
 				C97338D62192CF830016B440 /* main.m in Sources */,
+				C919BB1A21A660E600AE9E36 /* FMDatabaseAdditions.m in Sources */,
 				C97338C82192CF810016B440 /* AppDelegate.m in Sources */,
+				C919BB1E21A660E600AE9E36 /* JQFMDB.m in Sources */,
+				C919BB1C21A660E600AE9E36 /* FMDatabasePool.m in Sources */,
 				C994194421A3B5940010524D /* CHNavigationController.m in Sources */,
 				C994195E21A403340010524D /* ECAuthorizationTools.m in Sources */,
 				C994195021A3E5390010524D /* Debug_DevelopmentModel.m in Sources */,
+				C919BB1B21A660E600AE9E36 /* FMDatabase.m in Sources */,
 				C994194121A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				C994196121A4039A0010524D /* CameraHomeViewController+AuthorizationAndLayer.m in Sources */,
+				C994196E21A556170010524D /* DBObject.m in Sources */,
 				C98ED7582192DCE50017A479 /* CHProgressHUD.m in Sources */,
 				C994196821A4FE3E0010524D /* CHTipsViewController.m in Sources */,
+				C9E5222721A68E8A008CF74E /* CHImageLibraryButton.m in Sources */,
+				C919BB1921A660E600AE9E36 /* FMDatabaseQueue.m in Sources */,
 				C994196B21A5087A0010524D /* CHSpringView.m in Sources */,
 				C994195321A3E5A50010524D /* DebugViewController.m in Sources */,
 			);
@@ -793,8 +879,9 @@
 			baseConfigurationReference = E2DF13393A24D610D46E1B32 /* Pods-CameraApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2JN7QK688A;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NA93S5T8QG;
 				GCC_PREFIX_HEADER = "/Users/aieffei/Desktop/CameraApp/CameraApp/Support File/PrefixHeader.pch";
 				INFOPLIST_FILE = CameraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -802,8 +889,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fangline.CameraApp;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.fangline.mfcamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = huang;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -814,8 +902,9 @@
 			baseConfigurationReference = B98D6032D2C354FDEABF3906 /* Pods-CameraApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2JN7QK688A;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NA93S5T8QG;
 				GCC_PREFIX_HEADER = "/Users/aieffei/Desktop/CameraApp/CameraApp/Support File/PrefixHeader.pch";
 				INFOPLIST_FILE = CameraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -823,8 +912,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fangline.CameraApp;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.fangline.mfcamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = huang;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};

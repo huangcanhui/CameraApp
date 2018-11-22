@@ -15,6 +15,10 @@
 
 #import "ImageObject.h"
 #import "CHSpringView.h"
+#import "CHTime.h"
+#import "JQFMDB.h"
+#import "Personal.h"
+#import "CHImageLibraryButton.h"
 #import "CameraHomeViewController+AuthorizationAndLayer.h"
 
 #ifdef DEBUG
@@ -38,7 +42,7 @@
 @property (nonatomic, strong)UIButton *takePhotoButton;//拍照按钮
 @property (nonatomic, strong)UIButton *tutorialButton; //引导按钮
 @property (nonatomic, strong)CHSpringView *springView; //弹簧视图
-
+@property (nonatomic, strong)CHImageLibraryButton *imageLibraryButton; //图片视图
 @end
 
 @implementation CameraHomeViewController
@@ -92,7 +96,11 @@
     
     [self.bottomView addSubview:self.tutorialButton];
     
+    [self.bottomView addSubview:self.imageLibraryButton];
+    
     [self.viewContainer addSubview:self.springView];
+    
+    [self createJQFMDBData];
     
 //#ifdef DEBUG
 //    [self addDebugDevelopmentButton];
@@ -323,12 +331,41 @@
                 ImageObject *obj = [[ImageObject alloc] init];
                 image = [obj imageByStraightenImage:image andAngle:angle deviceOrientation:weakSelf.deviceOrientation shouldFlipRotation:weakSelf.captureDeviceInput.device.position == AVCaptureDevicePositionFront];
             }
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-            //            ALAssetsLibrary *assetsLibrary=[[ALAssetsLibrary alloc]init];
-            //            [assetsLibrary writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:nil];
+            [self insertDataBase:[CHTime getNowTimeTimestamp2] photoData:UIImagePNGRepresentation(image)];
+//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
         }
         
     }];
+}
+
+#pragma mark - 数据库的操作
+#pragma mark 创建数据库
+- (void)createJQFMDBData
+{
+    JQFMDB *db = [JQFMDB shareDatabase];
+    [db jq_createTable:@"user" dicOrModel:[Personal class]]; //建表
+    NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid='%d'", [db lastInsertPrimaryKeyId:@"user"]];
+    for (Personal *personal in array) {
+        _imageLibraryButton.imageData = personal.photoData;
+    }
+}
+
+
+#pragma mark  插入数据库
+- (void)insertDataBase:(NSString *)times photoData:(NSData *)data
+{
+    Personal *obj = [[Personal alloc] init];
+    obj.photoTime = times;
+    obj.photoData = data;
+    obj.isDelete = NO;
+    JQFMDB *db = [JQFMDB shareDatabase];
+    [db jq_insertTable:@"user" dicOrModel:obj];
+    //取最后一张图片
+    NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid='%d'", [db lastInsertPrimaryKeyId:@"user"]];
+    for (Personal *personal in array) {
+        _imageLibraryButton.imageData = personal.photoData;
+    }
+
 }
 
 #pragma mark 引导按钮
@@ -347,6 +384,19 @@
 {
     CHTipsViewController *tipVC = [CHTipsViewController new];
     [self.navigationController pushViewController:tipVC animated:YES];
+}
+
+- (CHImageLibraryButton *)imageLibraryButton
+{
+    if (!_imageLibraryButton) {
+        weakSelf(wself);
+        _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
+            CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
+            [wself.navigationController pushViewController:photoVC animated:YES];
+        }];
+        _imageLibraryButton.center = CGPointMake(50, CGRectGetHeight(self.bottomView.bounds) / 2);
+    }
+    return _imageLibraryButton;
 }
 
 #pragma mark 弹簧视图
