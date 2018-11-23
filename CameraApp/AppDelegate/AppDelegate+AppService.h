@@ -26,8 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
  * 初始化window
  */
 - (void)initWindow;
+/**
+ * 当前顶层控制器
+ */
+- (UIViewController *)getCurrentVC;
 
-
+- (UIViewController *)getCurrentUIVC;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,6 +9,11 @@
 #ifndef SystemsMacros_h
 #define SystemsMacros_h
 
+//获取系统对象
+#define kApplication   [UIApplication sharedApplication]
+#define kAppWindow     [UIApplication sharedApplication].delegate.window
+#define kAppDelegate   [AppDelegate shareAppDelegate]
+
 //十六进制的颜色值
 #define HexColor(rgbValue) ([UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0])
 
@@ -32,7 +37,7 @@
 #define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
 
 //根据ip6的屏幕来拉伸
-#define kRealValue(with) ((with)*(KScreenWidth/375.0f))
+#define kRealValue(with) ((with)*(SCREEN_WIDTH/375.0f))
 
 //强、弱指针的引用
 #define weakSelf(wself) __typeof(*&self) __weak wself = self

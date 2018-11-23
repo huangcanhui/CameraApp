@@ -403,13 +403,15 @@
     if (!_imageLibraryButton) {
         weakSelf(wself);
         _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
-            if (_isnewPhoto) {
-                CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
-                [wself.navigationController pushViewController:photoVC animated:YES];
-            } else {
-                CHPhotoLibraryListViewController *listVC = [CHPhotoLibraryListViewController new];
-                [wself.navigationController pushViewController:listVC animated:YES];
-            }
+            CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
+            [wself.navigationController pushViewController:photoVC animated:YES];
+//            if (wself.isnewPhoto) {
+//                CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
+//                [wself.navigationController pushViewController:photoVC animated:YES];
+//            } else {
+//                CHPhotoLibraryListViewController *listVC = [CHPhotoLibraryListViewController new];
+//                [wself.navigationController pushViewController:listVC animated:YES];
+//            }
         }];
         _imageLibraryButton.center = CGPointMake(50, CGRectGetHeight(self.bottomView.bounds) / 2);
     }
