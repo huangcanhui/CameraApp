@@ -25,7 +25,12 @@
 /**
  * 图片展示区
  */
-@property (nonatomic, strong)UIView *imageView;
+@property (nonatomic, strong)UIImageView *imageView;
+@property (nonatomic, strong)UIView *picureView;
+/**
+ * 选中第几张
+ */
+@property (nonatomic, assign)NSInteger indexPicture;
 
 @end
 
@@ -42,15 +47,12 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"所有图片" style:UIBarButtonItemStyleDone target:self action:@selector(popToPhotoLibrary)];
     }
     
-//    [MBProgressHUD showInfoMessage:@"加载中,请稍后..."];
-    
-    [self.view addSubview:self.imageView];
-    
-    [self lookupDataBase]; //查找数据库
-    
+    [self.view addSubview:self.picureView];
+        
     [self.view addSubview:self.bottomView];
+    
+    [self lookupDataBase];
 }
-
 
 #pragma mark - 查找数据中
 - (void)lookupDataBase
@@ -65,23 +67,25 @@
 {
     NSMutableArray *arrayM = [NSMutableArray array];
     for (Personal *person in array) {
-        if (person != nil) { //数据是否为空
+        if (person.isDelete != YES) { //图片是否被删除
             [arrayM addObject:[UIImage imageWithData:person.photoData]];
         }
     }
     LLPhotoBrowser *photoBrowser = [[LLPhotoBrowser alloc] initWithImages:[arrayM copy] currentIndex:0];
     photoBrowser.delegate = self;
-    [self.imageView addSubview:photoBrowser.view];
-    
+//    photoBrowser.view.frame = self.picureView.bounds;
+    [self.picureView addSubview:photoBrowser.view];
+
     [self addChildViewController:photoBrowser];
     [self.view addSubview:self.bottomView];
- 
-//    [MBProgressHUD hideHUD];
+    
+    self.dataSource = [array copy];
+
 }
 
-- (void)photoBrowser:(LLPhotoBrowser *)photoBrowser didSelectImage:(id)image
+- (void)photoBrowserScrollViewDidScrollViewWithIndex:(NSInteger)index
 {
-    NSLog(@"%@", image);
+    self.indexPicture = index;
 }
 
 
@@ -95,12 +99,13 @@
 {
     if (!_bottomView) {
         _bottomView = [[CHBrowserBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - kTopHeight - kTabBarHeight, SCREEN_WIDTH, kTabBarHeight)];
+        weakSelf(wself);
         _bottomView.PhotoBrowserDeleteButtonClick = ^(UIButton * btn) {
-            [CHProgressHUD showSuccess:@"删除"];
+            
         };
         
         _bottomView.PhotoBrowserShareButtonClick = ^(UIButton * btn) {
-            [CHProgressHUD showSuccess:@"分享"];
+            [MBProgressHUD showSuccessMessage:@"分享"];
         };
     }
     return _bottomView;
@@ -114,13 +119,24 @@
     [self.navigationController pushViewController:listVC animated:YES];
 }
 
-- (UIView *)imageView
+- (UIImageView *)imageView
 {
     if (!_imageView) {
-        _imageView = [[UIView alloc] initWithFrame:CGRectMake(0, -kTopHeight, SCREEN_WIDTH, SCREEN_HEIGHT - kTabBarHeight)];
-        _imageView.backgroundColor = [UIColor redColor];
+        _imageView = [[UIImageView alloc] initWithFrame:self.picureView.bounds];
+        _imageView.image = [UIImage imageWithData:_imageData];
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _imageView;
+}
+
+- (UIView *)picureView
+{
+    if (!_picureView) {
+        _picureView = [[UIView alloc] initWithFrame:CGRectMake(0, -kTopHeight, SCREEN_WIDTH, SCREEN_HEIGHT - kTabBarHeight)];
+        _picureView.backgroundColor = KBlackColor;
+//        [_picureView addSubview:self.imageView];
+    }
+    return _picureView;
 }
 
 

@@ -20,6 +20,7 @@
 #import "JQFMDB.h"
 #import "Personal.h"
 #import "CHImageLibraryButton.h"
+#import "CHCompressImageManager.h"
 #import "CameraHomeViewController+AuthorizationAndLayer.h"
 
 #ifdef DEBUG
@@ -45,6 +46,7 @@
 @property (nonatomic, strong)CHSpringView *springView; //弹簧视图
 @property (nonatomic, strong)CHImageLibraryButton *imageLibraryButton; //图片视图
 @property (nonatomic, assign)BOOL isnewPhoto; //是否新照片
+@property (nonatomic, strong)NSData *imagData; //图片
 @end
 
 @implementation CameraHomeViewController
@@ -335,7 +337,7 @@
                 ImageObject *obj = [[ImageObject alloc] init];
                 image = [obj imageByStraightenImage:image andAngle:angle deviceOrientation:weakSelf.deviceOrientation shouldFlipRotation:weakSelf.captureDeviceInput.device.position == AVCaptureDevicePositionFront];
             }
-            [self insertDataBase:[CHTime getNowTimeTimestamp2] photoData:UIImagePNGRepresentation(image)];
+            [self insertDataBase:[CHTime getNowTimeTimestamp2] photoData:[CHCompressImageManager zipNSDataWithImage:image]];
 //            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
         }
         
@@ -354,6 +356,7 @@
         _isnewPhoto = NO;
         for (Personal *personal in array) {
             _imageLibraryButton.imageData = personal.photoData;
+            _imagData = personal.photoData;
         }
     } else {
         _imageLibraryButton.userInteractionEnabled = NO;
@@ -364,20 +367,21 @@
 #pragma mark  插入数据库
 - (void)insertDataBase:(NSString *)times photoData:(NSData *)data
 {
-    Personal *obj = [[Personal alloc] init];
-    obj.photoTime = times;
-    obj.photoData = data;
-    obj.isDelete = NO;
-    JQFMDB *db = [JQFMDB shareDatabase];
-    [db jq_insertTable:@"user" dicOrModel:obj];
-    //取最后一张图片
-    NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid='%d'", [db lastInsertPrimaryKeyId:@"user"]];
-    for (Personal *personal in array) {
-        _isnewPhoto = YES;
-        _imageLibraryButton.userInteractionEnabled = YES;
-        _imageLibraryButton.imageData = personal.photoData;
-    }
-
+    
+    _imageLibraryButton.imageData = data;
+    _imageLibraryButton.userInteractionEnabled = YES;
+    _isnewPhoto = YES;
+    _imagData = data;
+    
+    //开辟线程，进行数据库插入，防止卡死
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        Personal *obj = [[Personal alloc] init];
+        obj.photoTime = times;
+        obj.photoData = data;
+        obj.isDelete = NO;
+        JQFMDB *db = [JQFMDB shareDatabase];
+        [db jq_insertTable:@"user" dicOrModel:obj];
+    });
 }
 
 #pragma mark 引导按钮
@@ -404,6 +408,7 @@
         weakSelf(wself);
         _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
             CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
+            photoVC.imageData = wself.imagData;
             [wself.navigationController pushViewController:photoVC animated:YES];
 //            if (wself.isnewPhoto) {
 //                CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];

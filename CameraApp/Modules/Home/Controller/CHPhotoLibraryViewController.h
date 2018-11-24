@@ -20,7 +20,10 @@ typedef NS_ENUM(NSInteger, enterType) {
  * 进入页面的方式
  */
 @property (nonatomic, assign)enterType type;
-
+/**
+ * 数据源
+ */
+@property (nonatomic, strong)NSData *imageData;
 @end
 
 NS_ASSUME_NONNULL_END

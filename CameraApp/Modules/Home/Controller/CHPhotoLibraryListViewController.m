@@ -131,7 +131,7 @@
 #pragma mark - 编辑按钮的点击事件
 - (void)clickEditButton
 {
-    [CHProgressHUD showFaile:@"还未添加逻辑"];
+    [MBProgressHUD showErrorMessage:@"逻辑还未实现"];
 }
 
 - (NSArray *)dataSource
@@ -142,16 +142,5 @@
     }
     return _dataSource;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

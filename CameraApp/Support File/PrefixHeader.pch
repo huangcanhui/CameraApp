@@ -13,7 +13,7 @@
 #import "ApiMacros.h"
 #import "ThirdPartyMacros.h"
 //工具类
-#import "CHProgressHUD.h"
+#import "MBProgressHUD+JDragon.h"
 #import "APIClient.h"
 #import "CHNavigationController.h"
 #import "CHUtil.h"

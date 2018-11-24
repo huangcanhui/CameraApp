@@ -6,4 +6,5 @@ target 'CameraApp' do
  pod 'MJExtension';
  pod 'SDWebImage';
  pod 'WechatOpenSDK';
+ pod 'MBProgressHUD+JDragon'
 end

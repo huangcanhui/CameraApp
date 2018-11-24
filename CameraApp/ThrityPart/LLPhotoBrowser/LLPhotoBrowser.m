@@ -9,7 +9,8 @@
 #import "LLPhotoBrowser.h"
 #import "LLCollectionViewCell.h"
 
-@interface LLPhotoBrowser ()<UICollectionViewDelegate,UICollectionViewDataSource,LLPhotoDelegate,UICollectionViewDelegateFlowLayout>{
+@interface LLPhotoBrowser ()<UICollectionViewDelegate,UICollectionViewDataSource,LLPhotoDelegate,UICollectionViewDelegateFlowLayout>
+{
     NSArray *_images;
     NSInteger _currentIndex;
     UICollectionView *_collectionView;
@@ -36,7 +37,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationController.navigationBar.hidden = YES;
+//    self.navigationController.navigationBar.hidden = YES;
     [self createViews];
 }
 
@@ -128,6 +129,9 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _currentIndex = (long)scrollView.contentOffset.x/self.view.bounds.size.width;
     _titleLabel.text = [NSString stringWithFormat:@"%ld/%ld",_currentIndex+1,_images.count];
+    if ([self.delegate respondsToSelector:@selector(photoBrowserScrollViewDidScrollViewWithIndex:)]) {
+        [self.delegate photoBrowserScrollViewDidScrollViewWithIndex:_currentIndex];
+    }
 }
 
 #pragma mark - LLPhotoDelegate 图片单击事件，显示/隐藏标题栏

@@ -20,6 +20,13 @@
 @protocol LLPhotoBrowserDelegate <NSObject>
 
 @optional
+/**
+ * 点击保存按钮触发的事件
+ */
 - (void)photoBrowser:(LLPhotoBrowser *)photoBrowser didSelectImage:(id)image;
+/**
+ * 滑动到第几张
+ */
+- (void)photoBrowserScrollViewDidScrollViewWithIndex:(NSInteger)index;
 
 @end
