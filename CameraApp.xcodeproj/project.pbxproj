@@ -20,6 +20,7 @@
 		C95E688621A7F9FA00CE5790 /* LLPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687F21A7F9FA00CE5790 /* LLPhoto.m */; };
 		C95E688721A7F9FA00CE5790 /* LLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E688021A7F9FA00CE5790 /* LLCollectionViewCell.m */; };
 		C95E689021A925FA00CE5790 /* CHCompressImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E688F21A925FA00CE5790 /* CHCompressImageManager.m */; };
+		C95E689321A9430400CE5790 /* UIViewController+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E689221A9430400CE5790 /* UIViewController+CH.m */; };
 		C97338C82192CF810016B440 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338C72192CF810016B440 /* AppDelegate.m */; };
 		C97338CE2192CF810016B440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97338CC2192CF810016B440 /* Main.storyboard */; };
 		C97338D02192CF830016B440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C97338CF2192CF830016B440 /* Assets.xcassets */; };
@@ -100,6 +101,8 @@
 		C95E688221A7F9FA00CE5790 /* LLPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPhoto.h; sourceTree = "<group>"; };
 		C95E688E21A925FA00CE5790 /* CHCompressImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHCompressImageManager.h; sourceTree = "<group>"; };
 		C95E688F21A925FA00CE5790 /* CHCompressImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHCompressImageManager.m; sourceTree = "<group>"; };
+		C95E689121A9430400CE5790 /* UIViewController+CH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CH.h"; sourceTree = "<group>"; };
+		C95E689221A9430400CE5790 /* UIViewController+CH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CH.m"; sourceTree = "<group>"; };
 		C97338C32192CF810016B440 /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97338C62192CF810016B440 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C97338C72192CF810016B440 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -505,6 +508,8 @@
 				C994194021A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m */,
 				C994194521A3B8160010524D /* UIView+CH.h */,
 				C994194621A3B8160010524D /* UIView+CH.m */,
+				C95E689121A9430400CE5790 /* UIViewController+CH.h */,
+				C95E689221A9430400CE5790 /* UIViewController+CH.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -735,6 +740,7 @@
 				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
 				C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */,
 				C994195921A3EEBD0010524D /* CHUtil.m in Sources */,
+				C95E689321A9430400CE5790 /* UIViewController+CH.m in Sources */,
 				C994195621A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m in Sources */,
 				C9C0567921A69CF600FE6160 /* CHPhotoLibraryListViewController.m in Sources */,
 				C994194A21A3DBA80010524D /* CHPhotoLibraryViewController.m in Sources */,

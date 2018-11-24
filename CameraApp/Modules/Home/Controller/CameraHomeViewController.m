@@ -45,8 +45,8 @@
 @property (nonatomic, strong)UIButton *tutorialButton; //引导按钮
 @property (nonatomic, strong)CHSpringView *springView; //弹簧视图
 @property (nonatomic, strong)CHImageLibraryButton *imageLibraryButton; //图片视图
-@property (nonatomic, assign)BOOL isnewPhoto; //是否新照片
-@property (nonatomic, strong)NSData *imagData; //图片
+@property (nonatomic, assign)BOOL isnewPhoto; //是否新拍摄照片
+
 @end
 
 @implementation CameraHomeViewController
@@ -350,16 +350,15 @@
 {
     JQFMDB *db = [JQFMDB shareDatabase];
     [db jq_createTable:@"user" dicOrModel:[Personal class]]; //建表
-    NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid='%d'", [db lastInsertPrimaryKeyId:@"user"]];
-    if (array.count != 0) {
-        _imageLibraryButton.userInteractionEnabled = YES;
-        _isnewPhoto = NO;
-        for (Personal *personal in array) {
-            _imageLibraryButton.imageData = personal.photoData;
-            _imagData = personal.photoData;
+    NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:nil]; //查找数据库中的全部数据
+    NSArray *reversedArray = [[array reverseObjectEnumerator] allObjects]; //倒序输出
+    for (Personal *person in reversedArray) { //快速遍历，查出需要展示的图片
+        if (person.isDelete != YES) {
+            _imageLibraryButton.userInteractionEnabled = YES;
+            _imageLibraryButton.imageData = person.photoData;
+            _isnewPhoto = NO;
+            break ;
         }
-    } else {
-        _imageLibraryButton.userInteractionEnabled = NO;
     }
 }
 
@@ -371,7 +370,6 @@
     _imageLibraryButton.imageData = data;
     _imageLibraryButton.userInteractionEnabled = YES;
     _isnewPhoto = YES;
-    _imagData = data;
     
     //开辟线程，进行数据库插入，防止卡死
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -408,7 +406,9 @@
         weakSelf(wself);
         _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
             CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
-            photoVC.imageData = wself.imagData;
+            photoVC.reloadViewController = ^{
+                                
+            };
             [wself.navigationController pushViewController:photoVC animated:YES];
 //            if (wself.isnewPhoto) {
 //                CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];

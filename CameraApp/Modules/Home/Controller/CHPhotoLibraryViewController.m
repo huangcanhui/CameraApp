@@ -25,13 +25,16 @@
 /**
  * 图片展示区
  */
-@property (nonatomic, strong)UIImageView *imageView;
 @property (nonatomic, strong)UIView *picureView;
 /**
  * 选中第几张
  */
 @property (nonatomic, assign)NSInteger indexPicture;
-
+/**
+ * 剩余的图片数组
+ */
+@property (nonatomic, strong)NSArray *overArray;
+@property (nonatomic, strong)LLPhotoBrowser *photoBrowser;
 @end
 
 @implementation CHPhotoLibraryViewController
@@ -66,28 +69,27 @@
 - (void)applyViewWithDataBase:(NSArray *)array
 {
     NSMutableArray *arrayM = [NSMutableArray array];
+    NSMutableArray *overArrayM = [NSMutableArray array];
     for (Personal *person in array) {
         if (person.isDelete != YES) { //图片是否被删除
             [arrayM addObject:[UIImage imageWithData:person.photoData]];
+            [overArrayM addObject:person];
         }
     }
-    LLPhotoBrowser *photoBrowser = [[LLPhotoBrowser alloc] initWithImages:[arrayM copy] currentIndex:0];
-    photoBrowser.delegate = self;
-//    photoBrowser.view.frame = self.picureView.bounds;
-    [self.picureView addSubview:photoBrowser.view];
+    self.photoBrowser = [[LLPhotoBrowser alloc] initWithImages:[arrayM copy] currentIndex:arrayM.count - 1];
+    self.photoBrowser.delegate = self;
+    [self.picureView addSubview:self.photoBrowser.view];
 
-    [self addChildViewController:photoBrowser];
-    [self.view addSubview:self.bottomView];
+    [self addChildViewController:self.photoBrowser];
     
     self.dataSource = [array copy];
-
+    self.overArray = [overArrayM copy];
 }
 
 - (void)photoBrowserScrollViewDidScrollViewWithIndex:(NSInteger)index
 {
     self.indexPicture = index;
 }
-
 
 - (void)setType:(enterType)type
 {
@@ -101,7 +103,7 @@
         _bottomView = [[CHBrowserBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - kTopHeight - kTabBarHeight, SCREEN_WIDTH, kTabBarHeight)];
         weakSelf(wself);
         _bottomView.PhotoBrowserDeleteButtonClick = ^(UIButton * btn) {
-            
+            [wself deletePicture]; //删除照片
         };
         
         _bottomView.PhotoBrowserShareButtonClick = ^(UIButton * btn) {
@@ -109,6 +111,33 @@
         };
     }
     return _bottomView;
+}
+
+- (void)deletePicture
+{
+    NSString *tips;
+    if (self.overArray.count <= 1) { //如果视图中只剩下一张图片，则需要提示
+        tips = @"这是图库中最后一张图片，确认删除?";
+    } else {
+        tips = @"执行此操作会将此照片从图库中删除";
+    }
+    [self ActionSheetWithTitle:tips message:@"" destructive:@"删除" destructiveAction:^(NSInteger index) {
+        Personal *obj = self.overArray[self.indexPicture];
+        JQFMDB *db = [JQFMDB shareDatabase];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            for (Personal *person in self.dataSource) {
+                if ([obj.photoTime isEqual:person.photoTime]) { //两个时间相等
+                    NSString *sql = [NSString stringWithFormat:@"WHERE photoTime = (SELECT max(%@) FROM user)", person.photoTime];
+                    [db jq_updateTable:@"user" dicOrModel:@{@"isDelete":@"1"} whereFormat:sql];
+                }
+            }
+        });
+        if (self.overArray.count <= 1) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } andOthers:@[@"取消"] animated:YES action:^(NSInteger index) {
+        
+    }];
 }
 
 
@@ -119,27 +148,20 @@
     [self.navigationController pushViewController:listVC animated:YES];
 }
 
-- (UIImageView *)imageView
-{
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc] initWithFrame:self.picureView.bounds];
-        _imageView.image = [UIImage imageWithData:_imageData];
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }
-    return _imageView;
-}
-
 - (UIView *)picureView
 {
     if (!_picureView) {
         _picureView = [[UIView alloc] initWithFrame:CGRectMake(0, -kTopHeight, SCREEN_WIDTH, SCREEN_HEIGHT - kTabBarHeight)];
         _picureView.backgroundColor = KBlackColor;
-//        [_picureView addSubview:self.imageView];
     }
     return _picureView;
 }
 
-
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (self.reloadViewController) {
+        self.reloadViewController();
+    }
+}
 
 @end

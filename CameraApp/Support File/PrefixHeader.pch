@@ -20,6 +20,7 @@
 //Category
 #import "UIView+CH.h"
 #import "UIViewController+AlertViewAndActionSheet.h"
+#import "UIViewController+CH.h"
 
 
 #endif /* PrefixHeader_pch */

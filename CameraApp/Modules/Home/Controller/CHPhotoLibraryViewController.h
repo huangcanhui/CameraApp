@@ -21,9 +21,9 @@ typedef NS_ENUM(NSInteger, enterType) {
  */
 @property (nonatomic, assign)enterType type;
 /**
- * 数据源
+ * 回调,刷新上一个页面
  */
-@property (nonatomic, strong)NSData *imageData;
+@property (nonatomic, copy)void (^reloadViewController)(void);
 @end
 
 NS_ASSUME_NONNULL_END
