@@ -41,6 +41,18 @@
     [self createViews];
 }
 
+- (void)setRemoveArray:(NSArray *)removeArray
+{
+    NSMutableArray *arrayM = [NSMutableArray arrayWithArray:_images];
+    _removeArray = removeArray ? removeArray : @[];
+    for (NSString *index in removeArray) {
+        [arrayM removeObjectAtIndex:[index integerValue]];
+    }
+    _images = [arrayM copy];
+    _currentIndex = _currentIndex - 1;
+    [_collectionView reloadData];
+}
+
 - (void)createViews {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0;

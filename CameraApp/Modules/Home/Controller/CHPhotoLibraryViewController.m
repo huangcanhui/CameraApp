@@ -30,10 +30,7 @@
  * 选中第几张
  */
 @property (nonatomic, assign)NSInteger indexPicture;
-///**
-// * 剩余的图片数组
-// */
-//@property (nonatomic, strong)NSArray *overArray;
+
 @property (nonatomic, strong)LLPhotoBrowser *photoBrowser;
 @end
 
@@ -81,6 +78,7 @@
     [self addChildViewController:self.photoBrowser];
     
     self.dataSource = [array copy];
+    self.indexPicture = self.dataSource.count - 1;
 }
 
 - (void)photoBrowserScrollViewDidScrollViewWithIndex:(NSInteger)index
@@ -125,12 +123,10 @@
             for (Personal *person in self.dataSource) {
                 if ([obj.photoTime isEqual:person.photoTime]) { //两个时间相等
                     NSString *sql = [NSString stringWithFormat:@"WHERE photoTime = (SELECT max(%@) FROM user)", person.photoTime];
-                    BOOL isSuccess = [db jq_deleteTable:@"user" whereFormat:sql];
-                    if (isSuccess == YES) {
-                        NSLog(@"照片删除成功");
-                    } else {
-                        NSLog(@"照片删除失败");
-                    }
+                    [db jq_deleteTable:@"user" whereFormat:sql];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.photoBrowser.removeArray = @[[NSString stringWithFormat:@"%ld", self.indexPicture]];
+                    });
                 }
             }
         });

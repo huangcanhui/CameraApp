@@ -421,7 +421,11 @@
         _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
             CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
             photoVC.reloadViewController = ^{
-                                
+               JQFMDB *db = [JQFMDB shareDatabase];
+               NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid = '%ld'", [db lastInsertPrimaryKeyId:@"user"]];
+                for (Personal *person in array) {
+                    wself.imageLibraryButton.imageData = person.photoData;
+                }
             };
             [wself.navigationController pushViewController:photoVC animated:YES];
 //            if (wself.isnewPhoto) {

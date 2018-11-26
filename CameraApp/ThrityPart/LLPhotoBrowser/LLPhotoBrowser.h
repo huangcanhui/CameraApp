@@ -14,6 +14,10 @@
 @property (nonatomic, weak) id<LLPhotoBrowserDelegate> delegate;
 
 - (instancetype)initWithImages:(NSArray<UIImage *> *)images currentIndex:(NSInteger)currentIndex;
+/**
+ * 删除图片数组，上传的是数组下标
+ */
+@property (nonatomic, strong)NSArray *removeArray;
 
 @end
 
