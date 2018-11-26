@@ -23,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 图片是否被删除
  */
 @property (nonatomic, assign)BOOL isDelete;
+/**
+ * 分组ID
+ */
+@property (nonatomic, assign)NSInteger groupID;
 
 @end
 

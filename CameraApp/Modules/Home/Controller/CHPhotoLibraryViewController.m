@@ -30,10 +30,10 @@
  * 选中第几张
  */
 @property (nonatomic, assign)NSInteger indexPicture;
-/**
- * 剩余的图片数组
- */
-@property (nonatomic, strong)NSArray *overArray;
+///**
+// * 剩余的图片数组
+// */
+//@property (nonatomic, strong)NSArray *overArray;
 @property (nonatomic, strong)LLPhotoBrowser *photoBrowser;
 @end
 
@@ -71,10 +71,8 @@
     NSMutableArray *arrayM = [NSMutableArray array];
     NSMutableArray *overArrayM = [NSMutableArray array];
     for (Personal *person in array) {
-        if (person.isDelete != YES) { //图片是否被删除
-            [arrayM addObject:[UIImage imageWithData:person.photoData]];
-            [overArrayM addObject:person];
-        }
+        [arrayM addObject:[UIImage imageWithData:person.photoData]];
+        [overArrayM addObject:person];
     }
     self.photoBrowser = [[LLPhotoBrowser alloc] initWithImages:[arrayM copy] currentIndex:arrayM.count - 1];
     self.photoBrowser.delegate = self;
@@ -83,7 +81,6 @@
     [self addChildViewController:self.photoBrowser];
     
     self.dataSource = [array copy];
-    self.overArray = [overArrayM copy];
 }
 
 - (void)photoBrowserScrollViewDidScrollViewWithIndex:(NSInteger)index
@@ -116,23 +113,28 @@
 - (void)deletePicture
 {
     NSString *tips;
-    if (self.overArray.count <= 1) { //如果视图中只剩下一张图片，则需要提示
+    if (self.dataSource.count <= 1) { //如果视图中只剩下一张图片，则需要提示
         tips = @"这是图库中最后一张图片，确认删除?";
     } else {
         tips = @"执行此操作会将此照片从图库中删除";
     }
     [self ActionSheetWithTitle:tips message:@"" destructive:@"删除" destructiveAction:^(NSInteger index) {
-        Personal *obj = self.overArray[self.indexPicture];
+        Personal *obj = self.dataSource[self.indexPicture];
         JQFMDB *db = [JQFMDB shareDatabase];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             for (Personal *person in self.dataSource) {
                 if ([obj.photoTime isEqual:person.photoTime]) { //两个时间相等
                     NSString *sql = [NSString stringWithFormat:@"WHERE photoTime = (SELECT max(%@) FROM user)", person.photoTime];
-                    [db jq_updateTable:@"user" dicOrModel:@{@"isDelete":@"1"} whereFormat:sql];
+                    BOOL isSuccess = [db jq_deleteTable:@"user" whereFormat:sql];
+                    if (isSuccess == YES) {
+                        NSLog(@"照片删除成功");
+                    } else {
+                        NSLog(@"照片删除失败");
+                    }
                 }
             }
         });
-        if (self.overArray.count <= 1) {
+        if (self.dataSource.count <= 1) {
             [self.navigationController popViewControllerAnimated:YES];
         }
     } andOthers:@[@"取消"] animated:YES action:^(NSInteger index) {

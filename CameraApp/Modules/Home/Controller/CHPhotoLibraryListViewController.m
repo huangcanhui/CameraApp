@@ -10,6 +10,8 @@
 
 #import "JQFMDB.h"
 #import "Personal.h"
+#import "PhotoTakeTimeMath.h"
+#import "PhotoLibraryReusableHeaderView.h"
 
 @interface CHPhotoLibraryListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 /**
@@ -55,23 +57,24 @@
     
     //注册头尾视图和cell
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"imageList"];
-    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+    [self.collectionView registerClass:[PhotoLibraryReusableHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:PhotoLibraryReusableHeaderViewIdentifier];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.dataSource.count;
+    NSArray *array = self.dataSource[section];
+    return array.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return self.dataSource.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat itemW = (SCREEN_WIDTH - 80) / 4;
-    return CGSizeMake(itemW, 4 * itemW / 3);
+    CGFloat itemW = (SCREEN_WIDTH - 40) / 4;
+    return CGSizeMake(itemW, itemW);
 }
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
@@ -81,7 +84,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(SCREEN_WIDTH, 0);
+    return CGSizeMake(SCREEN_WIDTH, 40);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -90,32 +93,35 @@
 //        UICollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
 //        header.backgroundColor = HexColor(0xfddabd);
 //    }
-    UICollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
-    header.backgroundColor = HexColor(0xfddabd);
+    PhotoLibraryReusableHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:PhotoLibraryReusableHeaderViewIdentifier forIndexPath:indexPath];
+    NSArray *array = self.dataSource[indexPath.section];
+    Personal *person = array[0];
+    header.person = person;
+    header.count = array.count;
     return header;
 }
 
 //item的垂直间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 8;
+    return 5;
 }
 
 //item的水平间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 8;
+    return 5;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(10, 10, 10, 10);
+    return UIEdgeInsetsMake(5, 5, 5, 5);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageList" forIndexPath:indexPath];
-    Personal *person = self.dataSource[indexPath.row];
+    Personal *person = self.dataSource[indexPath.section][indexPath.row];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:person.photoData]];
     cell.backgroundView = imageView;
     return cell;
@@ -123,7 +129,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击了%ld", (long)indexPath.row);
+    NSLog(@"点击了%ld-%ld", indexPath.section, (long)indexPath.row);
 }
 
 
@@ -138,7 +144,9 @@
 {
     if (!_dataSource) {
         JQFMDB *db = [JQFMDB shareDatabase];
-        _dataSource = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:nil];
+        NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:nil];
+        PhotoTakeTimeMath *takeObject = [[PhotoTakeTimeMath alloc] init];
+        _dataSource = [takeObject arrayComponentToObjectAndSoryBYTime:array];
     }
     return _dataSource;
 }

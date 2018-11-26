@@ -370,6 +370,8 @@
     _imageLibraryButton.imageData = data;
     _imageLibraryButton.userInteractionEnabled = YES;
     _isnewPhoto = YES;
+    NSString *lastTime = [NSObject readUserDefaultWithKey:@"lastTakePhotoTime"]; //从本地缓存中取出最后一张图片拍摄的时间
+    NSString *group = [NSString readUserDefaultWithKey:@"TakePhotoGroupID"]; //从本地缓存中取出最后一组的ID
     
     //开辟线程，进行数据库插入，防止卡死
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -377,8 +379,20 @@
         obj.photoTime = times;
         obj.photoData = data;
         obj.isDelete = NO;
+        if (![NSString isBlank:group] && ![NSString isBlank:lastTime]) { //全新的数据库
+            if ([times floatValue] - [lastTime floatValue] < 600) { //如果时间小于600s，则分为同一组
+                obj.groupID = [group integerValue]; //时间小于600s则分为同一组
+            } else {
+                obj.groupID = [group integerValue] + 1; //时间大于600s则新增为新组
+            }
+        } else {
+            obj.groupID = 1;
+        }
         JQFMDB *db = [JQFMDB shareDatabase];
         [db jq_insertTable:@"user" dicOrModel:obj];
+        
+        [times writeUserDefaultWithKey:@"lastTakePhotoTime"]; //将拍照的最后一张图片存在本地(更新)
+        [[NSString stringWithFormat:@"%ld", obj.groupID] writeUserDefaultWithKey:@"TakePhotoGroupID"]; //将拍照的最后一张图片分组ID取出放在本地
     });
 }
 
