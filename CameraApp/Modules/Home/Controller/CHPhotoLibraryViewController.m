@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = HexColor(0x101010);
     
     self.navigationItem.title = @"图库";
     
@@ -97,13 +97,21 @@
     if (!_bottomView) {
         _bottomView = [[CHBrowserBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - kTopHeight - kTabBarHeight, SCREEN_WIDTH, kTabBarHeight)];
         weakSelf(wself);
-        _bottomView.PhotoBrowserDeleteButtonClick = ^(UIButton * btn) {
+        _bottomView.PhotoBrowserDeleteButtonClick = ^(CHBottomButton * btn) {
             [wself deletePicture]; //删除照片
         };
         
-        _bottomView.PhotoBrowserShareButtonClick = ^(UIButton * btn) {
-            [MBProgressHUD showSuccessMessage:@"分享"];
+        _bottomView.PhotoBrowserShareTimeLineButtonClick = ^(CHBottomButton *btn) {
+            [MBProgressHUD showWarnMessage:@"朋友圈"];
         };
+        
+        _bottomView.PhotoBrowserShareSessionButtonClick = ^(CHBottomButton *btn) {
+            [MBProgressHUD showInfoMessage:@"好友"];
+        };
+        
+//        _bottomView.PhotoBrowserShareButtonClick = ^(UIButton * btn) {
+//            [MBProgressHUD showSuccessMessage:@"分享"];
+//        };
     }
     return _bottomView;
 }

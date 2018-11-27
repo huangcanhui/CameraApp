@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate+AppService.h"
+
 #import "CameraHomeViewController.h"
+#import "ApplicationOpenUrlHandle.h"
 
 @implementation AppDelegate (AppService)
 
@@ -83,5 +85,12 @@
     return superVC;
 }
 
+/**
+ * iOS 9以上调用的方法
+ */
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    return [ApplicationOpenUrlHandle handleOpenUrl:url options:options];
+}
 
 @end

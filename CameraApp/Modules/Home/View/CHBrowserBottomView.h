@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHBottomButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,11 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 删除按钮的回调
  */
-@property (nonatomic, copy)void (^PhotoBrowserDeleteButtonClick)(UIButton *btn);
+@property (nonatomic, copy)void (^PhotoBrowserDeleteButtonClick)(CHBottomButton *btn);
 /**
- * 分享按钮的回调
+ * 分享微信聊天页面的回调
  */
-@property (nonatomic, copy)void (^PhotoBrowserShareButtonClick)(UIButton *btn);
+@property (nonatomic, copy)void (^PhotoBrowserShareSessionButtonClick)(CHBottomButton *btn);
+/**
+ * 分享微信朋友圈页面的回调
+ */
+@property (nonatomic, copy)void (^PhotoBrowserShareTimeLineButtonClick)(CHBottomButton *btn);
+
 @end
 
 NS_ASSUME_NONNULL_END

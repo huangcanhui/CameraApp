@@ -18,7 +18,7 @@
 #define HexColor(rgbValue) ([UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0])
 
 //设置全局主要颜色
-#define GLOBAL_COLOR HexColor(0x000000)
+#define GLOBAL_COLOR HexColor(0x232323)
 //三个主要颜色
 #define KClearColor [UIColor clearColor]
 #define KWhiteColor [UIColor whiteColor]

@@ -12,6 +12,9 @@
 #import "Personal.h"
 #import "PhotoTakeTimeMath.h"
 #import "PhotoLibraryReusableHeaderView.h"
+#import "CHPhotoLibraryViewController.h"
+#import "CHBrowserBottomView.h"
+#import "PhotoListCollectionViewCell.h"
 
 @interface CHPhotoLibraryListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 /**
@@ -26,6 +29,14 @@
  * 数据源
  */
 @property (nonatomic, strong)NSArray *dataSource;
+/**
+ * 底部分享视图
+ */
+@property (nonatomic, strong)CHBrowserBottomView *bottomView;
+/**
+ * 是否允许编辑状态
+ */
+@property (nonatomic, assign)BOOL isAllowEdit;
 
 @end
 
@@ -34,11 +45,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = HexColor(0x0f0f0f);
+    self.view.backgroundColor = HexColor(0x101010);
     
     self.navigationItem.title = @"我的图库";
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStyleDone target:self action:@selector(clickEditButton)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStyleDone target:self action:@selector(clickEditButton:)];
+    
+    self.isAllowEdit = NO;
     
     [self createCollectionView];
 }
@@ -52,11 +65,13 @@
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.collectionView.allowsMultipleSelection = YES;
     
     [self.view addSubview:self.collectionView];
     
     //注册头尾视图和cell
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"imageList"];
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"imageList"];
+    [self.collectionView registerClass:[PhotoListCollectionViewCell class] forCellWithReuseIdentifier:@"imageList"];
     [self.collectionView registerClass:[PhotoLibraryReusableHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:PhotoLibraryReusableHeaderViewIdentifier];
 }
 
@@ -116,24 +131,76 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageList" forIndexPath:indexPath];
+    PhotoListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageList" forIndexPath:indexPath];
     Personal *person = self.dataSource[indexPath.section][indexPath.row];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:person.photoData]];
-    cell.backgroundView = imageView;
+    cell.person = person;
+    if (self.isAllowEdit == NO) {
+        cell.isSelect = NO;
+    }
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击了%ld-%ld", indexPath.section, (long)indexPath.row);
+    if (self.isAllowEdit == YES) {
+        PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.isSelect = YES;
+        NSLog(@"点击了%ld-%ld", indexPath.section, indexPath.row);
+    } else {
+        
+    }
 }
 
-
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.isAllowEdit == YES) {
+        PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.isSelect = NO;
+        NSLog(@"取消了%ld-%ld", indexPath.section, indexPath.row);
+    }
+}
 
 #pragma mark - 编辑按钮的点击事件
-- (void)clickEditButton
+- (void)clickEditButton:(UIBarButtonItem *)btn
 {
-    [MBProgressHUD showErrorMessage:@"逻辑还未实现"];
+    if ([btn.title isEqualToString:@"选择"]) { //选择功能
+        [btn setTitle:@"取消"];
+        self.isAllowEdit = YES;
+        [self rightBarButtonItemEdit];
+    } else { //取消功能
+        [btn setTitle:@"选择"];
+        self.isAllowEdit = NO;
+        [self rightBarButtonItemCancel];
+    }
+    [self.collectionView reloadData];
+}
+
+#pragma mark 导航栏右侧按钮的选择事件
+- (void)rightBarButtonItemEdit
+{
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, -kTabBarHeight, 0);
+    
+    self.bottomView = [[CHBrowserBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - kTabBarHeight - kTopHeight, SCREEN_WIDTH, kTabBarHeight)];
+    self.bottomView.PhotoBrowserDeleteButtonClick = ^(CHBottomButton *btn) {
+        NSLog(@"删除");
+    };
+
+    self.bottomView.PhotoBrowserShareTimeLineButtonClick = ^(CHBottomButton *btn) {
+        [MBProgressHUD showErrorMessage:@"朋友圈"];
+    };
+    
+    self.bottomView.PhotoBrowserShareSessionButtonClick = ^(CHBottomButton *btn) {
+        [MBProgressHUD showInfoMessage:@"好友"];
+    };
+    [self.view addSubview:self.bottomView];
+}
+
+#pragma mark 导航栏右侧按钮的取消事件
+- (void)rightBarButtonItemCancel
+{
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight, 0);
+    [self.bottomView removeFromSuperview];
+    
 }
 
 - (NSArray *)dataSource

@@ -8,6 +8,9 @@
 
 #ifndef ThirdPartyMacros_h
 #define ThirdPartyMacros_h
-
+/**
+ * 微信的AppID
+ */
+#define wechatAppID @""
 
 #endif /* ThirdPartyMacros_h */

@@ -296,13 +296,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CHPhotoLibraryListViewController.m"
-            timestampString = "564918256.726912"
+            timestampString = "564994840.698833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "CHPhotoLibraryListViewController"
-            landmarkType = "3">
+            startingLineNumber = "218"
+            endingLineNumber = "218">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -312,28 +310,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CHPhotoLibraryListViewController.m"
-            timestampString = "564918256.72701"
+            timestampString = "564994840.698913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-collectionView:numberOfItemsInSection:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CameraApp/Modules/Home/Controller/CHPhotoLibraryListViewController.m"
-            timestampString = "564918256.727082"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -366,6 +348,38 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "-setRemoveArray:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+            timestampString = "564994840.699054"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "-imageLibraryButton"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CameraApp/Modules/Home/View/PhotoListCollectionViewCell.m"
+            timestampString = "564994840.699113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-setIsSelect:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

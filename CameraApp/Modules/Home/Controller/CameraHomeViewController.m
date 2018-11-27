@@ -352,13 +352,12 @@
     [db jq_createTable:@"user" dicOrModel:[Personal class]]; //建表
     NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:nil]; //查找数据库中的全部数据
     NSArray *reversedArray = [[array reverseObjectEnumerator] allObjects]; //倒序输出
-    for (Personal *person in reversedArray) { //快速遍历，查出需要展示的图片
-        if (person.isDelete != YES) {
-            _imageLibraryButton.userInteractionEnabled = YES;
-            _imageLibraryButton.imageData = person.photoData;
-            _isnewPhoto = NO;
-            break ;
-        }
+    if (reversedArray.count != 0) { //图库中有图片
+        Personal *person = [reversedArray lastObject];
+        _imageLibraryButton.userInteractionEnabled = YES;
+        _imageLibraryButton.imageData = person.photoData;
+    } else {
+        _imageLibraryButton.userInteractionEnabled = NO;
     }
 }
 
@@ -419,22 +418,20 @@
     if (!_imageLibraryButton) {
         weakSelf(wself);
         _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
-            CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
-            photoVC.reloadViewController = ^{
-               JQFMDB *db = [JQFMDB shareDatabase];
-               NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid = '%ld'", [db lastInsertPrimaryKeyId:@"user"]];
-                for (Personal *person in array) {
-                    wself.imageLibraryButton.imageData = person.photoData;
-                }
-            };
-            [wself.navigationController pushViewController:photoVC animated:YES];
-//            if (wself.isnewPhoto) {
-//                CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
-//                [wself.navigationController pushViewController:photoVC animated:YES];
-//            } else {
-//                CHPhotoLibraryListViewController *listVC = [CHPhotoLibraryListViewController new];
-//                [wself.navigationController pushViewController:listVC animated:YES];
-//            }
+            if (wself.isnewPhoto) {
+                CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
+                photoVC.reloadViewController = ^{
+                    JQFMDB *db = [JQFMDB shareDatabase];
+                    NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid = '%ld'", [db lastInsertPrimaryKeyId:@"user"]];
+                    for (Personal *person in array) {
+                        wself.imageLibraryButton.imageData = person.photoData;
+                    }
+                };
+                [wself.navigationController pushViewController:photoVC animated:YES];
+            } else {
+                CHPhotoLibraryListViewController *listVC = [CHPhotoLibraryListViewController new];
+                [wself.navigationController pushViewController:listVC animated:YES];
+            }
         }];
         _imageLibraryButton.center = CGPointMake(50, CGRectGetHeight(self.bottomView.bounds) / 2);
     }

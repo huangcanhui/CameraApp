@@ -14,6 +14,10 @@
 		C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1521A660E500AE9E36 /* FMResultSet.m */; };
 		C919BB1E21A660E600AE9E36 /* JQFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1721A660E600AE9E36 /* JQFMDB.m */; };
 		C919BB2121A6618E00AE9E36 /* Personal.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB2021A6618E00AE9E36 /* Personal.m */; };
+		C9479E7121ACE38400878508 /* PhotoListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7021ACE38400878508 /* PhotoListCollectionViewCell.m */; };
+		C9479E7421AD163500878508 /* CHBottomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7321AD163500878508 /* CHBottomButton.m */; };
+		C9479E7A21AD2E6E00878508 /* ApplicationOpenUrlHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */; };
+		C9479E7D21AD2FD000878508 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7C21AD2FD000878508 /* ShareManager.m */; };
 		C95E688321A7F9FA00CE5790 /* LLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687821A7F9FA00CE5790 /* LLPhotoBrowser.m */; };
 		C95E688421A7F9FA00CE5790 /* LLImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687B21A7F9FA00CE5790 /* LLImageCache.m */; };
 		C95E688521A7F9FA00CE5790 /* LLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687C21A7F9FA00CE5790 /* LLFileManager.m */; };
@@ -92,6 +96,14 @@
 		C919BB1821A660E600AE9E36 /* JQFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQFMDB.h; sourceTree = "<group>"; };
 		C919BB1F21A6618E00AE9E36 /* Personal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Personal.h; sourceTree = "<group>"; };
 		C919BB2021A6618E00AE9E36 /* Personal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Personal.m; sourceTree = "<group>"; };
+		C9479E6F21ACE38400878508 /* PhotoListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListCollectionViewCell.h; sourceTree = "<group>"; };
+		C9479E7021ACE38400878508 /* PhotoListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListCollectionViewCell.m; sourceTree = "<group>"; };
+		C9479E7221AD163500878508 /* CHBottomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBottomButton.h; sourceTree = "<group>"; };
+		C9479E7321AD163500878508 /* CHBottomButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHBottomButton.m; sourceTree = "<group>"; };
+		C9479E7821AD2E6E00878508 /* ApplicationOpenUrlHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationOpenUrlHandle.h; sourceTree = "<group>"; };
+		C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationOpenUrlHandle.m; sourceTree = "<group>"; };
+		C9479E7B21AD2FD000878508 /* ShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
+		C9479E7C21AD2FD000878508 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		C95E687821A7F9FA00CE5790 /* LLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPhotoBrowser.m; sourceTree = "<group>"; };
 		C95E687921A7F9FA00CE5790 /* LLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCollectionViewCell.h; sourceTree = "<group>"; };
 		C95E687B21A7F9FA00CE5790 /* LLImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageCache.m; sourceTree = "<group>"; };
@@ -373,6 +385,10 @@
 			children = (
 				C994193E21A3B3050010524D /* WebviewController */,
 				C994193C21A3B2E00010524D /* NavigationController */,
+				C9479E7821AD2E6E00878508 /* ApplicationOpenUrlHandle.h */,
+				C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */,
+				C9479E7B21AD2FD000878508 /* ShareManager.h */,
+				C9479E7C21AD2FD000878508 /* ShareManager.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -469,6 +485,10 @@
 				C9C0569121A7D0A900FE6160 /* CHBrowserBottomView.m */,
 				C95E68A021ABD8B000CE5790 /* PhotoLibraryReusableHeaderView.h */,
 				C95E68A121ABD8B000CE5790 /* PhotoLibraryReusableHeaderView.m */,
+				C9479E6F21ACE38400878508 /* PhotoListCollectionViewCell.h */,
+				C9479E7021ACE38400878508 /* PhotoListCollectionViewCell.m */,
+				C9479E7221AD163500878508 /* CHBottomButton.h */,
+				C9479E7321AD163500878508 /* CHBottomButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -755,6 +775,8 @@
 				C994194721A3B8160010524D /* UIView+CH.m in Sources */,
 				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
 				C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */,
+				C9479E7421AD163500878508 /* CHBottomButton.m in Sources */,
+				C9479E7A21AD2E6E00878508 /* ApplicationOpenUrlHandle.m in Sources */,
 				C994195921A3EEBD0010524D /* CHUtil.m in Sources */,
 				C95E689321A9430400CE5790 /* UIViewController+CH.m in Sources */,
 				C994195621A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m in Sources */,
@@ -767,6 +789,7 @@
 				C95E688321A7F9FA00CE5790 /* LLPhotoBrowser.m in Sources */,
 				C919BB1C21A660E600AE9E36 /* FMDatabasePool.m in Sources */,
 				C994194421A3B5940010524D /* CHNavigationController.m in Sources */,
+				C9479E7D21AD2FD000878508 /* ShareManager.m in Sources */,
 				C95E68A221ABD8B000CE5790 /* PhotoLibraryReusableHeaderView.m in Sources */,
 				C95E688421A7F9FA00CE5790 /* LLImageCache.m in Sources */,
 				C994195E21A403340010524D /* ECAuthorizationTools.m in Sources */,
@@ -778,6 +801,7 @@
 				C95E689021A925FA00CE5790 /* CHCompressImageManager.m in Sources */,
 				C994196121A4039A0010524D /* CameraHomeViewController+AuthorizationAndLayer.m in Sources */,
 				C994196821A4FE3E0010524D /* CHTipsViewController.m in Sources */,
+				C9479E7121ACE38400878508 /* PhotoListCollectionViewCell.m in Sources */,
 				C9E5222721A68E8A008CF74E /* CHImageLibraryButton.m in Sources */,
 				C919BB1921A660E600AE9E36 /* FMDatabaseQueue.m in Sources */,
 				C994196B21A5087A0010524D /* CHSpringView.m in Sources */,
