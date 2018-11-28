@@ -439,6 +439,8 @@
         _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
             if (wself.isnewPhoto) {
                 CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
+                photoVC.moment = @"";
+                photoVC.type = enterTypeOnCamera;
                 photoVC.reloadViewController = ^{
                     [wself backVCToOperation];
                 };

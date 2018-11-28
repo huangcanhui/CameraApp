@@ -15,6 +15,7 @@
 #import "CHPhotoLibraryViewController.h"
 #import "CHBrowserBottomView.h"
 #import "PhotoListCollectionViewCell.h"
+#import "CHPhotoLibraryViewController.h"
 
 @interface CHPhotoLibraryListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 /**
@@ -148,14 +149,19 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    Personal *person = self.dataSource[indexPath.section][indexPath.row];
     if (self.isAllowEdit == YES) {
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.isSelect = YES;
-        Personal *person = self.dataSource[indexPath.section][indexPath.row];
         [self.removeArrayM addObject:person.photoTime];
-        NSLog(@"将要添加:%@", self.removeArrayM);
     } else {
-        
+        CHPhotoLibraryViewController *photoVc = [CHPhotoLibraryViewController new];
+        photoVc.type = enterTypeOnPhotoLibrary;
+        photoVc.moment = person.photoTime;
+        photoVc.reloadViewController = ^{
+            
+        };
+        [self.navigationController pushViewController:photoVc animated:YES];
     }
 }
 

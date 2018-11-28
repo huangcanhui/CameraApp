@@ -43,7 +43,7 @@
     
     self.navigationItem.title = @"图库";
     
-    if (_type == enterTypeOnCamera) {
+    if (self.type == enterTypeOnCamera) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"所有图片" style:UIBarButtonItemStyleDone target:self action:@selector(popToPhotoLibrary)];
     }
     
@@ -69,9 +69,17 @@
     NSMutableArray *overArrayM = [NSMutableArray array];
     for (Personal *person in array) {
         [arrayM addObject:[UIImage imageWithData:person.photoData]];
-        [overArrayM addObject:person];
+        [overArrayM addObject:person.photoTime];
     }
-    self.photoBrowser = [[LLPhotoBrowser alloc] initWithImages:[arrayM copy] currentIndex:arrayM.count - 1];
+    NSInteger index ;
+    if (![self.moment isBlank]) {
+        [overArrayM containsObject:self.moment];
+        index = [overArrayM indexOfObject:self.moment];
+        NSLog(@"%ld", index);
+    } else {
+        index = arrayM.count - 1;
+    }
+    self.photoBrowser = [[LLPhotoBrowser alloc] initWithImages:[arrayM copy] currentIndex:index];
     self.photoBrowser.delegate = self;
     [self.picureView addSubview:self.photoBrowser.view];
 
@@ -134,6 +142,7 @@
                     [db jq_deleteTable:@"user" whereFormat:sql];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.photoBrowser.removeArray = @[[NSString stringWithFormat:@"%ld", self.indexPicture]];
+                        [MBProgressHUD showSuccessMessage:@"删除成功"];
                     });
                 }
             }

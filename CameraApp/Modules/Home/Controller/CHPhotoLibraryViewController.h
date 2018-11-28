@@ -21,6 +21,10 @@ typedef NS_ENUM(NSInteger, enterType) {
  */
 @property (nonatomic, assign)enterType type;
 /**
+ * 进入时携带的时间
+ */
+@property (nonatomic, copy)NSString *moment;
+/**
  * 回调,刷新上一个页面
  */
 @property (nonatomic, copy)void (^reloadViewController)(void);

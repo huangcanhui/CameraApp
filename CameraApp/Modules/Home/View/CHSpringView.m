@@ -8,6 +8,8 @@
 
 #import "CHSpringView.h"
 
+static CGFloat lineViewHeight = 2;
+
 @interface CHSpringView ()
 
 @property (nonatomic, strong)UIView *lineView;
@@ -35,8 +37,8 @@
 
 - (void)setUpView:(CGRect)frame
 {
-    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 32, 4)];
-    _lineView.center = CGPointMake(frame.size.width / 2 - 16, frame.size.height / 2 - 2);
+    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 32, lineViewHeight)];
+    _lineView.center = CGPointMake(frame.size.width / 2 - 16, frame.size.height / 2 - lineViewHeight / 2);
     _lineView.backgroundColor = HexColor(0xffffff);
     [self addSubview:_lineView];
     
@@ -51,7 +53,7 @@
     double zThtea = atan2(z, sqrt(x * x + y * y)) / M_PI * (-90) * 2 - 90; //手机与水平面的夹角
     CameraStatus status = cameraStatusHightLight;
     if (fabs(y) > fabs(x)) { //竖屏
-        _lineView.frame = CGRectMake(self.rect.size.width / 2 - 16, self.rect.size.height / 2 - 2, 32, 4);
+        _lineView.frame = CGRectMake(self.rect.size.width / 2 - 16, self.rect.size.height / 2 - lineViewHeight / 2, 32, lineViewHeight);
         _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 100, 20, -z * 100);
         if (85 <= -zThtea && -zThtea <= 95) {
             _lineView.backgroundColor = [UIColor greenColor];
@@ -67,7 +69,7 @@
             status = cameraStatusNormal;
         }
     } else { //横屏
-        _lineView.frame = CGRectMake(self.rect.size.width / 2 - 2, self.rect.size.height / 2 - 16, 4, 32);
+        _lineView.frame = CGRectMake(self.rect.size.width / 2 - lineViewHeight / 2, self.rect.size.height / 2 - 16, lineViewHeight, 32);
         _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 100, self.rect.size.height / 2 - 10, z * 100, 20);
         if (85 <= -zThtea && -zThtea <= 95) {
             _lineView.backgroundColor = [UIColor greenColor];
