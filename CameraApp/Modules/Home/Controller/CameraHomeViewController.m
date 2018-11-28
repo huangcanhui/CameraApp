@@ -84,8 +84,6 @@
     
     self.view.backgroundColor = HexColor(0x000000);
     
-//    [self testBlurEffect];
-    
     _needShowAssistantLine = NO;
     
     _isnewPhoto = NO;
@@ -113,22 +111,6 @@
 //#ifdef DEBUG
 //    [self addDebugDevelopmentButton];
 //#endif
-}
-
-#pragma mark - 测试毛玻璃效果
-- (void)testBlurEffect
-{
-    /*
-      毛玻璃的样式(枚举)
-      UIBlurEffectStyleExtraLight,
-      UIBlurEffectStyleLight,
-      UIBlurEffectStyleDark
-      */
-    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
-    effectView.frame = self.view.bounds;
-//    self.effectView = effectView;
-    [self.viewContainer addSubview:effectView];
 }
 
 #pragma mark - 相机设置

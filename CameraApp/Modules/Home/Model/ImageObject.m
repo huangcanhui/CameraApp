@@ -17,7 +17,8 @@
     }
     CGFloat containerWidth = originalSize.width;
     CGFloat containerHeight = originalSize.height;
-    CGFloat angleB = atan(containerWidth/containerHeight);
+//    CGFloat containerHeight = 4 * containerWidth / 3;
+    CGFloat angleB = atan2(containerWidth, containerHeight);
     CGFloat margin = angle;
     if (deviceOrientation == UIDeviceOrientationPortrait) {
         if (margin > M_PI) {
@@ -25,28 +26,31 @@
         }
         
         CGFloat width = containerWidth * sin(angleB) / sin(margin + angleB);
-//        CGFloat height = containerHeight / containerWidth * width;
-        return CGSizeMake(width, 4 * width / 3);
+        CGFloat height = containerHeight / containerWidth * width;
+//        return CGSizeMake(width, 4 * width / 3);
+        return CGSizeMake(width, height);
         
     }else if (deviceOrientation == UIDeviceOrientationPortraitUpsideDown){
         margin = fabs(angle - M_PI);
         
         CGFloat width = containerWidth * sin(angleB) / sin(margin + angleB);
-//        CGFloat height = containerHeight / containerWidth * width;
-        return CGSizeMake(width, 4 * width / 3);
+        CGFloat height = containerHeight / containerWidth * width;
+//        return CGSizeMake(width, 4 * width / 3);
+        return CGSizeMake(width, height);
     }else if (deviceOrientation == UIDeviceOrientationLandscapeLeft){
         margin = fabs(angle - 3 * M_PI_2);
         
         CGFloat height = containerWidth * sin(angleB) / sin(margin + angleB);
-//        CGFloat width = containerHeight / containerWidth * (height) ;
-        return CGSizeMake(4 * height / 3, height);
-      
+        CGFloat width = containerHeight / containerWidth * (height) ;
+//        return CGSizeMake(4 * height / 3, height);
+        return CGSizeMake(width, height);
     }else{
         margin = fabs(angle - M_PI_2);
         
         CGFloat height = containerWidth * sin(angleB) / sin(margin + angleB);
-//        CGFloat width = containerHeight / containerWidth * (height);
-        return CGSizeMake(4 * height / 3, height);
+        CGFloat width = containerHeight / containerWidth * (height);
+//        return CGSizeMake(4 * height / 3, height);
+        return CGSizeMake(width, height);
     }
 }
 
