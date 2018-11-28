@@ -18,6 +18,9 @@
 		C9479E7421AD163500878508 /* CHBottomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7321AD163500878508 /* CHBottomButton.m */; };
 		C9479E7A21AD2E6E00878508 /* ApplicationOpenUrlHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */; };
 		C9479E7D21AD2FD000878508 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7C21AD2FD000878508 /* ShareManager.m */; };
+		C9479E7F21AE45E300878508 /* TipsSkill.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9479E7E21AE45E300878508 /* TipsSkill.plist */; };
+		C9479E8221AE6D3F00878508 /* TipsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E8121AE6D3F00878508 /* TipsModel.m */; };
+		C9479E8521AE6E8500878508 /* CHTakePhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E8421AE6E8500878508 /* CHTakePhotoViewModel.m */; };
 		C95E688321A7F9FA00CE5790 /* LLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687821A7F9FA00CE5790 /* LLPhotoBrowser.m */; };
 		C95E688421A7F9FA00CE5790 /* LLImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687B21A7F9FA00CE5790 /* LLImageCache.m */; };
 		C95E688521A7F9FA00CE5790 /* LLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687C21A7F9FA00CE5790 /* LLFileManager.m */; };
@@ -104,6 +107,11 @@
 		C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationOpenUrlHandle.m; sourceTree = "<group>"; };
 		C9479E7B21AD2FD000878508 /* ShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		C9479E7C21AD2FD000878508 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
+		C9479E7E21AE45E300878508 /* TipsSkill.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TipsSkill.plist; sourceTree = "<group>"; };
+		C9479E8021AE6D3F00878508 /* TipsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TipsModel.h; sourceTree = "<group>"; };
+		C9479E8121AE6D3F00878508 /* TipsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipsModel.m; sourceTree = "<group>"; };
+		C9479E8321AE6E8500878508 /* CHTakePhotoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTakePhotoViewModel.h; sourceTree = "<group>"; };
+		C9479E8421AE6E8500878508 /* CHTakePhotoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTakePhotoViewModel.m; sourceTree = "<group>"; };
 		C95E687821A7F9FA00CE5790 /* LLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPhotoBrowser.m; sourceTree = "<group>"; };
 		C95E687921A7F9FA00CE5790 /* LLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCollectionViewCell.h; sourceTree = "<group>"; };
 		C95E687B21A7F9FA00CE5790 /* LLImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageCache.m; sourceTree = "<group>"; };
@@ -440,6 +448,9 @@
 		C98ED7492192D4820017A479 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C9479E7E21AE45E300878508 /* TipsSkill.plist */,
+				C9479E8321AE6E8500878508 /* CHTakePhotoViewModel.h */,
+				C9479E8421AE6E8500878508 /* CHTakePhotoViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -470,6 +481,8 @@
 				C919BB2021A6618E00AE9E36 /* Personal.m */,
 				C95E689421A9475300CE5790 /* PhotoTakeTimeMath.h */,
 				C95E689521A9475300CE5790 /* PhotoTakeTimeMath.m */,
+				C9479E8021AE6D3F00878508 /* TipsModel.h */,
+				C9479E8121AE6D3F00878508 /* TipsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -688,6 +701,7 @@
 				C97338D32192CF830016B440 /* LaunchScreen.storyboard in Resources */,
 				C97338D02192CF830016B440 /* Assets.xcassets in Resources */,
 				C97338CE2192CF810016B440 /* Main.storyboard in Resources */,
+				C9479E7F21AE45E300878508 /* TipsSkill.plist in Resources */,
 				C994194D21A3E4740010524D /* Urls.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -765,6 +779,7 @@
 				C95E688721A7F9FA00CE5790 /* LLCollectionViewCell.m in Sources */,
 				C95E688621A7F9FA00CE5790 /* LLPhoto.m in Sources */,
 				C994196521A4F4F60010524D /* ImageObject.m in Sources */,
+				C9479E8221AE6D3F00878508 /* TipsModel.m in Sources */,
 				C919BB2121A6618E00AE9E36 /* Personal.m in Sources */,
 				C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */,
 				C95E689F21AB957800CE5790 /* NSObject+CH.m in Sources */,
@@ -782,6 +797,7 @@
 				C994195621A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m in Sources */,
 				C9C0567921A69CF600FE6160 /* CHPhotoLibraryListViewController.m in Sources */,
 				C994194A21A3DBA80010524D /* CHPhotoLibraryViewController.m in Sources */,
+				C9479E8521AE6E8500878508 /* CHTakePhotoViewModel.m in Sources */,
 				C97338D62192CF830016B440 /* main.m in Sources */,
 				C919BB1A21A660E600AE9E36 /* FMDatabaseAdditions.m in Sources */,
 				C97338C82192CF810016B440 /* AppDelegate.m in Sources */,

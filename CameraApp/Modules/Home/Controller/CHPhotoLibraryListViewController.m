@@ -241,7 +241,6 @@
 {
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight, 0);
     [self.bottomView removeFromSuperview];
-    
 }
 
 - (NSArray *)dataSource

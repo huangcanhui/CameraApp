@@ -82,7 +82,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = HexColor(0xffffff);
+    self.view.backgroundColor = HexColor(0x000000);
     
 //    [self testBlurEffect];
     
