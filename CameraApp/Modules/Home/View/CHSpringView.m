@@ -68,7 +68,7 @@
         }
     } else { //横屏
         _lineView.frame = CGRectMake(self.rect.size.width / 2 - 2, self.rect.size.height / 2 - 16, 4, 32);
-        _verticalView.frame = CGRectMake(self.rect.size.width / 2 + z * 100, self.rect.size.height / 2 - 10, -z * 100, 20);
+        _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 100, self.rect.size.height / 2 - 10, z * 100, 20);
         if (85 <= -zThtea && -zThtea <= 95) {
             _lineView.backgroundColor = [UIColor greenColor];
             _verticalView.backgroundColor = [UIColor greenColor];

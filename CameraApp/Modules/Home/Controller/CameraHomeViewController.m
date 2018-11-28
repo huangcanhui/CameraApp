@@ -46,7 +46,7 @@
 @property (nonatomic, strong)CHSpringView *springView; //弹簧视图
 @property (nonatomic, strong)CHImageLibraryButton *imageLibraryButton; //图片视图
 @property (nonatomic, assign)BOOL isnewPhoto; //是否新拍摄照片
-
+//@property (nonatomic, strong)UIVisualEffectView *effectView;
 @end
 
 @implementation CameraHomeViewController
@@ -84,6 +84,8 @@
     
     self.view.backgroundColor = HexColor(0xffffff);
     
+//    [self testBlurEffect];
+    
     _needShowAssistantLine = NO;
     
     _isnewPhoto = NO;
@@ -111,6 +113,22 @@
 //#ifdef DEBUG
 //    [self addDebugDevelopmentButton];
 //#endif
+}
+
+#pragma mark - 测试毛玻璃效果
+- (void)testBlurEffect
+{
+    /*
+      毛玻璃的样式(枚举)
+      UIBlurEffectStyleExtraLight,
+      UIBlurEffectStyleLight,
+      UIBlurEffectStyleDark
+      */
+    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    effectView.frame = self.view.bounds;
+//    self.effectView = effectView;
+    [self.viewContainer addSubview:effectView];
 }
 
 #pragma mark - 相机设置
@@ -265,7 +283,7 @@
     CALayer *containerLayer = self.viewContainer.layer;
     if (!_viewScopeLayer) {
         _viewScopeLayer = [[CALayer alloc] init];
-        _viewScopeLayer.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7].CGColor;
+        _viewScopeLayer.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
         CALayer *maskLayer = [[CALayer alloc] init];
         CGFloat containerWidth = containerLayer.bounds.size.width;
         CGFloat containerHeight = containerLayer.bounds.size.height;
@@ -282,6 +300,7 @@
     ImageObject *obj = [[ImageObject alloc] init];
     CGSize size = [obj sizeOfRotationAngle:_deviceAngle FromSize:containerLayer.bounds.size deviceOrientation:_deviceOrientation];
     maskLayer.bounds = CGRectMake(0, 0, size.width, size.height);
+//    self.effectView.frame = CGRectMake(0, 0, size.width, size.height);
 }
 
 #pragma mark - LAZY
@@ -290,7 +309,7 @@
 {
     if (!_viewContainer) {
         _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (kTabBarHeight + 74))];
-        _viewContainer.backgroundColor = [UIColor clearColor];
+        _viewContainer.backgroundColor = [UIColor redColor];
         [self.view addSubview:_viewContainer];
     }
     return _viewContainer;
@@ -421,21 +440,29 @@
             if (wself.isnewPhoto) {
                 CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
                 photoVC.reloadViewController = ^{
-                    JQFMDB *db = [JQFMDB shareDatabase];
-                    NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid = '%ld'", [db lastInsertPrimaryKeyId:@"user"]];
-                    for (Personal *person in array) {
-                        wself.imageLibraryButton.imageData = person.photoData;
-                    }
+                    [wself backVCToOperation];
                 };
                 [wself.navigationController pushViewController:photoVC animated:YES];
             } else {
                 CHPhotoLibraryListViewController *listVC = [CHPhotoLibraryListViewController new];
+                listVC.backCameraViewController = ^{
+                    [wself backVCToOperation];
+                };
                 [wself.navigationController pushViewController:listVC animated:YES];
             }
         }];
         _imageLibraryButton.center = CGPointMake(50, CGRectGetHeight(self.bottomView.bounds) / 2);
     }
     return _imageLibraryButton;
+}
+
+- (void)backVCToOperation
+{
+    JQFMDB *db = [JQFMDB shareDatabase];
+    NSArray *array = [db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:@"where pkid = '%ld'", [db lastInsertPrimaryKeyId:@"user"]];
+    for (Personal *person in array) {
+        self.imageLibraryButton.imageData = person.photoData;
+    }
 }
 
 #pragma mark 弹簧视图

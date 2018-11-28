@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CHPhotoLibraryListViewController : UIViewController
-
+/**
+ * 页面回调
+ */
+@property (nonatomic, copy)void (^backCameraViewController)(void);
 @end
 
 NS_ASSUME_NONNULL_END

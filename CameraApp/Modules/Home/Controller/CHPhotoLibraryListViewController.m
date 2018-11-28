@@ -37,6 +37,10 @@
  * 是否允许编辑状态
  */
 @property (nonatomic, assign)BOOL isAllowEdit;
+/**
+ * 移除的图片数据
+ */
+@property (nonatomic, strong)NSMutableArray *removeArrayM;
 
 @end
 
@@ -52,6 +56,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStyleDone target:self action:@selector(clickEditButton:)];
     
     self.isAllowEdit = NO;
+    
+    self.removeArrayM = [NSMutableArray array];
     
     [self createCollectionView];
 }
@@ -145,7 +151,9 @@
     if (self.isAllowEdit == YES) {
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.isSelect = YES;
-        NSLog(@"点击了%ld-%ld", indexPath.section, indexPath.row);
+        Personal *person = self.dataSource[indexPath.section][indexPath.row];
+        [self.removeArrayM addObject:person.photoTime];
+        NSLog(@"将要添加:%@", self.removeArrayM);
     } else {
         
     }
@@ -156,7 +164,15 @@
     if (self.isAllowEdit == YES) {
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.isSelect = NO;
-        NSLog(@"取消了%ld-%ld", indexPath.section, indexPath.row);
+        Personal *person = self.dataSource[indexPath.section][indexPath.row];
+        for (NSString *time in self.removeArrayM) {
+            if ([person.photoTime isEqualToString:time]) {
+                [self.removeArrayM removeObject:time];
+                NSLog(@"将要移除:%@", self.removeArrayM);
+                break;
+            }
+        }
+
     }
 }
 
@@ -181,8 +197,19 @@
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, -kTabBarHeight, 0);
     
     self.bottomView = [[CHBrowserBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - kTabBarHeight - kTopHeight, SCREEN_WIDTH, kTabBarHeight)];
+    weakSelf(wself);
     self.bottomView.PhotoBrowserDeleteButtonClick = ^(CHBottomButton *btn) {
-        NSLog(@"删除");
+        if (self.removeArrayM.count >= 1) {
+            [wself AlertWithTitle:@"删除确认" message:[NSString stringWithFormat:@"确认删除这%ld张图片?", wself.removeArrayM.count] andOthers:@[@"取消", @"确认"] animated:YES action:^(NSInteger index) {
+                if (index == 1) {
+                    [wself removePhotosOnDatabase];
+                }
+            }];
+        } else {
+            [wself AlertWithTitle:@"温馨提示" message:@"请至少选择一张照片" andOthers:@[@"确认"] animated:YES action:^(NSInteger index) {
+                
+            }];
+        }
     };
 
     self.bottomView.PhotoBrowserShareTimeLineButtonClick = ^(CHBottomButton *btn) {
@@ -193,6 +220,20 @@
         [MBProgressHUD showInfoMessage:@"好友"];
     };
     [self.view addSubview:self.bottomView];
+}
+
+#pragma mark - 移除数据库中的数据
+- (void)removePhotosOnDatabase
+{
+    JQFMDB *db = [JQFMDB shareDatabase];
+    for (NSString *time in self.removeArrayM) {
+        NSString *sql = [NSString stringWithFormat:@"WHERE photoTime = (SELECT max(%@) FROM user)", time];
+        [db jq_deleteTable:@"user" whereFormat:sql];
+    }
+    [self.removeArrayM removeAllObjects];
+    self.dataSource = nil;
+    [self.collectionView reloadData];
+    
 }
 
 #pragma mark 导航栏右侧按钮的取消事件
