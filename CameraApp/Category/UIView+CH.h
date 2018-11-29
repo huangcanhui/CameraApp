@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat ch_top ;
 @property (nonatomic, assign) CGFloat ch_bottom ;
 
+/**----------------------------------------*/
+- (UIWindow *)getKeyWindow ;
++ (UIWindow *)getKeyWindow ;
+
 @end
 
 NS_ASSUME_NONNULL_END

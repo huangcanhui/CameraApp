@@ -59,6 +59,7 @@
 		C994196521A4F4F60010524D /* ImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196421A4F4F60010524D /* ImageObject.m */; };
 		C994196821A4FE3E0010524D /* CHTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196721A4FE3E0010524D /* CHTipsViewController.m */; };
 		C994196B21A5087A0010524D /* CHSpringView.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196A21A5087A0010524D /* CHSpringView.m */; };
+		C9A0872B21AFE67C0042FFB2 /* CHBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A0872A21AFE67C0042FFB2 /* CHBorderButton.m */; };
 		C9C0567921A69CF600FE6160 /* CHPhotoLibraryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C0567821A69CF600FE6160 /* CHPhotoLibraryListViewController.m */; };
 		C9C0569221A7D0A900FE6160 /* CHBrowserBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C0569121A7D0A900FE6160 /* CHBrowserBottomView.m */; };
 		C9E5222721A68E8A008CF74E /* CHImageLibraryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E5222621A68E8A008CF74E /* CHImageLibraryButton.m */; };
@@ -192,6 +193,8 @@
 		C994196721A4FE3E0010524D /* CHTipsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTipsViewController.m; sourceTree = "<group>"; };
 		C994196921A5087A0010524D /* CHSpringView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSpringView.h; sourceTree = "<group>"; };
 		C994196A21A5087A0010524D /* CHSpringView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSpringView.m; sourceTree = "<group>"; };
+		C9A0872921AFE67C0042FFB2 /* CHBorderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBorderButton.h; sourceTree = "<group>"; };
+		C9A0872A21AFE67C0042FFB2 /* CHBorderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHBorderButton.m; sourceTree = "<group>"; };
 		C9C0567721A69CF600FE6160 /* CHPhotoLibraryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPhotoLibraryListViewController.h; sourceTree = "<group>"; };
 		C9C0567821A69CF600FE6160 /* CHPhotoLibraryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPhotoLibraryListViewController.m; sourceTree = "<group>"; };
 		C9C0569021A7D0A900FE6160 /* CHBrowserBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBrowserBottomView.h; sourceTree = "<group>"; };
@@ -367,7 +370,6 @@
 			children = (
 				C994194B21A3E4610010524D /* Debug_Development */,
 				C98ED7482192D4820017A479 /* Home */,
-				C98ED74D2192D4AD0017A479 /* Personal */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -387,6 +389,8 @@
 				C994195A21A3EF460010524D /* config.strings */,
 				C95E688E21A925FA00CE5790 /* CHCompressImageManager.h */,
 				C95E688F21A925FA00CE5790 /* CHCompressImageManager.m */,
+				C9A0872921AFE67C0042FFB2 /* CHBorderButton.h */,
+				C9A0872A21AFE67C0042FFB2 /* CHBorderButton.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -507,45 +511,6 @@
 				C9479E7321AD163500878508 /* CHBottomButton.m */,
 				C9479E8621AFC00C00878508 /* TakePhotoAlertView.h */,
 				C9479E8721AFC00C00878508 /* TakePhotoAlertView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C98ED74D2192D4AD0017A479 /* Personal */ = {
-			isa = PBXGroup;
-			children = (
-				C98ED74E2192D4AD0017A479 /* ViewModel */,
-				C98ED74F2192D4AD0017A479 /* Controller */,
-				C98ED7502192D4AD0017A479 /* Model */,
-				C98ED7512192D4AD0017A479 /* View */,
-			);
-			path = Personal;
-			sourceTree = "<group>";
-		};
-		C98ED74E2192D4AD0017A479 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		C98ED74F2192D4AD0017A479 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		C98ED7502192D4AD0017A479 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C98ED7512192D4AD0017A479 /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -797,6 +762,7 @@
 				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
 				C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */,
 				C9479E7421AD163500878508 /* CHBottomButton.m in Sources */,
+				C9A0872B21AFE67C0042FFB2 /* CHBorderButton.m in Sources */,
 				C9479E7A21AD2E6E00878508 /* ApplicationOpenUrlHandle.m in Sources */,
 				C994195921A3EEBD0010524D /* CHUtil.m in Sources */,
 				C95E689321A9430400CE5790 /* UIViewController+CH.m in Sources */,

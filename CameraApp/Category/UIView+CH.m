@@ -79,4 +79,19 @@
     self.frame = frame ;
 }
 
+- (UIWindow *)getKeyWindow
+{
+    return [[self class] getKeyWindow];
+}
++ (UIWindow *)getKeyWindow
+{
+    for (UIWindow *window in [UIApplication sharedApplication].windows) {
+        if ([window isKeyWindow]) {
+            return window ;
+        }
+    }
+    return nil ;
+}
+
+
 @end

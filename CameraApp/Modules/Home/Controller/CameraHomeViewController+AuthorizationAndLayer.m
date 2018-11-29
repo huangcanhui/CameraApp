@@ -9,6 +9,7 @@
 #import "CameraHomeViewController+AuthorizationAndLayer.h"
 #import "ECAuthorizationTools.h"
 #import "UIViewController+AlertViewAndActionSheet.h"
+#import "CHBorderButton.h"
 
 @implementation CameraHomeViewController (AuthorizationAndLayer)
 
@@ -51,7 +52,30 @@
 
 - (void)mongolianLayer
 {
-    
+    NSString *value = [NSString readUserDefaultWithKey:NSStringFromClass([self class])];
+    if (!value) {
+        //添加底部遮盖层
+        UIView *coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        coverView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
+        coverView.tag = 1000;
+        [[coverView getKeyWindow] addSubview:coverView];
+        
+        CHBorderButton *getButton = [[CHBorderButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(coverView.bounds) / 2, 300, 200, 50)];
+        [getButton setTitle:@"知道了" forState:UIControlStateNormal];
+        [getButton setTitleColor:HexColor(0xffffff) forState:UIControlStateNormal];
+        getButton.borderColor = HexColor(0xffffff);
+        getButton.borderWidth = 2;
+        [getButton addTarget:self action:@selector(getNormalViewController:) forControlEvents:UIControlEventTouchUpInside];
+        [coverView addSubview:getButton];
+    }
+}
+
+- (void)getNormalViewController:(CHBorderButton *)btn
+{
+    [self removeUserDefaultWithKey:NSStringFromClass([self class])]; //测试用，可每次都执行
+//    [@"1" writeUserDefaultWithKey:NSStringFromClass([self class])];
+    UIView *view = [[self.view getKeyWindow] viewWithTag:1000];
+    [view removeFromSuperview];
 }
 
 @end
