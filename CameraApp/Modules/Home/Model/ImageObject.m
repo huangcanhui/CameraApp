@@ -16,8 +16,8 @@
         angle = 0;
     }
     CGFloat containerWidth = originalSize.width;
-//    CGFloat containerHeight = originalSize.height;
-    CGFloat containerHeight = 4 * containerWidth / 3;
+    CGFloat containerHeight = originalSize.height;
+//    CGFloat containerHeight = 4 * containerWidth / 3;
     CGFloat angleB = atan2(containerWidth, containerHeight);
     CGFloat margin = angle;
     if (deviceOrientation == UIDeviceOrientationPortrait) {

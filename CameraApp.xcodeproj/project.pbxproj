@@ -21,6 +21,7 @@
 		C9479E7F21AE45E300878508 /* TipsSkill.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9479E7E21AE45E300878508 /* TipsSkill.plist */; };
 		C9479E8221AE6D3F00878508 /* TipsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E8121AE6D3F00878508 /* TipsModel.m */; };
 		C9479E8521AE6E8500878508 /* CHTakePhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E8421AE6E8500878508 /* CHTakePhotoViewModel.m */; };
+		C9479E8821AFC00C00878508 /* TakePhotoAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E8721AFC00C00878508 /* TakePhotoAlertView.m */; };
 		C95E688321A7F9FA00CE5790 /* LLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687821A7F9FA00CE5790 /* LLPhotoBrowser.m */; };
 		C95E688421A7F9FA00CE5790 /* LLImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687B21A7F9FA00CE5790 /* LLImageCache.m */; };
 		C95E688521A7F9FA00CE5790 /* LLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C95E687C21A7F9FA00CE5790 /* LLFileManager.m */; };
@@ -112,6 +113,8 @@
 		C9479E8121AE6D3F00878508 /* TipsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipsModel.m; sourceTree = "<group>"; };
 		C9479E8321AE6E8500878508 /* CHTakePhotoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHTakePhotoViewModel.h; sourceTree = "<group>"; };
 		C9479E8421AE6E8500878508 /* CHTakePhotoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHTakePhotoViewModel.m; sourceTree = "<group>"; };
+		C9479E8621AFC00C00878508 /* TakePhotoAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePhotoAlertView.h; sourceTree = "<group>"; };
+		C9479E8721AFC00C00878508 /* TakePhotoAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakePhotoAlertView.m; sourceTree = "<group>"; };
 		C95E687821A7F9FA00CE5790 /* LLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPhotoBrowser.m; sourceTree = "<group>"; };
 		C95E687921A7F9FA00CE5790 /* LLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCollectionViewCell.h; sourceTree = "<group>"; };
 		C95E687B21A7F9FA00CE5790 /* LLImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageCache.m; sourceTree = "<group>"; };
@@ -502,6 +505,8 @@
 				C9479E7021ACE38400878508 /* PhotoListCollectionViewCell.m */,
 				C9479E7221AD163500878508 /* CHBottomButton.h */,
 				C9479E7321AD163500878508 /* CHBottomButton.m */,
+				C9479E8621AFC00C00878508 /* TakePhotoAlertView.h */,
+				C9479E8721AFC00C00878508 /* TakePhotoAlertView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -781,6 +786,7 @@
 				C994196521A4F4F60010524D /* ImageObject.m in Sources */,
 				C9479E8221AE6D3F00878508 /* TipsModel.m in Sources */,
 				C919BB2121A6618E00AE9E36 /* Personal.m in Sources */,
+				C9479E8821AFC00C00878508 /* TakePhotoAlertView.m in Sources */,
 				C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */,
 				C95E689F21AB957800CE5790 /* NSObject+CH.m in Sources */,
 				C95E688521A7F9FA00CE5790 /* LLFileManager.m in Sources */,
@@ -996,6 +1002,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA93S5T8QG;
+				ENABLE_BITCODE = YES;
 				GCC_PREFIX_HEADER = "/Users/aieffei/Desktop/CameraApp/CameraApp/Support File/PrefixHeader.pch";
 				INFOPLIST_FILE = CameraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1019,6 +1026,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA93S5T8QG;
+				ENABLE_BITCODE = YES;
 				GCC_PREFIX_HEADER = "/Users/aieffei/Desktop/CameraApp/CameraApp/Support File/PrefixHeader.pch";
 				INFOPLIST_FILE = CameraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

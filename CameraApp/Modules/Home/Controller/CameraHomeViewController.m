@@ -21,6 +21,7 @@
 #import "Personal.h"
 #import "CHImageLibraryButton.h"
 #import "CHCompressImageManager.h"
+#import "TakePhotoAlertView.h"
 #import "CameraHomeViewController+AuthorizationAndLayer.h"
 
 #ifdef DEBUG
@@ -44,6 +45,7 @@
 @property (nonatomic, strong)UIButton *takePhotoButton;//拍照按钮
 @property (nonatomic, strong)UIButton *tutorialButton; //引导按钮
 @property (nonatomic, strong)CHSpringView *springView; //弹簧视图
+@property (nonatomic, strong)TakePhotoAlertView *alertView; //弹框提醒
 @property (nonatomic, strong)CHImageLibraryButton *imageLibraryButton; //图片视图
 @property (nonatomic, assign)BOOL isnewPhoto; //是否新拍摄照片
 //@property (nonatomic, strong)UIVisualEffectView *effectView;
@@ -105,6 +107,8 @@
     [self.bottomView addSubview:self.imageLibraryButton];
     
     [self.viewContainer addSubview:self.springView];
+    
+    [self.viewContainer addSubview:self.alertView];
     
     [self createJQFMDBData];
     
@@ -193,6 +197,7 @@
     double y = deviceMotion.gravity.y;
     double z = deviceMotion.gravity.z;
     [self.springView getGravityX:x gravityY:y gravity:z];
+    [self.alertView getGravityX:x gravityY:y gravity:z];
     //角度回调
     weakSelf(wself);
     self.springView.getAngleToChangeCameraButtonStatus = ^(CameraStatus status) {
@@ -290,8 +295,9 @@
 - (UIView *)viewContainer
 {
     if (!_viewContainer) {
-        _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (kTabBarHeight + 74))];
+        _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0, kTabBarHeight, SCREEN_WIDTH, 4 * SCREEN_WIDTH / 3)];
         _viewContainer.backgroundColor = [UIColor redColor];
+//        _viewContainer.center = CGPointMake(CGRectGetWidth(self.view.bounds) / 2, CGRectGetHeight(self.view.bounds) / 2);
         [self.view addSubview:_viewContainer];
     }
     return _viewContainer;
@@ -301,7 +307,7 @@
 - (UIView *)bottomView
 {
     if (!_bottomView) {
-        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.viewContainer.ch_height, SCREEN_WIDTH, SCREEN_HEIGHT - self.viewContainer.ch_height)];
+        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.viewContainer.ch_bottom, SCREEN_WIDTH, SCREEN_HEIGHT - self.viewContainer.ch_height - kTabBarHeight)];
         _bottomView.backgroundColor = [UIColor blackColor];
     }
     return _bottomView;
@@ -458,6 +464,16 @@
         _springView.backgroundColor = KClearColor;
     }
     return _springView;
+}
+
+- (TakePhotoAlertView *)alertView
+{
+    if (!_alertView) {
+        _alertView = [[TakePhotoAlertView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+        _alertView.center = CGPointMake(CGRectGetWidth(self.viewContainer.bounds) / 2, CGRectGetHeight(self.viewContainer.bounds) / 2);
+        _alertView.backgroundColor = KClearColor;
+    }
+    return _alertView;
 }
 
 #pragma mark - 开启水平仪
