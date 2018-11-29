@@ -57,10 +57,12 @@
 #pragma mark - 查找数据中
 - (void)lookupDataBase
 {
+    [MBProgressHUD showActivityMessageInView:@"图片加载中，请稍后..."];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         JQFMDB *db = [JQFMDB shareDatabase];
         [self applyViewWithDataBase:[db jq_lookupTable:@"user" dicOrModel:[Personal class] whereFormat:nil]];
     });
+     [MBProgressHUD hideHUD];
 }
 
 - (void)applyViewWithDataBase:(NSArray *)array
@@ -87,16 +89,12 @@
     
     self.dataSource = [array copy];
     self.indexPicture = self.dataSource.count - 1;
+   
 }
 
 - (void)photoBrowserScrollViewDidScrollViewWithIndex:(NSInteger)index
 {
     self.indexPicture = index;
-}
-
-- (void)setType:(enterType)type
-{
-    _type = type ? enterTypeOnCamera : enterTypeOnPhotoLibrary;
 }
 
 #pragma mark - 添加底部视图

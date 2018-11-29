@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, enterType) {
-    enterTypeOnCamera = 0 , //通过相机页面进入
+    enterTypeOnCamera = 1 , //通过相机页面进入
     enterTypeOnPhotoLibrary , //通过图库进入
 };
 

@@ -141,9 +141,8 @@
     PhotoListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageList" forIndexPath:indexPath];
     Personal *person = self.dataSource[indexPath.section][indexPath.row];
     cell.person = person;
-    if (self.isAllowEdit == NO) {
-        cell.isSelect = NO;
-    }
+    cell.isSelect = NO;
+
     return cell;
 }
 
@@ -154,6 +153,7 @@
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.isSelect = YES;
         [self.removeArrayM addObject:person.photoTime];
+        NSLog(@"将要添加:%@", self.removeArrayM);
     } else {
         CHPhotoLibraryViewController *photoVc = [CHPhotoLibraryViewController new];
         photoVc.type = enterTypeOnPhotoLibrary;
@@ -200,7 +200,7 @@
 #pragma mark 导航栏右侧按钮的选择事件
 - (void)rightBarButtonItemEdit
 {
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, -kTabBarHeight, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, kTopHeight, 0);
     
     self.bottomView = [[CHBrowserBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - kTabBarHeight - kTopHeight, SCREEN_WIDTH, kTabBarHeight)];
     weakSelf(wself);
@@ -236,6 +236,7 @@
         NSString *sql = [NSString stringWithFormat:@"WHERE photoTime = (SELECT max(%@) FROM user)", time];
         [db jq_deleteTable:@"user" whereFormat:sql];
     }
+    [MBProgressHUD showSuccessMessage:@"删除成功"];
     [self.removeArrayM removeAllObjects];
     self.dataSource = nil;
     [self.collectionView reloadData];
@@ -245,7 +246,7 @@
 #pragma mark 导航栏右侧按钮的取消事件
 - (void)rightBarButtonItemCancel
 {
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [self.bottomView removeFromSuperview];
 }
 
