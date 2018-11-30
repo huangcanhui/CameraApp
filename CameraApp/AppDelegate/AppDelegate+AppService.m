@@ -47,6 +47,17 @@
     CHNavigationController *naVC = [[CHNavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = naVC;
     [self.window makeKeyAndVisible];
+    
+    //开辟线程，防止阻塞主线程
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self checkAppUpdate];
+    });
+}
+
+#pragma mark - 检测App是否需要更新
+- (void)checkAppUpdate
+{
+    
 }
 
 - (UIViewController *)getCurrentVC

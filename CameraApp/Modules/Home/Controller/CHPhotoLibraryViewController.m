@@ -114,10 +114,6 @@
         _bottomView.PhotoBrowserShareSessionButtonClick = ^(CHBottomButton *btn) {
             [MBProgressHUD showInfoMessage:@"好友"];
         };
-        
-//        _bottomView.PhotoBrowserShareButtonClick = ^(UIButton * btn) {
-//            [MBProgressHUD showSuccessMessage:@"分享"];
-//        };
     }
     return _bottomView;
 }
@@ -140,7 +136,6 @@
                     [db jq_deleteTable:@"user" whereFormat:sql];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.photoBrowser.removeArray = @[[NSString stringWithFormat:@"%ld", self.indexPicture]];
-                        [MBProgressHUD showSuccessMessage:@"删除成功"];
                         self.indexPicture -= 1;
                     });
                 }

@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3e21e1d6-933a-d74c-8b62-7daf9e214495++2528",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "3e21e1d6-933a-d74c-8b62-7daf9e214495++2528" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3e21e1d6-933a-d74c-8b62-7daf9e214495++2528" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4281080E-05BE-43BD-9D82-EE175C549EF5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3e21e1d6-933a-d74c-8b62-7daf9e214495++2528" : "Photo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Photo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Photo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.231\/svn\/Cybespoke",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3e21e1d6-933a-d74c-8b62-7daf9e214495++2528"
+    }
+  ]
+}

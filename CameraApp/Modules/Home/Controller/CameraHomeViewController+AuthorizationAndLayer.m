@@ -73,8 +73,8 @@
 
 - (void)getNormalViewController:(CHBorderButton *)btn
 {
-//    [self removeUserDefaultWithKey:NSStringFromClass([self class])]; //测试用，可每次都执行
-    [@"1" writeUserDefaultWithKey:NSStringFromClass([self class])];
+    [self removeUserDefaultWithKey:NSStringFromClass([self class])]; //测试用，可每次都执行
+//    [@"1" writeUserDefaultWithKey:NSStringFromClass([self class])];
     UIView *view = [[self.view getKeyWindow] viewWithTag:1000];
     [view removeFromSuperview];
 }

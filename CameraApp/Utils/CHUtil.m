@@ -51,3 +51,47 @@ NSString * const ConfigFileName = @"config.strings" ;
     
 }
 @end
+
+
+@implementation CHUtil (Version)
+
++ (BOOL)isVersionString:(NSString *)version newerToString:(NSString *)another
+{
+    if (!version) {
+        version = @"0.0.0" ;
+    }
+    
+    if (!another) {
+        another = @"0.0.0" ;
+    }
+    
+    NSMutableArray * array1 = [[version componentsSeparatedByString:@"."] mutableCopy];
+    NSMutableArray * array2 = [[another componentsSeparatedByString:@"."] mutableCopy];
+    
+    if (array1.count <= array2.count) {
+        NSInteger diff = array2.count - array1.count ;
+        for (int i = 0 ; i < diff ; i ++ ) {
+            [array1 addObject:@(0)] ;
+        }
+    }else{
+        NSInteger diff = array1.count - array2.count ;
+        for (int i = 0 ; i < diff ; i ++ ) {
+            [array2 addObject:@"0"] ;
+        }
+    }
+    
+    //出错了.
+    if (array1.count != array2.count)    return NO ;
+    
+    for (NSInteger i = 0 ; i < array1.count ; i ++ ) {
+        NSInteger first  = [array1[i] integerValue] ;
+        NSInteger second = [array2[i] integerValue] ;
+
+        if (first != second) {
+            return first > second ? YES : NO ;
+        }
+    }
+    return NO ;
+}
+
+@end

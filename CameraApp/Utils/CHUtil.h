@@ -28,4 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@interface CHUtil (Version)
+
++ (BOOL)isVersionString:(NSString *)version1 newerToString:(NSString *)another;
+
+@end
+
 NS_ASSUME_NONNULL_END

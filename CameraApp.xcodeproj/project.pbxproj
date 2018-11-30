@@ -405,7 +405,6 @@
 		C98ED7442192D35A0017A479 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C994193E21A3B3050010524D /* WebviewController */,
 				C994193C21A3B2E00010524D /* NavigationController */,
 				C9479E7821AD2E6E00878508 /* ApplicationOpenUrlHandle.h */,
 				C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */,
@@ -546,13 +545,6 @@
 				C994194321A3B5940010524D /* CHNavigationController.m */,
 			);
 			path = NavigationController;
-			sourceTree = "<group>";
-		};
-		C994193E21A3B3050010524D /* WebviewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WebviewController;
 			sourceTree = "<group>";
 		};
 		C994194B21A3E4610010524D /* Debug_Development */ = {
