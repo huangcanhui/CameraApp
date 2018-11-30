@@ -116,7 +116,7 @@
 //    [self addDebugDevelopmentButton];
 //#endif
     //添加引导图
-    [self mongolianLayer];
+//    [self mongolianLayer];
 }
 
 #pragma mark - 相机设置

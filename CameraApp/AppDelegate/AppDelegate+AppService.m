@@ -10,6 +10,9 @@
 
 #import "CameraHomeViewController.h"
 #import "ApplicationOpenUrlHandle.h"
+#import "CHADPageView.h"
+#import "CHNavigationController.h"
+#import "CHWebBaseViewController.h"
 
 #import <MTA.h>
 #import <MTAConfig.h>
@@ -58,6 +61,16 @@
 - (void)checkAppUpdate
 {
     
+}
+
+#pragma mark - 是否展示广告
+- (void)showADPageView
+{
+    CHADPageView *adView = [[CHADPageView alloc] initWithFrame:[UIScreen mainScreen].bounds withTapBlock:^{
+        CHNavigationController *naviVC = [[CHNavigationController alloc] initWithRootViewController:[[CHWebBaseViewController alloc] initWithUrl:@"http://www.baidu.com"]];
+        [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:naviVC animated:YES completion:nil];
+    }];
+    adView = adView;
 }
 
 - (UIViewController *)getCurrentVC

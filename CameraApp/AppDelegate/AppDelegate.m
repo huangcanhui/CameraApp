@@ -19,11 +19,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
     //初始化window
-//    [self initWindow];
     [self initWindow];
     
     //初始化App服务
     [self initService];
+    //广告
+//    [self showADPageView];
     
     return YES;
 }

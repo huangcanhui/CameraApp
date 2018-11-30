@@ -13,6 +13,11 @@
 #define kApplication   [UIApplication sharedApplication]
 #define kAppWindow     [UIApplication sharedApplication].delegate.window
 #define kAppDelegate   [AppDelegate shareAppDelegate]
+#define kUserDefaults       [NSUserDefaults standardUserDefaults]
+
+#ifndef kiOS9Later
+#define kiOS9Later ([[[UIDevice currentDevice] systemVersion] floatValue] >=9.0 ? YES : NO)
+#endif
 
 //十六进制的颜色值
 #define HexColor(rgbValue) ([UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0])

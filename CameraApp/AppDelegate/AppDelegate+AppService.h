@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)initWindow;
 /**
+ * 展示广告功能
+ */
+- (void)showADPageView;
+/**
  * 当前顶层控制器
  */
 - (UIViewController *)getCurrentVC;
