@@ -31,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 将秒换成日期（以秒为单位）
  */
 + (NSString *)getDateWithSecond:(NSString *)second;
+/**
+ * 将日期换成时间戳
+ */
++ (NSString *)timeSwitchTimestamp:(NSString *)dateString;
 @end
 
 NS_ASSUME_NONNULL_END

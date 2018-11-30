@@ -64,10 +64,15 @@
 //获取主标题
 - (NSString *)titleShowString:(NSString *)pictime
 {
-    NSString *currentTime = [CHTime getNowTimeTimestamp2];
+    NSString *currentTime = [CHTime getTimeWithDateFormat];
+    NSArray *array = [currentTime componentsSeparatedByString:@" "];
+    NSString *newTime = [NSString stringWithFormat:@"%@ 23:59:59", array[0]]; //今天最后一秒的时间戳
     
-    float plus = [currentTime floatValue] - [pictime floatValue];
-    
+    NSString *todayTimesStamp = [CHTime timeSwitchTimestamp:newTime]; //今天
+    float plus = [todayTimesStamp floatValue] - [pictime floatValue];
+
+//    float yesterdayTimeStamp = [todayTimesStamp floatValue] - 24 * 60 * 60; //昨天
+//    float beforeYesterdayTimeStamp = [todayTimesStamp floatValue] - 2 * 24 * 60 * 60; //前天
     if (plus < 24 * 60 * 60) { //显示今天
         return @"今天";
     } else if (plus < 24 * 60 * 60 * 2) { //昨天
