@@ -13,4 +13,9 @@
  */
 #define wechatAppID @""
 
+/**
+ * 腾讯统计的AppKey
+ */
+#define  MTAKey @"IRHJ851ZQ7WF"
+
 #endif /* ThirdPartyMacros_h */

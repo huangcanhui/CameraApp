@@ -158,8 +158,11 @@
         CHPhotoLibraryViewController *photoVc = [CHPhotoLibraryViewController new];
         photoVc.type = enterTypeOnPhotoLibrary;
         photoVc.moment = person.photoTime;
+        weakSelf(wself);
         photoVc.reloadViewController = ^{
-            
+            [wself.removeArrayM removeAllObjects];
+            wself.dataSource = nil;
+            [wself.collectionView reloadData];
         };
         [self.navigationController pushViewController:photoVc animated:YES];
     }

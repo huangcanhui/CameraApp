@@ -141,6 +141,7 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.photoBrowser.removeArray = @[[NSString stringWithFormat:@"%ld", self.indexPicture]];
                         [MBProgressHUD showSuccessMessage:@"删除成功"];
+                        self.indexPicture -= 1;
                     });
                 }
             }

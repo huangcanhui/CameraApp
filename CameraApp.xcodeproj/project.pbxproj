@@ -60,6 +60,8 @@
 		C994196821A4FE3E0010524D /* CHTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196721A4FE3E0010524D /* CHTipsViewController.m */; };
 		C994196B21A5087A0010524D /* CHSpringView.m in Sources */ = {isa = PBXBuildFile; fileRef = C994196A21A5087A0010524D /* CHSpringView.m */; };
 		C9A0872B21AFE67C0042FFB2 /* CHBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A0872A21AFE67C0042FFB2 /* CHBorderButton.m */; };
+		C9A0872F21B0C8DB0042FFB2 /* UpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A0872E21B0C8DB0042FFB2 /* UpdateModel.m */; };
+		C9A0873221B0CEDB0042FFB2 /* CHAppVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A0873121B0CEDB0042FFB2 /* CHAppVersionInfo.m */; };
 		C9C0567921A69CF600FE6160 /* CHPhotoLibraryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C0567821A69CF600FE6160 /* CHPhotoLibraryListViewController.m */; };
 		C9C0569221A7D0A900FE6160 /* CHBrowserBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C0569121A7D0A900FE6160 /* CHBrowserBottomView.m */; };
 		C9E5222721A68E8A008CF74E /* CHImageLibraryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E5222621A68E8A008CF74E /* CHImageLibraryButton.m */; };
@@ -195,6 +197,10 @@
 		C994196A21A5087A0010524D /* CHSpringView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHSpringView.m; sourceTree = "<group>"; };
 		C9A0872921AFE67C0042FFB2 /* CHBorderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBorderButton.h; sourceTree = "<group>"; };
 		C9A0872A21AFE67C0042FFB2 /* CHBorderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHBorderButton.m; sourceTree = "<group>"; };
+		C9A0872D21B0C8DB0042FFB2 /* UpdateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateModel.h; sourceTree = "<group>"; };
+		C9A0872E21B0C8DB0042FFB2 /* UpdateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateModel.m; sourceTree = "<group>"; };
+		C9A0873021B0CEDB0042FFB2 /* CHAppVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHAppVersionInfo.h; sourceTree = "<group>"; };
+		C9A0873121B0CEDB0042FFB2 /* CHAppVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHAppVersionInfo.m; sourceTree = "<group>"; };
 		C9C0567721A69CF600FE6160 /* CHPhotoLibraryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPhotoLibraryListViewController.h; sourceTree = "<group>"; };
 		C9C0567821A69CF600FE6160 /* CHPhotoLibraryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHPhotoLibraryListViewController.m; sourceTree = "<group>"; };
 		C9C0569021A7D0A900FE6160 /* CHBrowserBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBrowserBottomView.h; sourceTree = "<group>"; };
@@ -368,6 +374,7 @@
 		C98ED7422192D3080017A479 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C9A0872C21B0C88C0042FFB2 /* Update */,
 				C994194B21A3E4610010524D /* Debug_Development */,
 				C98ED7482192D4820017A479 /* Home */,
 			);
@@ -560,6 +567,17 @@
 				C994195521A3E5E50010524D /* CameraHomeViewController+Debug_DevelopmentViewController.m */,
 			);
 			path = Debug_Development;
+			sourceTree = "<group>";
+		};
+		C9A0872C21B0C88C0042FFB2 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				C9A0872D21B0C8DB0042FFB2 /* UpdateModel.h */,
+				C9A0872E21B0C8DB0042FFB2 /* UpdateModel.m */,
+				C9A0873021B0CEDB0042FFB2 /* CHAppVersionInfo.h */,
+				C9A0873121B0CEDB0042FFB2 /* CHAppVersionInfo.m */,
+			);
+			path = Update;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -775,6 +793,7 @@
 				C97338C82192CF810016B440 /* AppDelegate.m in Sources */,
 				C919BB1E21A660E600AE9E36 /* JQFMDB.m in Sources */,
 				C95E688321A7F9FA00CE5790 /* LLPhotoBrowser.m in Sources */,
+				C9A0873221B0CEDB0042FFB2 /* CHAppVersionInfo.m in Sources */,
 				C919BB1C21A660E600AE9E36 /* FMDatabasePool.m in Sources */,
 				C994194421A3B5940010524D /* CHNavigationController.m in Sources */,
 				C9479E7D21AD2FD000878508 /* ShareManager.m in Sources */,
@@ -793,6 +812,7 @@
 				C9E5222721A68E8A008CF74E /* CHImageLibraryButton.m in Sources */,
 				C919BB1921A660E600AE9E36 /* FMDatabaseQueue.m in Sources */,
 				C994196B21A5087A0010524D /* CHSpringView.m in Sources */,
+				C9A0872F21B0C8DB0042FFB2 /* UpdateModel.m in Sources */,
 				C994195321A3E5A50010524D /* DebugViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

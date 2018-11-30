@@ -60,8 +60,9 @@
         coverView.tag = 1000;
         [[coverView getKeyWindow] addSubview:coverView];
         
-        CHBorderButton *getButton = [[CHBorderButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(coverView.bounds) / 2, 300, 200, 50)];
-        [getButton setTitle:@"知道了" forState:UIControlStateNormal];
+        CHBorderButton *getButton = [[CHBorderButton alloc] initWithFrame:CGRectMake(0, 300, 200, 50)];
+        getButton.center = CGPointMake(CGRectGetWidth(coverView.bounds) / 2, CGRectGetHeight(coverView.bounds) / 2 + 200);
+        [getButton setTitle:@"测试引导页面" forState:UIControlStateNormal];
         [getButton setTitleColor:HexColor(0xffffff) forState:UIControlStateNormal];
         getButton.borderColor = HexColor(0xffffff);
         getButton.borderWidth = 2;
@@ -72,8 +73,8 @@
 
 - (void)getNormalViewController:(CHBorderButton *)btn
 {
-    [self removeUserDefaultWithKey:NSStringFromClass([self class])]; //测试用，可每次都执行
-//    [@"1" writeUserDefaultWithKey:NSStringFromClass([self class])];
+//    [self removeUserDefaultWithKey:NSStringFromClass([self class])]; //测试用，可每次都执行
+    [@"1" writeUserDefaultWithKey:NSStringFromClass([self class])];
     UIView *view = [[self.view getKeyWindow] viewWithTag:1000];
     [view removeFromSuperview];
 }

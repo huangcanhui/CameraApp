@@ -11,6 +11,9 @@
 #import "CameraHomeViewController.h"
 #import "ApplicationOpenUrlHandle.h"
 
+#import <MTA.h>
+#import <MTAConfig.h>
+
 @implementation AppDelegate (AppService)
 
 + (AppDelegate *)shareAppDelegate
@@ -23,6 +26,18 @@
     //监听用户体系
     
     //监听网络状态
+    
+   //用户统计
+    [self startTencentMTA];
+}
+
+#pragma mark - 启动腾讯统计
+- (void)startTencentMTA
+{
+    [MTA startWithAppkey:MTAKey];
+    //查看mta的工作
+    [[MTAConfig getInstance] setDebugEnable:YES];
+    
 }
 
 - (void)initWindow

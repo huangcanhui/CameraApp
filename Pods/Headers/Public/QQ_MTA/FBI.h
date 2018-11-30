@@ -1,0 +1,1 @@
+../../../QQ_MTA/MTA/plugin/fbi/FBI.h
