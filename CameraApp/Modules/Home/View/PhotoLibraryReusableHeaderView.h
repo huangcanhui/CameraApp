@@ -20,6 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
  * 图片数量
  */
 @property (nonatomic, assign)NSInteger count;
+/**
+ * 是否出现按钮
+ */
+@property (nonatomic, assign)BOOL isShowButton;
+/**
+ * 选中及取消选中的回调
+ */
+@property (nonatomic, copy)void (^selectedAndUnselectedSection)(BOOL isSelect, UIButton *btn);
 
 @end
 

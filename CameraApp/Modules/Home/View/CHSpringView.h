@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger, CameraStatus) {
     cameraStatusHightLight = 0, //可以拍照状态
     cameraStatusNormal , //不可以拍照状态
+    cameraStatusMongolia , //出现蒙层
 };
 
 NS_ASSUME_NONNULL_BEGIN

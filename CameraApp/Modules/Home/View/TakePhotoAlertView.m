@@ -7,6 +7,7 @@
 //
 
 #import "TakePhotoAlertView.h"
+#import <UIImage+GIF.h>
 
 @interface  TakePhotoAlertView()
 /**
@@ -17,6 +18,12 @@
  * 横屏
  */
 @property (nonatomic, strong)UILabel *horiLabel;
+/**
+ * 蒙层
+ */
+@property (nonatomic, strong)UIView *mongonlianView;
+@property (nonatomic, strong)UIImageView *mongoImageView;
+@property (nonatomic, strong)UIImageView *otherImageView;
 
 @property (nonatomic, assign)CGRect rect;
 
@@ -64,8 +71,22 @@
         self.horiLabel.hidden = YES;
         if (85 <= -zThtea && -zThtea <= 95) {
             self.verticalLabel.hidden = YES;
-        } else {
+            [[self.mongonlianView getKeyWindow] removeFromSuperview];
+            [self.mongonlianView removeFromSuperview];
+        } else if (60 <= -zThtea && -zThtea <= 120) {
             self.verticalLabel.hidden = NO;
+            [[self.mongonlianView getKeyWindow] removeFromSuperview];
+            [self.mongonlianView removeFromSuperview];
+        } else if (50 <= -zThtea && -zThtea <= 130){
+            self.verticalLabel.hidden = YES;
+            [self.mongoImageView removeFromSuperview];
+            [[self.mongonlianView getKeyWindow] addSubview:self.mongonlianView];
+            [self.mongonlianView addSubview:self.otherImageView];
+        } else {
+            self.verticalLabel.hidden = YES;
+            [self.otherImageView removeFromSuperview];
+            [[self.mongonlianView getKeyWindow] addSubview:self.mongonlianView];
+            [self.mongonlianView addSubview:self.mongoImageView];
         }
     } else { //横屏
         self.verticalLabel.hidden = YES;
@@ -75,6 +96,43 @@
             self.horiLabel.hidden = NO;
         }
     }
+}
+
+- (UIView *)mongonlianView
+{
+    if (!_mongonlianView) {
+        _mongonlianView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _mongonlianView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
+    }
+    return _mongonlianView;
+}
+
+- (UIImageView *)mongoImageView
+{
+    if (!_mongoImageView) {
+        _mongoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 - 50, 50, 85)];
+        NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:2];
+        for (int i = 0; i < 2; i++) {
+            NSString *string = [NSString stringWithFormat:@"%d", 40 + i];
+            UIImage *image = [UIImage imageNamed:string];
+            [imageArray addObject:image];
+        }
+        _mongoImageView.contentMode = UIViewContentModeBottom;
+        _mongoImageView.animationImages = imageArray;
+        _mongoImageView.animationDuration = 1;
+        [_mongoImageView startAnimating];
+    }
+    return _mongoImageView;
+}
+
+- (UIImageView *)otherImageView
+{
+    if (!_otherImageView) {
+        _otherImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 105, SCREEN_HEIGHT / 2 - 145, 210, 290)];
+        _otherImageView.image = [UIImage imageNamed:@"takePhoto_tips"];
+        _otherImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _otherImageView;
 }
 
 

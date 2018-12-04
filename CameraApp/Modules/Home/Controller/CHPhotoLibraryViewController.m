@@ -77,7 +77,6 @@
     if (![self.moment isBlank]) {
         [overArrayM containsObject:self.moment];
         index = [overArrayM indexOfObject:self.moment];
-        NSLog(@"%ld", index);
     } else {
         index = arrayM.count - 1;
     }

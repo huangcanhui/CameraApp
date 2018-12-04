@@ -77,7 +77,6 @@
     [self.view addSubview:self.collectionView];
     
     //注册头尾视图和cell
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"imageList"];
     [self.collectionView registerClass:[PhotoListCollectionViewCell class] forCellWithReuseIdentifier:@"imageList"];
     [self.collectionView registerClass:[PhotoLibraryReusableHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:PhotoLibraryReusableHeaderViewIdentifier];
 }
@@ -99,11 +98,6 @@
     return CGSizeMake(itemW, itemW);
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-//{
-//    return CGSizeMake(SCREEN_WIDTH, 10);
-//}
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     return CGSizeMake(SCREEN_WIDTH, 40);
@@ -116,6 +110,14 @@
     Personal *person = array[0];
     header.person = person;
     header.count = array.count;
+    header.isShowButton = _isAllowEdit;
+    header.selectedAndUnselectedSection = ^(BOOL isSelect, UIButton * btn) {
+        if (isSelect == YES) {
+            [self selectedPictureArray:collectionView indexPath:indexPath];
+        } else {
+            [self unSelectedpictureArray:collectionView indexPath:indexPath];
+        }
+    };
     return header;
 }
 
@@ -153,7 +155,6 @@
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.isSelect = YES;
         [self.removeArrayM addObject:person.photoTime];
-        NSLog(@"将要添加:%@", self.removeArrayM);
     } else {
         CHPhotoLibraryViewController *photoVc = [CHPhotoLibraryViewController new];
         photoVc.type = enterTypeOnPhotoLibrary;
@@ -177,12 +178,30 @@
         for (NSString *time in self.removeArrayM) {
             if ([person.photoTime isEqualToString:time]) {
                 [self.removeArrayM removeObject:time];
-                NSLog(@"将要移除:%@", self.removeArrayM);
                 break;
             }
         }
 
     }
+}
+
+#pragma mark - 批量选中图片
+- (void)selectedPictureArray:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath
+{
+    NSArray *array = self.dataSource[indexPath.section];
+    for (int i = 0; i < array.count; i++) {
+        PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.isSelect = YES;
+        Personal *person = array[i];
+        [self.removeArrayM addObject:person.photoTime];
+        NSLog(@"%@", self.removeArrayM);
+    }
+}
+
+#pragma mark - 批量取消选中图片
+- (void)unSelectedpictureArray:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 #pragma mark - 编辑按钮的点击事件

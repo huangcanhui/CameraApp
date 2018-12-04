@@ -379,6 +379,7 @@
 				C919BB0921A660CF00AE9E36 /* ThrityPart */,
 				C98ED762219565980017A479 /* Category */,
 				C98ED7432192D31F0017A479 /* Utils */,
+				C9E548F621B631DF006A43E8 /* dataFiles */,
 				C98ED7422192D3080017A479 /* Modules */,
 				C98ED7462192D3BF0017A479 /* Support File */,
 				C97338D42192CF830016B440 /* Info.plist */,
@@ -604,6 +605,13 @@
 				C9A0873121B0CEDB0042FFB2 /* CHAppVersionInfo.m */,
 			);
 			path = Update;
+			sourceTree = "<group>";
+		};
+		C9E548F621B631DF006A43E8 /* dataFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = dataFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

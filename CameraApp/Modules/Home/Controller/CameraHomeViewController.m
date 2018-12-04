@@ -204,10 +204,10 @@
     weakSelf(wself);
     self.springView.getAngleToChangeCameraButtonStatus = ^(CameraStatus status) {
         if (status == cameraStatusHightLight) { //可拍照状态
-            [wself.takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_select"] forState:UIControlStateNormal];
+            [wself.takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_testse"] forState:UIControlStateNormal];
             wself.takePhotoButton.userInteractionEnabled = YES;
         } else if (status == cameraStatusNormal) { //不可拍照状态
-            [wself.takePhotoButton setImage:[UIImage imageNamed:@"takePhoto"] forState:UIControlStateNormal];
+            [wself.takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_testun"] forState:UIControlStateNormal];
             wself.takePhotoButton.userInteractionEnabled = NO;
         }
     };
@@ -298,7 +298,7 @@
 {
     if (!_viewContainer) {
         _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0, kTabBarHeight, SCREEN_WIDTH, 4 * SCREEN_WIDTH / 3)];
-        _viewContainer.backgroundColor = [UIColor redColor];
+        _viewContainer.backgroundColor = [UIColor clearColor];
 //        _viewContainer.center = CGPointMake(CGRectGetWidth(self.view.bounds) / 2, CGRectGetHeight(self.view.bounds) / 2);
         [self.view addSubview:_viewContainer];
     }
@@ -321,7 +321,7 @@
     if (!_takePhotoButton) {
         _takePhotoButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 64)];
         _takePhotoButton.center = CGPointMake(CGRectGetWidth(self.bottomView.bounds) / 2, CGRectGetHeight(self.bottomView.bounds) / 2);
-        [_takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_select"] forState:UIControlStateNormal];
+        [_takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_testse"] forState:UIControlStateNormal];
         [_takePhotoButton addTarget:self action:@selector(takePhotoButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _takePhotoButton;

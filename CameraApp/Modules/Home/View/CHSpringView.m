@@ -51,38 +51,44 @@ static CGFloat lineViewHeight = 2;
 - (void)getGravityX:(double)x gravityY:(double)y gravity:(double)z
 {
     double zThtea = atan2(z, sqrt(x * x + y * y)) / M_PI * (-90) * 2 - 90; //手机与水平面的夹角
+//    NSLog(@"%f", z);
     CameraStatus status = cameraStatusHightLight;
     if (fabs(y) > fabs(x)) { //竖屏
         _lineView.frame = CGRectMake(self.rect.size.width / 2 - 16, self.rect.size.height / 2 - lineViewHeight / 2, 32, lineViewHeight);
-        _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 100, 20, -z * 100);
+//        _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 100, 20, -z * 100);
         if (85 <= -zThtea && -zThtea <= 95) {
             _lineView.backgroundColor = [UIColor greenColor];
             _verticalView.backgroundColor = [UIColor greenColor];
+            _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 400, 20, -z * 400);
             status = cameraStatusHightLight;
         } else if (60 <= -zThtea && -zThtea <= 120) {
             _lineView.backgroundColor = [UIColor redColor];
             _verticalView.backgroundColor = [UIColor redColor];
+            _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 80 - 30, 20, -z * 80 + 30);
             status = cameraStatusNormal;
         } else {
-            _lineView.backgroundColor = [UIColor blueColor];
-            _verticalView.backgroundColor = [UIColor blueColor];
-            status = cameraStatusNormal;
+            
+            _lineView.backgroundColor = KClearColor;
+            _verticalView.backgroundColor = KClearColor;
+            status = cameraStatusMongolia;
         }
     } else { //横屏
         _lineView.frame = CGRectMake(self.rect.size.width / 2 - lineViewHeight / 2, self.rect.size.height / 2 - 16, lineViewHeight, 32);
-        _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 100, self.rect.size.height / 2 - 10, z * 100, 20);
+//        _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 100, self.rect.size.height / 2 - 10, z * 100, 20);
         if (85 <= -zThtea && -zThtea <= 95) {
             _lineView.backgroundColor = [UIColor greenColor];
             _verticalView.backgroundColor = [UIColor greenColor];
+            _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 400, self.rect.size.height / 2 - 10, z * 400, 20);
             status = cameraStatusHightLight;
         } else if (60 <= -zThtea && -zThtea <= 120) {
             _lineView.backgroundColor = [UIColor redColor];
             _verticalView.backgroundColor = [UIColor redColor];
+            _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 100, self.rect.size.height / 2 - 10, z * 100, 20);
             status = cameraStatusNormal;
         } else {
-            _lineView.backgroundColor = [UIColor blueColor];
-            _verticalView.backgroundColor = [UIColor blueColor];
-            status = cameraStatusNormal;
+            _lineView.backgroundColor = KClearColor;
+            _verticalView.backgroundColor = KClearColor;
+            status = cameraStatusMongolia;
         }
     }
     if (self.getAngleToChangeCameraButtonStatus) {

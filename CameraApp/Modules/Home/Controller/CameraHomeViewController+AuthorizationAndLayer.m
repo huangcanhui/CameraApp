@@ -10,6 +10,7 @@
 #import "ECAuthorizationTools.h"
 #import "UIViewController+AlertViewAndActionSheet.h"
 #import "CHBorderButton.h"
+#import <UIImage+GIF.h>
 
 @implementation CameraHomeViewController (AuthorizationAndLayer)
 
@@ -78,5 +79,6 @@
     UIView *view = [[self.view getKeyWindow] viewWithTag:1000];
     [view removeFromSuperview];
 }
+
 
 @end

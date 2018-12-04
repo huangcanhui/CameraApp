@@ -15,6 +15,9 @@
 //副标题
 @property (nonatomic, strong)UILabel *subTitle;
 @property (nonatomic, strong)UILabel *timeTitle;
+//选中按钮
+@property (nonatomic, strong)UIButton *button;
+
 @end
 
 @implementation PhotoLibraryReusableHeaderView
@@ -72,6 +75,40 @@
     subTitle.font = [UIFont systemFontOfSize:11];
     subTitle.textColor = HexColor(0xffffff);
     [self addSubview:subTitle];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 80, 0, 80, 40)];
+    _button = btn;
+    [btn setTitle:@"全选" forState:UIControlStateNormal];
+    [btn setTitleColor:HexColor(0x007aff) forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+    btn.hidden = YES;
+    [self addSubview:btn];
+}
+
+- (void)clickBtn:(UIButton *)btn
+{
+    if ([btn.titleLabel.text isEqualToString:@"全选"]) { //选中
+        [btn setTitle:@"取消全选" forState:UIControlStateNormal];
+        if (self.selectedAndUnselectedSection) {
+            self.selectedAndUnselectedSection(YES, btn);
+        }
+    } else { //取消选中
+        [btn setTitle:@"全选" forState:UIControlStateNormal];
+        if (self.selectedAndUnselectedSection) {
+            self.selectedAndUnselectedSection(NO, btn);
+        }
+    }
+}
+
+- (void)setIsShowButton:(BOOL)isShowButton
+{
+    _isShowButton = isShowButton ? isShowButton : NO;
+    if (_isShowButton == YES) {
+        _button.hidden = NO;
+    } else {
+        _button.hidden = YES;
+    }
 }
 
 @end
