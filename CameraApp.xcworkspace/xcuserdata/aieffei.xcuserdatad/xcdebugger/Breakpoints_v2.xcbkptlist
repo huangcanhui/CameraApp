@@ -440,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
-            timestampString = "565669662.237931"
+            timestampString = "565691997.218966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
             landmarkName = "-takePhotoButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -456,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
-            timestampString = "565669662.238018"
+            timestampString = "565691997.219081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "-takePhotoButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -516,16 +516,143 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CameraApp/Modules/Home/Controller/CHPhotoLibraryListViewController.m"
+            timestampString = "565691997.219316"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "-pickDataToAddRemoveArray:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
-            timestampString = "565669662.238237"
+            timestampString = "565691997.219381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "-viewWillDisappear:"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-handleDeviceMotion:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CameraHomeViewController handleDeviceMotion:]"
+                  moduleName = "CameraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aieffei/Desktop/CameraApp/CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+                  timestampString = "565690629.0678459"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "316">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[CameraHomeViewController handleDeviceMotion:]_block_invoke"
+                  moduleName = "CameraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aieffei/Desktop/CameraApp/CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+                  timestampString = "565690629.074477"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "CameraApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aieffei/Desktop/CameraApp/CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+                  timestampString = "565690629.077956"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+            timestampString = "565691997.2194459"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-handleDeviceMotion:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+            timestampString = "565691997.219506"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "-handleViewScope"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+            timestampString = "565691997.219558"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "-handleViewScope"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+            timestampString = "565691997.219612"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "-handleViewScope"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

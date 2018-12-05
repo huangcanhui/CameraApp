@@ -44,11 +44,12 @@
 @property (nonatomic, strong)UIView *bottomView; //拍照按钮图层
 @property (nonatomic, strong)UIButton *takePhotoButton;//拍照按钮
 @property (nonatomic, strong)UIButton *tutorialButton; //引导按钮
+@property (nonatomic, strong)UIButton *bottomNormalButton; //切换成正常拍照按钮
 @property (nonatomic, strong)CHSpringView *springView; //弹簧视图
 @property (nonatomic, strong)TakePhotoAlertView *alertView; //弹框提醒
 @property (nonatomic, strong)CHImageLibraryButton *imageLibraryButton; //图片视图
 @property (nonatomic, assign)BOOL isnewPhoto; //是否新拍摄照片
-//@property (nonatomic, strong)UIVisualEffectView *effectView;
+
 @end
 
 @implementation CameraHomeViewController
@@ -56,27 +57,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //隐藏导航条
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
     [self startMotionManager];
-    
     [self.captureSession startRunning];
-    
-    self.alertView.hidden = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    //将导航条显示
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-    
     [self.captureSession stopRunning];
-    
     [self.motionManager stopDeviceMotionUpdates];
-
-    self.alertView.hidden = YES;
 }
 
 - (void)viewDidLayoutSubviews
@@ -105,7 +94,7 @@
     
     [self.bottomView addSubview:self.takePhotoButton];
     
-    [self.bottomView addSubview:self.tutorialButton];
+    [self.bottomView addSubview:self.bottomNormalButton];
     
     [self.bottomView addSubview:self.imageLibraryButton];
     
@@ -114,6 +103,8 @@
     [self.viewContainer addSubview:self.alertView];
     
     [self createJQFMDBData];
+    
+    [self initNavigationView];
     
 //#ifdef DEBUG
 //    [self addDebugDevelopmentButton];
@@ -292,7 +283,6 @@
     ImageObject *obj = [[ImageObject alloc] init];
     CGSize size = [obj sizeOfRotationAngle:_deviceAngle FromSize:containerLayer.bounds.size deviceOrientation:_deviceOrientation];
     maskLayer.bounds = CGRectMake(0, 0, size.width, size.height);
-//    self.effectView.frame = CGRectMake(0, 0, size.width, size.height);
 }
 
 #pragma mark - LAZY
@@ -300,9 +290,8 @@
 - (UIView *)viewContainer
 {
     if (!_viewContainer) {
-        _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0, kTabBarHeight, SCREEN_WIDTH, 4 * SCREEN_WIDTH / 3)];
+        _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 4 * SCREEN_WIDTH / 3)];
         _viewContainer.backgroundColor = [UIColor clearColor];
-//        _viewContainer.center = CGPointMake(CGRectGetWidth(self.view.bounds) / 2, CGRectGetHeight(self.view.bounds) / 2);
         [self.view addSubview:_viewContainer];
     }
     return _viewContainer;
@@ -312,7 +301,7 @@
 - (UIView *)bottomView
 {
     if (!_bottomView) {
-        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.viewContainer.ch_bottom, SCREEN_WIDTH, SCREEN_HEIGHT - self.viewContainer.ch_height - kTabBarHeight)];
+        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.viewContainer.ch_bottom, SCREEN_WIDTH, SCREEN_HEIGHT - self.viewContainer.ch_height)];
         _bottomView.backgroundColor = [UIColor blackColor];
     }
     return _bottomView;
@@ -322,8 +311,8 @@
 - (UIButton *)takePhotoButton
 {
     if (!_takePhotoButton) {
-        _takePhotoButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 64)];
-        _takePhotoButton.center = CGPointMake(CGRectGetWidth(self.bottomView.bounds) / 2, CGRectGetHeight(self.bottomView.bounds) / 2);
+        _takePhotoButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kRealValue(64), kRealValue(64))];
+        _takePhotoButton.center = CGPointMake(CGRectGetWidth(self.bottomView.bounds) / 2, CGRectGetHeight(self.bottomView.bounds) / 2 - kRealValue(30));
         [_takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_testse"] forState:UIControlStateNormal];
         [_takePhotoButton addTarget:self action:@selector(takePhotoButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -350,7 +339,7 @@
                 image = [obj imageByStraightenImage:image andAngle:angle deviceOrientation:weakSelf.deviceOrientation shouldFlipRotation:weakSelf.captureDeviceInput.device.position == AVCaptureDevicePositionFront];
             }
             [self insertDataBase:[CHTime getNowTimeTimestamp2] photoData:[CHCompressImageManager zipNSDataWithImage:image]];
-//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil); //写入系统相册
         }
         
     }];
@@ -377,7 +366,6 @@
 #pragma mark  插入数据库
 - (void)insertDataBase:(NSString *)times photoData:(NSData *)data
 {
-    
     _imageLibraryButton.imageData = data;
     _imageLibraryButton.userInteractionEnabled = YES;
     _isnewPhoto = YES;
@@ -407,29 +395,12 @@
     });
 }
 
-#pragma mark 引导按钮
-- (UIButton *)tutorialButton
-{
-    if (!_tutorialButton) {
-        _tutorialButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
-        _tutorialButton.center = CGPointMake(self.bottomView.ch_width - 50, CGRectGetHeight(self.bottomView.bounds) / 2);
-        [_tutorialButton setImage:[UIImage imageNamed:@"home_icon_tutorial"] forState:UIControlStateNormal];
-        [_tutorialButton addTarget:self action:@selector(clickTutorualButton) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _tutorialButton;
-}
-
-- (void)clickTutorualButton
-{
-    CHTipsViewController *tipVC = [CHTipsViewController new];
-    [self.navigationController pushViewController:tipVC animated:YES];
-}
-
+#pragma mark 相册按钮
 - (CHImageLibraryButton *)imageLibraryButton
 {
     if (!_imageLibraryButton) {
         weakSelf(wself);
-        _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, 50, 50) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
+        _imageLibraryButton = [CHImageLibraryButton buttonWithFrame:CGRectMake(0, 0, kRealValue(50), kRealValue(50)) type:UIButtonTypeCustom andBlock:^(CHImageLibraryButton * button) {
             if (wself.isnewPhoto) {
                 CHPhotoLibraryViewController *photoVC = [CHPhotoLibraryViewController new];
                 photoVC.moment = @"";
@@ -446,7 +417,7 @@
                 [wself.navigationController pushViewController:listVC animated:YES];
             }
         }];
-        _imageLibraryButton.center = CGPointMake(50, CGRectGetHeight(self.bottomView.bounds) / 2);
+        _imageLibraryButton.center = CGPointMake(kRealValue(50), CGRectGetHeight(self.bottomView.bounds) / 2 - kRealValue(30));
     }
     return _imageLibraryButton;
 }
@@ -497,6 +468,63 @@
             
         }];
         [self setMotionManager:nil];
+    }
+}
+
+#pragma mark - 对导航栏进行操作
+- (void)initNavigationView
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.tutorialButton];
+}
+
+#pragma mark 引导按钮
+- (UIButton *)tutorialButton
+{
+    if (!_tutorialButton) {
+        _tutorialButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kRealValue(25), kRealValue(25))];
+        [_tutorialButton setImage:[UIImage imageNamed:@"home_icon_tutorial"] forState:UIControlStateNormal];
+        [_tutorialButton addTarget:self action:@selector(clickTutorualButton) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _tutorialButton;
+}
+
+- (void)clickTutorualButton
+{
+    CHTipsViewController *tipVC = [CHTipsViewController new];
+    [self.navigationController pushViewController:tipVC animated:YES];
+}
+
+#pragma mark - 切换正常拍照按钮
+- (UIButton *)bottomNormalButton
+{
+    if (!_bottomNormalButton) {
+        _bottomNormalButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kRealValue(35), kRealValue(35))];
+        [_bottomNormalButton setImage:[UIImage imageNamed:@"home_bottom_tutorial"] forState:UIControlStateNormal];
+        [_bottomNormalButton setImage:[UIImage imageNamed:@"home_bottom_tutorial_selected"] forState:UIControlStateSelected];
+        [_bottomNormalButton addTarget:self action:@selector(bottomViewNormalButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        _bottomNormalButton.center = CGPointMake(self.bottomView.ch_width - kRealValue(50), CGRectGetHeight(self.bottomView.bounds) / 2 - kRealValue(30));
+    }
+    return _bottomNormalButton;
+}
+
+- (void)bottomViewNormalButtonClick:(UIButton *)btn
+{
+    [btn setSelected:!btn.isSelected];
+    if (btn.selected) { //选中状态，即不需要辅助拍摄
+        [self.motionManager stopDeviceMotionUpdates];
+        self.displayLink.paused = YES;
+        self.springView.hidden = YES;
+        self.alertView.hidden = YES;
+        [self dismissHorizonalLine];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.takePhotoButton.userInteractionEnabled = YES;
+            [self.takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_testse"] forState:UIControlStateNormal];
+        });
+    } else { //未选中状态, 需要辅助拍摄
+        [self.motionManager startDeviceMotionUpdates];
+        self.displayLink.paused = NO;
+        self.springView.hidden = NO;
+        self.alertView.hidden = NO;
     }
 }
 

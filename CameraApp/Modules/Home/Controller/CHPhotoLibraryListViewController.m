@@ -154,8 +154,7 @@
     if (self.isAllowEdit == YES) {
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.isSelect = YES;
-        [self.removeArrayM addObject:person.photoTime];
-        NSLog(@"%@", self.removeArrayM);
+        [self pickDataToAddRemoveArray:person];
     } else {
         CHPhotoLibraryViewController *photoVc = [CHPhotoLibraryViewController new];
         photoVc.type = enterTypeOnPhotoLibrary;
@@ -176,12 +175,7 @@
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.isSelect = NO;
         Personal *person = self.dataSource[indexPath.section][indexPath.row];
-        for (NSString *time in self.removeArrayM) {
-            if ([person.photoTime isEqualToString:time]) {
-                [self.removeArrayM removeObject:time];
-                break;
-            }
-        }
+        [self pickDataToReduceRemoveArray:person];
     }
 }
 
@@ -194,9 +188,8 @@
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
         cell.isSelect = YES;
         Personal *person = array[i];
-        [self.removeArrayM addObject:person.photoTime];
+        [self pickDataToAddRemoveArray:person];
     }
-    NSLog(@"%@", self.removeArrayM);
 }
 
 #pragma mark - 批量取消选中图片
@@ -208,10 +201,34 @@
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
         cell.isSelect = NO;
         Personal *person = array[i];
+        [self pickDataToReduceRemoveArray:person];
+    }
+}
+
+#pragma mark - 对数据进行增加
+- (void)pickDataToAddRemoveArray:(Personal *)person
+{
+    if (self.removeArrayM.count != 0) { //数组中已经存在数据
         for (NSString *time in self.removeArrayM) {
-            if ([person.photoTime isEqualToString:time]) {
-                [self.removeArrayM removeObject:time];
-            }
+            NSLog(@"time:%@", time);
+        }
+//        for (int i = 0; i < self.removeArrayM.count; i++) {
+//            if (![person.photoTime isEqualToString:self.removeArrayM[i]]) {
+//                [self.removeArrayM addObject:person.photoTime];
+//            }
+//        }
+    } else {
+        [self.removeArrayM addObject:person.photoTime];
+    }
+}
+
+#pragma mark - 对数据进行删除
+- (void)pickDataToReduceRemoveArray:(Personal *)person
+{
+    for (NSString *time in self.removeArrayM) {
+        if ([time isEqualToString:person.photoTime]) {
+            [self.removeArrayM removeObject:person.photoTime];
+            break;
         }
     }
 }

@@ -98,7 +98,7 @@
     
     NSDate *date = [formatter dateFromString:dateString];
     
-    NSLog(@"%@", [NSNumber numberWithInteger:[date timeIntervalSince1970]]);
+//    NSLog(@"%@", [NSNumber numberWithInteger:[date timeIntervalSince1970]]);
     return [NSString stringWithFormat:@"%@", [NSNumber numberWithInteger:[date timeIntervalSince1970]]];
 }
 
