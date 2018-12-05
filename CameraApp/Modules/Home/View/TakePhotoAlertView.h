@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  * 获取水平仪的值
  */
 - (void)getGravityX:(double)x gravityY:(double)y gravity:(double)z;
+
 @end
 
 NS_ASSUME_NONNULL_END

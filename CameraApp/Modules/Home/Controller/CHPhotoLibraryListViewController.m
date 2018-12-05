@@ -155,6 +155,7 @@
         PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         cell.isSelect = YES;
         [self.removeArrayM addObject:person.photoTime];
+        NSLog(@"%@", self.removeArrayM);
     } else {
         CHPhotoLibraryViewController *photoVc = [CHPhotoLibraryViewController new];
         photoVc.type = enterTypeOnPhotoLibrary;
@@ -181,7 +182,6 @@
                 break;
             }
         }
-
     }
 }
 
@@ -190,18 +190,30 @@
 {
     NSArray *array = self.dataSource[indexPath.section];
     for (int i = 0; i < array.count; i++) {
-        PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:indexPath.section];
+        PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
         cell.isSelect = YES;
         Personal *person = array[i];
         [self.removeArrayM addObject:person.photoTime];
-        NSLog(@"%@", self.removeArrayM);
     }
+    NSLog(@"%@", self.removeArrayM);
 }
 
 #pragma mark - 批量取消选中图片
 - (void)unSelectedpictureArray:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath
 {
-    
+    NSArray *array = self.dataSource[indexPath.section];
+    for (int i = 0; i < array.count; i++) {
+        NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:indexPath.section];
+        PhotoListCollectionViewCell *cell = (PhotoListCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
+        cell.isSelect = NO;
+        Personal *person = array[i];
+        for (NSString *time in self.removeArrayM) {
+            if ([person.photoTime isEqualToString:time]) {
+                [self.removeArrayM removeObject:time];
+            }
+        }
+    }
 }
 
 #pragma mark - 编辑按钮的点击事件

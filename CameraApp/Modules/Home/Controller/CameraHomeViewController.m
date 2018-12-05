@@ -62,7 +62,8 @@
     [self startMotionManager];
     
     [self.captureSession startRunning];
-
+    
+    self.alertView.hidden = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -74,6 +75,8 @@
     [self.captureSession stopRunning];
     
     [self.motionManager stopDeviceMotionUpdates];
+
+    self.alertView.hidden = YES;
 }
 
 - (void)viewDidLayoutSubviews
@@ -206,7 +209,7 @@
         if (status == cameraStatusHightLight) { //可拍照状态
             [wself.takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_testse"] forState:UIControlStateNormal];
             wself.takePhotoButton.userInteractionEnabled = YES;
-        } else if (status == cameraStatusNormal) { //不可拍照状态
+        } else if (status == cameraStatusNormal || status == cameraStatusMongolia) { //不可拍照状态
             [wself.takePhotoButton setImage:[UIImage imageNamed:@"takePhoto_testun"] forState:UIControlStateNormal];
             wself.takePhotoButton.userInteractionEnabled = NO;
         }
@@ -471,8 +474,8 @@
 - (TakePhotoAlertView *)alertView
 {
     if (!_alertView) {
-        _alertView = [[TakePhotoAlertView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-        _alertView.center = CGPointMake(CGRectGetWidth(self.viewContainer.bounds) / 2, CGRectGetHeight(self.viewContainer.bounds) / 2);
+        CGFloat imageH = 4 * SCREEN_WIDTH / 3;
+        _alertView = [[TakePhotoAlertView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, imageH + kTabBarHeight)];
         _alertView.backgroundColor = KClearColor;
     }
     return _alertView;

@@ -296,7 +296,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/View/PhotoLibraryReusableHeaderView.m"
-            timestampString = "565604711.689836"
+            timestampString = "565667128.5092289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -376,7 +376,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CHPhotoLibraryViewController.m"
-            timestampString = "565604711.690221"
+            timestampString = "565667128.509495"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -440,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
-            timestampString = "565604711.69054"
+            timestampString = "565669662.237931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "-takePhotoButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -456,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
-            timestampString = "565604711.690645"
+            timestampString = "565669662.238018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "-takePhotoButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -510,6 +510,22 @@
             startingLineNumber = "159"
             endingLineNumber = "159"
             landmarkName = "-getAdvertisingImage"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CameraApp/Modules/Home/Controller/CameraHomeViewController.m"
+            timestampString = "565669662.238237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-viewWillDisappear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

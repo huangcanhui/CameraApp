@@ -24,9 +24,9 @@
 @property (nonatomic, strong)UIView *mongonlianView;
 @property (nonatomic, strong)UIImageView *mongoImageView;
 @property (nonatomic, strong)UIImageView *otherImageView;
+@property (nonatomic, strong)UILabel *monVerLabel;
 
 @property (nonatomic, assign)CGRect rect;
-
 @end
 
 @implementation TakePhotoAlertView
@@ -46,6 +46,7 @@
 {
     _verticalLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     _verticalLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    _verticalLabel.center = CGPointMake(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2);
     _verticalLabel.text = @"中心弹簧变绿才可以拍摄";
     _verticalLabel.textColor = HexColor(0xffffff);
     _verticalLabel.font = [UIFont systemFontOfSize:15];
@@ -71,22 +72,23 @@
         self.horiLabel.hidden = YES;
         if (85 <= -zThtea && -zThtea <= 95) {
             self.verticalLabel.hidden = YES;
-            [[self.mongonlianView getKeyWindow] removeFromSuperview];
             [self.mongonlianView removeFromSuperview];
         } else if (60 <= -zThtea && -zThtea <= 120) {
             self.verticalLabel.hidden = NO;
-            [[self.mongonlianView getKeyWindow] removeFromSuperview];
             [self.mongonlianView removeFromSuperview];
-        } else if (50 <= -zThtea && -zThtea <= 130){
+        } else if (40 <= -zThtea && -zThtea <= 140){
             self.verticalLabel.hidden = YES;
             [self.mongoImageView removeFromSuperview];
-            [[self.mongonlianView getKeyWindow] addSubview:self.mongonlianView];
+            self.monVerLabel.hidden = YES;
+            [self addSubview:self.mongonlianView];
             [self.mongonlianView addSubview:self.otherImageView];
         } else {
             self.verticalLabel.hidden = YES;
             [self.otherImageView removeFromSuperview];
-            [[self.mongonlianView getKeyWindow] addSubview:self.mongonlianView];
+            self.monVerLabel.hidden = NO;
+            [self addSubview:self.mongonlianView];
             [self.mongonlianView addSubview:self.mongoImageView];
+            [self.mongonlianView addSubview:self.monVerLabel];
         }
     } else { //横屏
         self.verticalLabel.hidden = YES;
@@ -101,7 +103,7 @@
 - (UIView *)mongonlianView
 {
     if (!_mongonlianView) {
-        _mongonlianView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _mongonlianView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.rect.size.height)];
         _mongonlianView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
     }
     return _mongonlianView;
@@ -110,14 +112,14 @@
 - (UIImageView *)mongoImageView
 {
     if (!_mongoImageView) {
-        _mongoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 - 50, 50, 85)];
+        _mongoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - kRealValue(25), SCREEN_HEIGHT / 2 - kRealValue(100), kRealValue(50), kRealValue(85))];
         NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:2];
         for (int i = 0; i < 2; i++) {
-            NSString *string = [NSString stringWithFormat:@"%d", 40 + i];
+            NSString *string = [NSString stringWithFormat:@"mon_ver_%d", i + 1];
             UIImage *image = [UIImage imageNamed:string];
             [imageArray addObject:image];
         }
-        _mongoImageView.contentMode = UIViewContentModeBottom;
+        _mongoImageView.contentMode = UIViewContentModeScaleAspectFit;
         _mongoImageView.animationImages = imageArray;
         _mongoImageView.animationDuration = 1;
         [_mongoImageView startAnimating];
@@ -128,11 +130,30 @@
 - (UIImageView *)otherImageView
 {
     if (!_otherImageView) {
-        _otherImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - 105, SCREEN_HEIGHT / 2 - 145, 210, 290)];
+        _otherImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2 - kRealValue(78), SCREEN_HEIGHT / 2 - kRealValue(150), kRealValue(157), kRealValue(218))];
         _otherImageView.image = [UIImage imageNamed:@"takePhoto_tips"];
         _otherImageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _otherImageView;
+}
+
+- (UILabel *)monVerLabel
+{
+    if (!_monVerLabel) {
+        _monVerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+        _monVerLabel.center = CGPointMake(SCREEN_WIDTH / 2, self.mongoImageView.ch_bottom + 30);
+        _monVerLabel.text = @"请保持手机竖直，不要前后倾斜";
+        _monVerLabel.textAlignment = NSTextAlignmentCenter;
+        _monVerLabel.textColor = HexColor(0xffffff);
+        _monVerLabel.font = [UIFont systemFontOfSize:14];
+    }
+    return _monVerLabel;
+}
+
+- (void)dismiss
+{
+   [[self.mongonlianView getKeyWindow] removeFromSuperview];
+   [self.mongonlianView removeFromSuperview];
 }
 
 
