@@ -7,48 +7,38 @@
 //
 
 #import "ShareManager.h"
+#import "WXApiManager.h"
 
 @implementation ShareManager
 
-+ (instancetype)shareInstance
-{
-    static ShareManager *manager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        manager = [[self alloc] init];
-        [WXApi registerApp:wechatAppID];
-    });
-    return manager;
-}
-
 + (BOOL)handleOpenUrl:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [WXApi handleOpenURL:url delegate:self];
+    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
 }
 
 + (BOOL)handleOpenUrl:(NSURL *)url
 {
-    return [WXApi handleOpenURL:url delegate:self];
+    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
 }
 
-- (void)shareContentType:(shareType)type content:(NSString *)content imageArray:(NSArray *)imageArray
++ (BOOL)sendImageData:(NSData *)imageData TagName:(NSString *)tagName MessageExt:(NSString *)messageExt Action:(NSString *)action ThumbImage:(UIImage *)thumbImage InScene:(enum WXScene)scene
 {
-//    if (type == shareTypeInSession) { //分享到好友
-//
-//    }
+    WXImageObject *imageObject = [WXImageObject object];
+    imageObject.imageData = imageData;
     WXMediaMessage *message = [WXMediaMessage message];
-    WXImageObject *object = [WXImageObject object];
+    message.title = nil;
+    message.description = nil;
+    message.mediaObject = imageObject;
+    message.messageExt = messageExt;
+    message.messageAction = action;
+    message.mediaTagName = tagName;
+    [message setThumbImage:thumbImage];
     
-}
-
-- (void)onReq:(BaseReq *)req
-{
-    
-}
-
-- (void)onResp:(BaseResp *)resp
-{
-    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = scene;
+    return [WXApi sendReq:req];
 }
 
 @end

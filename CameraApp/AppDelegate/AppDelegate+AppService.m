@@ -13,9 +13,11 @@
 #import "CHADPageView.h"
 #import "CHNavigationController.h"
 #import "CHWebBaseViewController.h"
+#import "WXApiManager.h"
 
 #import <MTA.h>
 #import <MTAConfig.h>
+#import "WXApiManager.h"
 
 @implementation AppDelegate (AppService)
 
@@ -32,6 +34,8 @@
     
    //用户统计
     [self startTencentMTA];
+    //启动微信分享
+    [self startWechatOnTimeLineAndSession];
 }
 
 #pragma mark - 启动腾讯统计
@@ -41,6 +45,16 @@
     //查看mta的工作
     [[MTAConfig getInstance] setDebugEnable:YES];
     
+}
+
+#pragma mark - 微信分享
+- (void)startWechatOnTimeLineAndSession
+{
+    [WXApi registerApp:WechatAppID enableMTA:YES];
+
+    //向微信注册支持的文件类型
+    UInt64 typeFlag = MMAPP_SUPPORT_TEXT | MMAPP_SUPPORT_PICTURE | MMAPP_SUPPORT_LOCATION | MMAPP_SUPPORT_VIDEO |MMAPP_SUPPORT_AUDIO | MMAPP_SUPPORT_WEBPAGE | MMAPP_SUPPORT_DOC | MMAPP_SUPPORT_DOCX | MMAPP_SUPPORT_PPT | MMAPP_SUPPORT_PPTX | MMAPP_SUPPORT_XLS | MMAPP_SUPPORT_XLSX | MMAPP_SUPPORT_PDF;
+    [WXApi registerAppSupportContentFlag:typeFlag];
 }
 
 - (void)initWindow
@@ -131,5 +145,6 @@
 {
     return [ApplicationOpenUrlHandle handleOpenUrl:url options:options];
 }
+
 
 @end

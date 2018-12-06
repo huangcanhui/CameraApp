@@ -11,7 +11,7 @@
 /**
  * 微信的AppID
  */
-#define wechatAppID @"wx4df6391cab8ecbf7"
+#define WechatAppID @"wx4df6391cab8ecbf7"
 
 /**
  * 腾讯统计的AppKey

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <WXApi.h>
+#import <WXApiObject.h>
 
 NS_ASSUME_NONNULL_BEGIN
 //分享类型的枚举
@@ -16,9 +16,12 @@ typedef NS_ENUM(NSInteger, shareType) {
     shareTypeInTimeLine , //分享到朋友圈
 };
 
-@interface ShareManager : NSObject<WXApiDelegate>
+@interface ShareManager : NSObject
+/**
+ * 微信分享的接口
+ */
++ (BOOL)sendImageData:(NSData *)imageData TagName:(NSString *)tagName MessageExt:(NSString *)messageExt Action:(NSString *)action ThumbImage:(UIImage *)thumbImage InScene:(enum WXScene)scene;
 
-+ (instancetype)shareInstance;
 /**
  *  处理打开的分享Url，只是简单包装
  *  @param url 回调url
@@ -26,13 +29,7 @@ typedef NS_ENUM(NSInteger, shareType) {
  */
 + (BOOL)handleOpenUrl:(NSURL *)url ;
 + (BOOL)handleOpenUrl:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation ;
-/**
- * 分享的接口调用(文字和图片的分享)
- * @param type 分享的类型
- * @param content 标题
- * @param imageArray 分享的图片数组
- */
-- (void)shareContentType:(shareType)type content:(NSString *)content imageArray:(NSArray *)imageArray;
+
 
 @end
 

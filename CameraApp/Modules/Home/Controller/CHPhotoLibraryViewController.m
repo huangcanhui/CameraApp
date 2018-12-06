@@ -12,8 +12,10 @@
 #import "CHPhotoLibraryListViewController.h"
 #import "CHBrowserBottomView.h"
 #import "LLPhotoBrowser.h"
+#import "ShareManager.h"
+#import "WXApiManager.h"
 
-@interface CHPhotoLibraryViewController ()<UIScrollViewDelegate, LLPhotoBrowserDelegate>
+@interface CHPhotoLibraryViewController ()<UIScrollViewDelegate, LLPhotoBrowserDelegate, WXApiManagerDelegate>
 /**
  * 底部的视图
  */
@@ -87,7 +89,7 @@
     [self addChildViewController:self.photoBrowser];
     
     self.dataSource = [array copy];
-    self.indexPicture = self.dataSource.count - 1;
+    self.indexPicture = index;
    
 }
 
@@ -107,14 +109,23 @@
         };
         
         _bottomView.PhotoBrowserShareTimeLineButtonClick = ^(CHBottomButton *btn) {
-            [MBProgressHUD showWarnMessage:@"朋友圈"];
+            Personal *person = wself.dataSource[wself.indexPicture];
+            [WXApiManager sharedManager].delegate = wself;
+            [ShareManager sendImageData:person.photoData TagName:@"" MessageExt:@"" Action:@"" ThumbImage:[UIImage imageNamed:@"placehold"] InScene:WXSceneTimeline];
         };
         
         _bottomView.PhotoBrowserShareSessionButtonClick = ^(CHBottomButton *btn) {
-            [MBProgressHUD showInfoMessage:@"好友"];
+            Personal *person = wself.dataSource[wself.indexPicture];
+            [WXApiManager sharedManager].delegate = wself;
+            [ShareManager sendImageData:person.photoData TagName:@"" MessageExt:@"" Action:@"" ThumbImage:[UIImage imageNamed:@"placehold"] InScene:WXSceneSession];
         };
     }
     return _bottomView;
+}
+
+- (void)managerDidRecvShowMessageReq:(ShowMessageFromWXReq *)request
+{
+    NSLog(@"微信发回的request:%@", request);
 }
 
 - (void)deletePicture

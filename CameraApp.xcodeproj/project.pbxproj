@@ -45,6 +45,7 @@
 		C97338D62192CF830016B440 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338D52192CF830016B440 /* main.m */; };
 		C97338E02192CF830016B440 /* CameraAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338DF2192CF830016B440 /* CameraAppTests.m */; };
 		C97338EB2192CF840016B440 /* CameraAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338EA2192CF840016B440 /* CameraAppUITests.m */; };
+		C98D60BE21B7D49300C5A2A9 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60BD21B7D49300C5A2A9 /* WXApiManager.m */; };
 		C98ED75B219331B60017A479 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED75A219331B60017A479 /* APIClient.m */; };
 		C98ED79D219924E60017A479 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED79C219924E60017A479 /* CHTime.m */; };
 		C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = C994193221A3A7AB0010524D /* AppDelegate+AppService.m */; };
@@ -169,6 +170,8 @@
 		C97338E62192CF840016B440 /* CameraAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97338EA2192CF840016B440 /* CameraAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraAppUITests.m; sourceTree = "<group>"; };
 		C97338EC2192CF840016B440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C98D60BC21B7D49300C5A2A9 /* WXApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
+		C98D60BD21B7D49300C5A2A9 /* WXApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
 		C98ED7522192D5730017A479 /* SystemsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemsMacros.h; sourceTree = "<group>"; };
 		C98ED7532192D5960017A479 /* ApiMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiMacros.h; sourceTree = "<group>"; };
 		C98ED7542192D5B00017A479 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -445,6 +448,8 @@
 				C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */,
 				C9479E7B21AD2FD000878508 /* ShareManager.h */,
 				C9479E7C21AD2FD000878508 /* ShareManager.m */,
+				C98D60BC21B7D49300C5A2A9 /* WXApiManager.h */,
+				C98D60BD21B7D49300C5A2A9 /* WXApiManager.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -819,6 +824,7 @@
 				C9479E7421AD163500878508 /* CHBottomButton.m in Sources */,
 				C9449F9D21B110FE00446CAD /* CHADPageView.m in Sources */,
 				C9A0872B21AFE67C0042FFB2 /* CHBorderButton.m in Sources */,
+				C98D60BE21B7D49300C5A2A9 /* WXApiManager.m in Sources */,
 				C9479E7A21AD2E6E00878508 /* ApplicationOpenUrlHandle.m in Sources */,
 				C994195921A3EEBD0010524D /* CHUtil.m in Sources */,
 				C95E689321A9430400CE5790 /* UIViewController+CH.m in Sources */,

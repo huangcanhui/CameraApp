@@ -25,6 +25,10 @@
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>美房相机</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx4df6391cab8ecbf7</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
