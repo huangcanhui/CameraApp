@@ -78,7 +78,7 @@
     int x = [[second substringToIndex:10] intValue];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:x];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     return [dateFormatter stringFromDate:date];
 }
 

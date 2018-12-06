@@ -58,16 +58,19 @@ static CGFloat lineViewHeight = 2;
         if (85 <= -zThtea && -zThtea <= 95) {
             _lineView.backgroundColor = [UIColor greenColor];
             _verticalView.backgroundColor = [UIColor greenColor];
-            _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 400, 20, -z * 400);
+            _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 300, 20, -z * 300);
+            if (89 <= -zThtea && -zThtea <= 91) {
+                _verticalView.backgroundColor = KClearColor;
+            }
             _status = cameraStatusHightLight;
         } else {
             _lineView.backgroundColor = [UIColor redColor];
             _verticalView.backgroundColor = [UIColor redColor];
             _status = cameraStatusNormal;
             if (-zThtea < 85) {
-                _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 40 - 30, 20, -z * 40 + 30);
+                _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 50 - 25, 20, -z * 50 + 25);
             } else {
-                _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 40 + 30, 20, -z * 40 - 30);
+                _verticalView.frame = CGRectMake(self.rect.size.width / 2 - 10, self.rect.size.height / 2 + z * 50 + 25, 20, -z * 50 - 25);
             }
         }
     } else { //横屏
@@ -75,16 +78,19 @@ static CGFloat lineViewHeight = 2;
         if (85 <= -zThtea && -zThtea <= 95) {
             _lineView.backgroundColor = [UIColor greenColor];
             _verticalView.backgroundColor = [UIColor greenColor];
-            _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 400, self.rect.size.height / 2 - 10, z * 400, 20);
+            _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 300, self.rect.size.height / 2 - 10, z * 300, 20);
+            if (89 <= -zThtea && -zThtea <= 91) {
+                _verticalView.backgroundColor = KClearColor;
+            }
             _status = cameraStatusHightLight;
         } else {
             _lineView.backgroundColor = [UIColor redColor];
             _verticalView.backgroundColor = [UIColor redColor];
             _status = cameraStatusNormal;
             if (-zThtea < 85) {
-                _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 40 + 30, self.rect.size.height / 2 - 10, z * 40 - 30, 20);
+                _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 50 + 25, self.rect.size.height / 2 - 10, z * 50 - 25, 20);
             } else {
-                _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 40 - 30, self.rect.size.height / 2 - 10, z * 40 + 30, 20);
+                _verticalView.frame = CGRectMake(self.rect.size.width / 2 - z * 50 - 25, self.rect.size.height / 2 - 10, z * 50 + 25, 20);
             }
         }
     }

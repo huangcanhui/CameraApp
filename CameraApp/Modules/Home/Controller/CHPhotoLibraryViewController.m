@@ -123,9 +123,13 @@
     return _bottomView;
 }
 
-- (void)managerDidRecvShowMessageReq:(ShowMessageFromWXReq *)request
+- (void)managerDidRecvMessageResponse:(SendMessageToWXResp *)response
 {
-    NSLog(@"微信发回的request:%@", request);
+    if (response.errCode == 0) { //分享成功
+        NSLog(@"分享成功");
+    } else {
+        NSLog(@"分享失败,errCode:%d", response.errCode);
+    }
 }
 
 - (void)deletePicture

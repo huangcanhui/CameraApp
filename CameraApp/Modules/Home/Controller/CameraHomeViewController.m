@@ -209,17 +209,37 @@
     if (fabs(y) >= fabs(x)){
         if (y >= 0){
             orientation = UIDeviceOrientationPortraitUpsideDown;
+            [UIView animateWithDuration:1 animations:^{
+                self.tutorialButton.transform = CGAffineTransformMakeRotation(M_PI / 180);
+                self.bottomNormalButton.transform = CGAffineTransformMakeRotation(M_PI / 180);
+                self.imageLibraryButton.transform = CGAffineTransformMakeRotation(M_PI / 180);
+            }];
         }
         else{
             orientation = UIDeviceOrientationPortrait;
+            [UIView animateWithDuration:1 animations:^{
+                self.tutorialButton.transform = CGAffineTransformMakeRotation(M_PI / 180);
+                self.bottomNormalButton.transform = CGAffineTransformMakeRotation(M_PI / 180);
+                self.imageLibraryButton.transform = CGAffineTransformMakeRotation(M_PI / 180);
+            }];
         }
     }
     else{
         if (x >= 0){
             orientation = UIDeviceOrientationLandscapeRight;
+            [UIView animateWithDuration:1 animations:^{
+                self.tutorialButton.transform = CGAffineTransformMakeRotation(-90 * M_PI / 180);
+                self.bottomNormalButton.transform = CGAffineTransformMakeRotation(-90 * M_PI / 180);
+                self.imageLibraryButton.transform = CGAffineTransformMakeRotation(-90 * M_PI / 180);
+            }];
         }
         else{
             orientation = UIDeviceOrientationLandscapeLeft;
+            [UIView animateWithDuration:1 animations:^{
+                self.tutorialButton.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+                self.bottomNormalButton.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+                self.imageLibraryButton.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+            }];
         }
     }
     if (orientation != _deviceOrientation) {

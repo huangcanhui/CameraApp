@@ -46,6 +46,8 @@
 		C97338E02192CF830016B440 /* CameraAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338DF2192CF830016B440 /* CameraAppTests.m */; };
 		C97338EB2192CF840016B440 /* CameraAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338EA2192CF840016B440 /* CameraAppUITests.m */; };
 		C98D60BE21B7D49300C5A2A9 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60BD21B7D49300C5A2A9 /* WXApiManager.m */; };
+		C98D60C121B8CF0A00C5A2A9 /* SharedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60C021B8CF0A00C5A2A9 /* SharedItem.m */; };
+		C98D60C421B8FFC100C5A2A9 /* NSNumber+mySort.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60C321B8FFC100C5A2A9 /* NSNumber+mySort.m */; };
 		C98ED75B219331B60017A479 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED75A219331B60017A479 /* APIClient.m */; };
 		C98ED79D219924E60017A479 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED79C219924E60017A479 /* CHTime.m */; };
 		C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = C994193221A3A7AB0010524D /* AppDelegate+AppService.m */; };
@@ -172,6 +174,10 @@
 		C97338EC2192CF840016B440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C98D60BC21B7D49300C5A2A9 /* WXApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
 		C98D60BD21B7D49300C5A2A9 /* WXApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
+		C98D60BF21B8CF0A00C5A2A9 /* SharedItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedItem.h; sourceTree = "<group>"; };
+		C98D60C021B8CF0A00C5A2A9 /* SharedItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedItem.m; sourceTree = "<group>"; };
+		C98D60C221B8FFC100C5A2A9 /* NSNumber+mySort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+mySort.h"; sourceTree = "<group>"; };
+		C98D60C321B8FFC100C5A2A9 /* NSNumber+mySort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+mySort.m"; sourceTree = "<group>"; };
 		C98ED7522192D5730017A479 /* SystemsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemsMacros.h; sourceTree = "<group>"; };
 		C98ED7532192D5960017A479 /* ApiMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiMacros.h; sourceTree = "<group>"; };
 		C98ED7542192D5B00017A479 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -536,6 +542,8 @@
 				C95E689521A9475300CE5790 /* PhotoTakeTimeMath.m */,
 				C9479E8021AE6D3F00878508 /* TipsModel.h */,
 				C9479E8121AE6D3F00878508 /* TipsModel.m */,
+				C98D60BF21B8CF0A00C5A2A9 /* SharedItem.h */,
+				C98D60C021B8CF0A00C5A2A9 /* SharedItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -574,6 +582,8 @@
 				C95E689B21AB946B00CE5790 /* NSString+CH.m */,
 				C95E689D21AB957800CE5790 /* NSObject+CH.h */,
 				C95E689E21AB957800CE5790 /* NSObject+CH.m */,
+				C98D60C221B8FFC100C5A2A9 /* NSNumber+mySort.h */,
+				C98D60C321B8FFC100C5A2A9 /* NSNumber+mySort.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -810,6 +820,7 @@
 				C919BB2121A6618E00AE9E36 /* Personal.m in Sources */,
 				C9479E8821AFC00C00878508 /* TakePhotoAlertView.m in Sources */,
 				C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */,
+				C98D60C121B8CF0A00C5A2A9 /* SharedItem.m in Sources */,
 				C95E689F21AB957800CE5790 /* NSObject+CH.m in Sources */,
 				C914AA2821B11B6000BE39AD /* CHRootViewController.m in Sources */,
 				C95E688521A7F9FA00CE5790 /* LLFileManager.m in Sources */,
@@ -847,6 +858,7 @@
 				C994195E21A403340010524D /* ECAuthorizationTools.m in Sources */,
 				C994195021A3E5390010524D /* Debug_DevelopmentModel.m in Sources */,
 				C919BB1B21A660E600AE9E36 /* FMDatabase.m in Sources */,
+				C98D60C421B8FFC100C5A2A9 /* NSNumber+mySort.m in Sources */,
 				C95E689621A9475300CE5790 /* PhotoTakeTimeMath.m in Sources */,
 				C994194121A3B3690010524D /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				C95E689C21AB946B00CE5790 /* NSString+CH.m in Sources */,

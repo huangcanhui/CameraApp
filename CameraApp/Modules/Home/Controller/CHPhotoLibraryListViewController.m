@@ -16,8 +16,11 @@
 #import "CHBrowserBottomView.h"
 #import "PhotoListCollectionViewCell.h"
 #import "CHPhotoLibraryViewController.h"
+#import "SharedItem.h"
+#import "ShareManager.h"
+#import "WXApiManager.h"
 
-@interface CHPhotoLibraryListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface CHPhotoLibraryListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, WXApiManagerDelegate>
 /**
  * UICollectionView
  */
@@ -208,26 +211,27 @@
 #pragma mark - 对数据进行增加
 - (void)pickDataToAddRemoveArray:(Personal *)person
 {
-    if (self.removeArrayM.count != 0) { //数组中已经存在数据
-        for (NSString *time in self.removeArrayM) {
-            NSLog(@"time:%@", time);
-        }
-//        for (int i = 0; i < self.removeArrayM.count; i++) {
-//            if (![person.photoTime isEqualToString:self.removeArrayM[i]]) {
-//                [self.removeArrayM addObject:person.photoTime];
-//            }
+    [self.removeArrayM addObject:person];
+//    if (self.removeArrayM.count != 0) { //数组中已经存在数据
+//        for (NSString *time in self.removeArrayM) {
+//            NSLog(@"time:%@", time);
 //        }
-    } else {
-        [self.removeArrayM addObject:person.photoTime];
-    }
+////        for (int i = 0; i < self.removeArrayM.count; i++) {
+////            if (![person.photoTime isEqualToString:self.removeArrayM[i]]) {
+////                [self.removeArrayM addObject:person.photoTime];
+////            }
+////        }
+//    } else {
+//        [self.removeArrayM addObject:person.photoTime];
+//    }
 }
 
 #pragma mark - 对数据进行删除
 - (void)pickDataToReduceRemoveArray:(Personal *)person
 {
-    for (NSString *time in self.removeArrayM) {
-        if ([time isEqualToString:person.photoTime]) {
-            [self.removeArrayM removeObject:person.photoTime];
+    for (Personal *obj in self.removeArrayM) {
+        if ([obj.photoTime isEqualToString:person.photoTime]) {
+            [self.removeArrayM removeObject:person];
             break;
         }
     }
@@ -270,21 +274,93 @@
     };
 
     self.bottomView.PhotoBrowserShareTimeLineButtonClick = ^(CHBottomButton *btn) {
-        [MBProgressHUD showErrorMessage:@"朋友圈"];
+        if (self.removeArrayM.count == 1) {
+            [wself sharePhotoToWechatTimeLine];
+        } else if (self.removeArrayM.count < 1) {
+            [MBProgressHUD showErrorMessage:@"请至少选择一张照片"];
+        } else {
+            [wself AlertWithTitle:@"温馨提示" message:@"微信限制,只能分享一张图片到朋友圈" andOthers:@[@"好"] animated:YES action:^(NSInteger index) {
+                
+            }];
+        }
     };
     
     self.bottomView.PhotoBrowserShareSessionButtonClick = ^(CHBottomButton *btn) {
-        [MBProgressHUD showInfoMessage:@"好友"];
+        if (self.removeArrayM.count < 1) {
+            [MBProgressHUD showErrorMessage:@"请至少选择一张照片"];
+        } else if (self.removeArrayM.count > 9) {
+            [wself AlertWithTitle:@"温馨提示" message:@"微信限制,最多只能分享9张图片" andOthers:@[@"好"] animated:YES action:^(NSInteger index) {
+                
+            }];
+        } else {
+            [wself sharePhotosToWechatSession];
+        }
     };
     [self.view addSubview:self.bottomView];
+}
+
+#pragma mark - 分享图片至朋友圈
+- (void)sharePhotoToWechatTimeLine
+{
+    Personal *obj = self.removeArrayM[0];
+    [WXApiManager sharedManager].delegate = self;
+    [ShareManager sendImageData:obj.photoData TagName:@"" MessageExt:@"" Action:@"" ThumbImage:[UIImage imageNamed:@"placehold"] InScene:WXSceneTimeline];
+}
+
+- (void)managerDidRecvMessageResponse:(SendMessageToWXResp *)response
+{
+    if (response.errCode == 0) { //分享成功
+        NSLog(@"分享成功");
+    } else {
+        NSLog(@"分享失败,errCode:%d", response.errCode);
+    }
+}
+
+#pragma mark - 分享多图给好友
+- (void)sharePhotosToWechatSession
+{
+    NSMutableArray *arrayM = [NSMutableArray array];
+    for (int i = 0; i < self.removeArrayM.count; i++) {
+        NSString *path_sandbox = NSHomeDirectory();
+        Personal *object = self.removeArrayM[i];
+        UIImage *imagerang = [UIImage imageWithData:object.photoData];
+        NSString *imagePath = [path_sandbox stringByAppendingString:[NSString stringWithFormat:@"/Documents/ShareWX%d.png", i]];
+        [UIImagePNGRepresentation(imagerang) writeToFile:imagePath atomically:YES];
+        NSURL *shareobj = [NSURL fileURLWithPath:imagePath];
+        SharedItem *item = [[SharedItem alloc] initWithData:imagerang andFile:shareobj];
+        [arrayM addObject:item];
+    }
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:arrayM applicationActivities:nil];
+    //排除不显示的应用平台
+    activityController.excludedActivityTypes = @[
+                                                 UIActivityTypePostToFacebook,
+                                                 UIActivityTypePostToTwitter,
+                                                 UIActivityTypePostToWeibo,
+                                                 UIActivityTypeMessage,
+                                                 UIActivityTypeMail,
+                                                 UIActivityTypePrint,
+                                                 UIActivityTypeCopyToPasteboard,
+                                                 UIActivityTypeAssignToContact,
+                                                 UIActivityTypeSaveToCameraRoll,
+                                                 UIActivityTypeAddToReadingList,
+                                                 UIActivityTypePostToFlickr,
+                                                 UIActivityTypePostToVimeo,
+                                                 UIActivityTypePostToTencentWeibo,
+                                                 UIActivityTypeOpenInIBooks
+                                                 ];
+    if (activityController) {
+        [self presentViewController:activityController animated:YES completion:nil];
+    }
+    
 }
 
 #pragma mark - 移除数据库中的数据
 - (void)removePhotosOnDatabase
 {
     JQFMDB *db = [JQFMDB shareDatabase];
-    for (NSString *time in self.removeArrayM) {
-        NSString *sql = [NSString stringWithFormat:@"WHERE photoTime = (SELECT max(%@) FROM user)", time];
+    for (Personal *obj in self.removeArrayM) {
+        NSString *sql = [NSString stringWithFormat:@"WHERE photoTime = (SELECT max(%@) FROM user)", obj.photoTime];
         [db jq_deleteTable:@"user" whereFormat:sql];
     }
     [MBProgressHUD showSuccessMessage:@"删除成功"];

@@ -103,12 +103,13 @@
 
 - (void)setIsShowButton:(BOOL)isShowButton
 {
-    _isShowButton = isShowButton ? isShowButton : NO;
-    if (_isShowButton == YES) {
-        _button.hidden = NO;
-    } else {
-        _button.hidden = YES;
-    }
+    _button.hidden = YES;
+//    _isShowButton = isShowButton ? isShowButton : NO;
+//    if (_isShowButton == YES) {
+//        _button.hidden = NO;
+//    } else {
+//        _button.hidden = YES;
+//    }
 }
 
 @end

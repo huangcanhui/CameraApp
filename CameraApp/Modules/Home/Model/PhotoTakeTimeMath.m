@@ -9,6 +9,7 @@
 #import "PhotoTakeTimeMath.h"
 #import "Personal.h"
 #import "CHTime.h"
+#import "NSNumber+mySort.h"
 
 //static float Times = 600; //间隔
 
@@ -25,14 +26,15 @@
    
     NSMutableArray *LessonArr=[NSMutableArray array];
     [array enumerateObjectsUsingBlock:^(Personal *obj, NSUInteger idx, BOOL *stop) {
-        NSString *LessonID= [NSString stringWithFormat:@"%ld", obj.groupID];//根据分组ID进行区分
+//        NSNumber *LessonID= [NSString stringWithFormat:@"%ld", obj.groupID];//根据分组ID进行区分
+        NSNumber *LessonID = [NSNumber numberWithInteger:obj.groupID]; //根据分组ID进行区分
         [LessonArr addObject:LessonID];
     }];
     
     //使用asset把LessonArr的对象去重
     NSSet *set = [NSSet setWithArray:LessonArr];
     NSArray *userArray = [set allObjects];
-    NSSortDescriptor *sd1 = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO];//yes升序排列，no,降序排列
+    NSSortDescriptor *sd1 = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES selector:@selector(mySort:)];//yes升序排列，no,降序排列
     //按ID降序排列的数
     NSArray *myary = [userArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sd1, nil]];
     //此时得到的myary就是按照ID   降序排列拍好的数组
@@ -49,7 +51,7 @@
         NSString *LessonID = [NSString stringWithFormat:@"%ld", obj.groupID];
         for (NSString *str in myary)
         {
-            if([str integerValue] ==[LessonID integerValue])//检测ID是否是一样的
+            if([str integerValue] == [LessonID integerValue])//检测ID是否是一样的
             {
                 NSMutableArray *arr=[titleArray objectAtIndex:[myary indexOfObject:str]];
                 [arr addObject:obj];//是的话就添加到数组里面
