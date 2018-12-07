@@ -45,6 +45,10 @@
  * 移除的图片数据
  */
 @property (nonatomic, strong)NSMutableArray *removeArrayM;
+/**
+ * 存放cell的唯一标识
+ */
+@property (nonatomic, strong)NSMutableDictionary *cellDic;
 
 @end
 
@@ -57,13 +61,19 @@
     
     self.navigationItem.title = @"我的图库";
     
+    [self initAttribute];
+    
+    [self createCollectionView];
+}
+
+#pragma mark - 初始化数据
+- (void)initAttribute
+{
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStyleDone target:self action:@selector(clickEditButton:)];
     
     self.isAllowEdit = NO;
-    
     self.removeArrayM = [NSMutableArray array];
-    
-    [self createCollectionView];
+    self.cellDic = [NSMutableDictionary dictionary];
 }
 
 #pragma mark - UICollectionView
@@ -80,7 +90,7 @@
     [self.view addSubview:self.collectionView];
     
     //注册头尾视图和cell
-    [self.collectionView registerClass:[PhotoListCollectionViewCell class] forCellWithReuseIdentifier:@"imageList"];
+//    [self.collectionView registerClass:[PhotoListCollectionViewCell class] forCellWithReuseIdentifier:@"imageList"];
     [self.collectionView registerClass:[PhotoLibraryReusableHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:PhotoLibraryReusableHeaderViewIdentifier];
 }
 
@@ -143,11 +153,20 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PhotoListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageList" forIndexPath:indexPath];
+    //每次都从字典中取出唯一的标识
+    NSString *identifier = [self.cellDic objectForKey:[NSString stringWithFormat:@"%@", indexPath]];
+    if (!identifier) { //如果标识不存在，则创建一个唯一的标识
+        identifier = [NSString stringWithFormat:@"image:%@", indexPath];
+        [self.cellDic setValue:identifier forKey:[NSString stringWithFormat:@"%@", indexPath]];
+        [self.collectionView registerClass:[PhotoListCollectionViewCell class] forCellWithReuseIdentifier:identifier];
+    }
+    
+    PhotoListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     Personal *person = self.dataSource[indexPath.section][indexPath.row];
     cell.person = person;
-    cell.isSelect = NO;
-
+    if (!cell || self.isAllowEdit == NO) {
+        cell.isSelect = NO;
+    }
     return cell;
 }
 
@@ -261,7 +280,7 @@
     weakSelf(wself);
     self.bottomView.PhotoBrowserDeleteButtonClick = ^(CHBottomButton *btn) {
         if (self.removeArrayM.count >= 1) {
-            [wself AlertWithTitle:@"删除确认" message:[NSString stringWithFormat:@"确认删除这%ld张图片?", wself.removeArrayM.count] andOthers:@[@"取消", @"确认"] animated:YES action:^(NSInteger index) {
+            [wself AlertWithTitle:@"删除确认" message:[NSString stringWithFormat:@"确认删除这%lu张图片?", (unsigned long)wself.removeArrayM.count] andOthers:@[@"取消", @"确认"] animated:YES action:^(NSInteger index) {
                 if (index == 1) {
                     [wself removePhotosOnDatabase];
                 }
@@ -352,7 +371,14 @@
     if (activityController) {
         [self presentViewController:activityController animated:YES completion:nil];
     }
-    
+}
+
+#pragma mark 导航栏右侧按钮的取消事件
+- (void)rightBarButtonItemCancel
+{
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    [self.removeArrayM removeAllObjects];
+    [self.bottomView removeFromSuperview];
 }
 
 #pragma mark - 移除数据库中的数据
@@ -368,13 +394,6 @@
     self.dataSource = nil;
     [self.collectionView reloadData];
     
-}
-
-#pragma mark 导航栏右侧按钮的取消事件
-- (void)rightBarButtonItemCancel
-{
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    [self.bottomView removeFromSuperview];
 }
 
 - (NSArray *)dataSource
