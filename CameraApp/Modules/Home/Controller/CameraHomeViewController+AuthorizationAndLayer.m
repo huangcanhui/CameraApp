@@ -11,6 +11,7 @@
 #import "UIViewController+AlertViewAndActionSheet.h"
 #import "CHBorderButton.h"
 #import <UIImage+GIF.h>
+#import "Authority_SettingViewController.h"
 
 @implementation CameraHomeViewController (AuthorizationAndLayer)
 
@@ -20,11 +21,12 @@
         
         //当用户拒绝授权且手机拥有该硬件的情况下，进行弹窗
         if (status == ECAuthorizationStatus_Denied && status != ECAuthorizationStatus_NotSupport) {
-            [self AlertWithTitle:@"警告" message:@"您拒绝了App获取您的相机权限\n\n请前往设置-App-相机 开启" andOthers:@[@"前往设置"] animated:YES action:^(NSInteger index) {
-                if (index == 0) {
-                    [self proceedSettingUrl];
-                }
-            }];
+//            [self AlertWithTitle:@"警告" message:@"您拒绝了App获取您的相机权限\n\n请前往设置-App-相机 开启" andOthers:@[@"前往设置"] animated:YES action:^(NSInteger index) {
+//                if (index == 0) {
+//                    [self proceedSettingUrl];
+//                }
+//            }];
+            [self.navigationController pushViewController:[Authority_SettingViewController new] animated:YES];
         }
     }];
 }

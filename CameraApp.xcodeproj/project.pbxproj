@@ -48,6 +48,7 @@
 		C98D60BE21B7D49300C5A2A9 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60BD21B7D49300C5A2A9 /* WXApiManager.m */; };
 		C98D60C121B8CF0A00C5A2A9 /* SharedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60C021B8CF0A00C5A2A9 /* SharedItem.m */; };
 		C98D60C421B8FFC100C5A2A9 /* NSNumber+mySort.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60C321B8FFC100C5A2A9 /* NSNumber+mySort.m */; };
+		C98D60C721BA13C100C5A2A9 /* Authority_SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60C621BA13C100C5A2A9 /* Authority_SettingViewController.m */; };
 		C98ED75B219331B60017A479 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED75A219331B60017A479 /* APIClient.m */; };
 		C98ED79D219924E60017A479 /* CHTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C98ED79C219924E60017A479 /* CHTime.m */; };
 		C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = C994193221A3A7AB0010524D /* AppDelegate+AppService.m */; };
@@ -178,6 +179,8 @@
 		C98D60C021B8CF0A00C5A2A9 /* SharedItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedItem.m; sourceTree = "<group>"; };
 		C98D60C221B8FFC100C5A2A9 /* NSNumber+mySort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+mySort.h"; sourceTree = "<group>"; };
 		C98D60C321B8FFC100C5A2A9 /* NSNumber+mySort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+mySort.m"; sourceTree = "<group>"; };
+		C98D60C521BA13C100C5A2A9 /* Authority_SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Authority_SettingViewController.h; sourceTree = "<group>"; };
+		C98D60C621BA13C100C5A2A9 /* Authority_SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Authority_SettingViewController.m; sourceTree = "<group>"; };
 		C98ED7522192D5730017A479 /* SystemsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemsMacros.h; sourceTree = "<group>"; };
 		C98ED7532192D5960017A479 /* ApiMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiMacros.h; sourceTree = "<group>"; };
 		C98ED7542192D5B00017A479 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				C994196721A4FE3E0010524D /* CHTipsViewController.m */,
 				C9C0567721A69CF600FE6160 /* CHPhotoLibraryListViewController.h */,
 				C9C0567821A69CF600FE6160 /* CHPhotoLibraryListViewController.m */,
+				C98D60C521BA13C100C5A2A9 /* Authority_SettingViewController.h */,
+				C98D60C621BA13C100C5A2A9 /* Authority_SettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
 				C9449FA021B1171C00446CAD /* CHWebViewController.m in Sources */,
 				C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */,
+				C98D60C721BA13C100C5A2A9 /* Authority_SettingViewController.m in Sources */,
 				C9479E7421AD163500878508 /* CHBottomButton.m in Sources */,
 				C9449F9D21B110FE00446CAD /* CHADPageView.m in Sources */,
 				C9A0872B21AFE67C0042FFB2 /* CHBorderButton.m in Sources */,
