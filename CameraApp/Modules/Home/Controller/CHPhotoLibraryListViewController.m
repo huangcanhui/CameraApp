@@ -366,7 +366,8 @@
                                                  UIActivityTypePostToFlickr,
                                                  UIActivityTypePostToVimeo,
                                                  UIActivityTypePostToTencentWeibo,
-                                                 UIActivityTypeOpenInIBooks
+                                                 UIActivityTypeOpenInIBooks,
+                                                 UIActivityTypeAirDrop
                                                  ];
     if (activityController) {
         [self presentViewController:activityController animated:YES completion:nil];
