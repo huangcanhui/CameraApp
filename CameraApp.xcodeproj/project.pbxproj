@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C914AA2521B1197B00BE39AD /* CHWebBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C914AA2421B1197B00BE39AD /* CHWebBaseViewController.m */; };
-		C914AA2821B11B6000BE39AD /* CHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C914AA2721B11B6000BE39AD /* CHRootViewController.m */; };
 		C919BB1921A660E600AE9E36 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB0C21A660E500AE9E36 /* FMDatabaseQueue.m */; };
 		C919BB1A21A660E600AE9E36 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB0F21A660E500AE9E36 /* FMDatabaseAdditions.m */; };
 		C919BB1B21A660E600AE9E36 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1021A660E500AE9E36 /* FMDatabase.m */; };
@@ -16,9 +14,6 @@
 		C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1521A660E500AE9E36 /* FMResultSet.m */; };
 		C919BB1E21A660E600AE9E36 /* JQFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB1721A660E600AE9E36 /* JQFMDB.m */; };
 		C919BB2121A6618E00AE9E36 /* Personal.m in Sources */ = {isa = PBXBuildFile; fileRef = C919BB2021A6618E00AE9E36 /* Personal.m */; };
-		C9449F9A21B10FF200446CAD /* CHJSHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C9449F9921B10FF200446CAD /* CHJSHandle.m */; };
-		C9449F9D21B110FE00446CAD /* CHADPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9449F9C21B110FE00446CAD /* CHADPageView.m */; };
-		C9449FA021B1171C00446CAD /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9449F9F21B1171C00446CAD /* CHWebViewController.m */; };
 		C9479E7121ACE38400878508 /* PhotoListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7021ACE38400878508 /* PhotoListCollectionViewCell.m */; };
 		C9479E7421AD163500878508 /* CHBottomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7321AD163500878508 /* CHBottomButton.m */; };
 		C9479E7A21AD2E6E00878508 /* ApplicationOpenUrlHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */; };
@@ -45,6 +40,11 @@
 		C97338D62192CF830016B440 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338D52192CF830016B440 /* main.m */; };
 		C97338E02192CF830016B440 /* CameraAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338DF2192CF830016B440 /* CameraAppTests.m */; };
 		C97338EB2192CF840016B440 /* CameraAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C97338EA2192CF840016B440 /* CameraAppUITests.m */; };
+		C973C0A921BB5C10003D1C78 /* CHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C973C0A021BB5C10003D1C78 /* CHRootViewController.m */; };
+		C973C0AA21BB5C10003D1C78 /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C973C0A221BB5C10003D1C78 /* CHWebViewController.m */; };
+		C973C0AB21BB5C10003D1C78 /* CHADPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C973C0A321BB5C10003D1C78 /* CHADPageView.m */; };
+		C973C0AC21BB5C10003D1C78 /* CHWebBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C973C0A521BB5C10003D1C78 /* CHWebBaseViewController.m */; };
+		C973C0AD21BB5C10003D1C78 /* CHJSHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C973C0A621BB5C10003D1C78 /* CHJSHandle.m */; };
 		C98D60BE21B7D49300C5A2A9 /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60BD21B7D49300C5A2A9 /* WXApiManager.m */; };
 		C98D60C121B8CF0A00C5A2A9 /* SharedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60C021B8CF0A00C5A2A9 /* SharedItem.m */; };
 		C98D60C421B8FFC100C5A2A9 /* NSNumber+mySort.m in Sources */ = {isa = PBXBuildFile; fileRef = C98D60C321B8FFC100C5A2A9 /* NSNumber+mySort.m */; };
@@ -97,10 +97,6 @@
 /* Begin PBXFileReference section */
 		8D5FAA60EEB040A0CCC0C74E /* libPods-CameraApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CameraApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98D6032D2C354FDEABF3906 /* Pods-CameraApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CameraApp/Pods-CameraApp.release.xcconfig"; sourceTree = "<group>"; };
-		C914AA2321B1197B00BE39AD /* CHWebBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHWebBaseViewController.h; sourceTree = "<group>"; };
-		C914AA2421B1197B00BE39AD /* CHWebBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHWebBaseViewController.m; sourceTree = "<group>"; };
-		C914AA2621B11B6000BE39AD /* CHRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHRootViewController.h; sourceTree = "<group>"; };
-		C914AA2721B11B6000BE39AD /* CHRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHRootViewController.m; sourceTree = "<group>"; };
 		C919BB0B21A660E500AE9E36 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		C919BB0C21A660E500AE9E36 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		C919BB0D21A660E500AE9E36 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -116,12 +112,6 @@
 		C919BB1821A660E600AE9E36 /* JQFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQFMDB.h; sourceTree = "<group>"; };
 		C919BB1F21A6618E00AE9E36 /* Personal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Personal.h; sourceTree = "<group>"; };
 		C919BB2021A6618E00AE9E36 /* Personal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Personal.m; sourceTree = "<group>"; };
-		C9449F9821B10FF200446CAD /* CHJSHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHJSHandle.h; sourceTree = "<group>"; };
-		C9449F9921B10FF200446CAD /* CHJSHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHJSHandle.m; sourceTree = "<group>"; };
-		C9449F9B21B110FE00446CAD /* CHADPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHADPageView.h; sourceTree = "<group>"; };
-		C9449F9C21B110FE00446CAD /* CHADPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHADPageView.m; sourceTree = "<group>"; };
-		C9449F9E21B1171C00446CAD /* CHWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
-		C9449F9F21B1171C00446CAD /* CHWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
 		C9479E6F21ACE38400878508 /* PhotoListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListCollectionViewCell.h; sourceTree = "<group>"; };
 		C9479E7021ACE38400878508 /* PhotoListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListCollectionViewCell.m; sourceTree = "<group>"; };
 		C9479E7221AD163500878508 /* CHBottomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBottomButton.h; sourceTree = "<group>"; };
@@ -173,6 +163,16 @@
 		C97338E62192CF840016B440 /* CameraAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97338EA2192CF840016B440 /* CameraAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraAppUITests.m; sourceTree = "<group>"; };
 		C97338EC2192CF840016B440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C973C09F21BB5C10003D1C78 /* CHWebBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebBaseViewController.h; sourceTree = "<group>"; };
+		C973C0A021BB5C10003D1C78 /* CHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHRootViewController.m; sourceTree = "<group>"; };
+		C973C0A121BB5C10003D1C78 /* CHJSHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHJSHandle.h; sourceTree = "<group>"; };
+		C973C0A221BB5C10003D1C78 /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
+		C973C0A321BB5C10003D1C78 /* CHADPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHADPageView.m; sourceTree = "<group>"; };
+		C973C0A421BB5C10003D1C78 /* CHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHRootViewController.h; sourceTree = "<group>"; };
+		C973C0A521BB5C10003D1C78 /* CHWebBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebBaseViewController.m; sourceTree = "<group>"; };
+		C973C0A621BB5C10003D1C78 /* CHJSHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHJSHandle.m; sourceTree = "<group>"; };
+		C973C0A721BB5C10003D1C78 /* CHADPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHADPageView.h; sourceTree = "<group>"; };
+		C973C0A821BB5C10003D1C78 /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		C98D60BC21B7D49300C5A2A9 /* WXApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
 		C98D60BD21B7D49300C5A2A9 /* WXApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
 		C98D60BF21B8CF0A00C5A2A9 /* SharedItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedItem.h; sourceTree = "<group>"; };
@@ -317,24 +317,6 @@
 			path = JQFMDB;
 			sourceTree = "<group>";
 		};
-		C9449F9721B10F8400446CAD /* WebViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C9449F9821B10FF200446CAD /* CHJSHandle.h */,
-				C9449F9921B10FF200446CAD /* CHJSHandle.m */,
-				C9449F9B21B110FE00446CAD /* CHADPageView.h */,
-				C9449F9C21B110FE00446CAD /* CHADPageView.m */,
-				C9449F9E21B1171C00446CAD /* CHWebViewController.h */,
-				C9449F9F21B1171C00446CAD /* CHWebViewController.m */,
-				C914AA2321B1197B00BE39AD /* CHWebBaseViewController.h */,
-				C914AA2421B1197B00BE39AD /* CHWebBaseViewController.m */,
-				C914AA2621B11B6000BE39AD /* CHRootViewController.h */,
-				C914AA2721B11B6000BE39AD /* CHRootViewController.m */,
-			);
-			name = WebViewController;
-			path = ../../../Personal/WebViewController;
-			sourceTree = "<group>";
-		};
 		C95E687721A7F9FA00CE5790 /* LLPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +399,23 @@
 			path = CameraAppUITests;
 			sourceTree = "<group>";
 		};
+		C973C09E21BB5C10003D1C78 /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C973C09F21BB5C10003D1C78 /* CHWebBaseViewController.h */,
+				C973C0A521BB5C10003D1C78 /* CHWebBaseViewController.m */,
+				C973C0A421BB5C10003D1C78 /* CHRootViewController.h */,
+				C973C0A021BB5C10003D1C78 /* CHRootViewController.m */,
+				C973C0A121BB5C10003D1C78 /* CHJSHandle.h */,
+				C973C0A621BB5C10003D1C78 /* CHJSHandle.m */,
+				C973C0A821BB5C10003D1C78 /* CHWebViewController.h */,
+				C973C0A221BB5C10003D1C78 /* CHWebViewController.m */,
+				C973C0A721BB5C10003D1C78 /* CHADPageView.h */,
+				C973C0A321BB5C10003D1C78 /* CHADPageView.m */,
+			);
+			path = WebViewController;
+			sourceTree = "<group>";
+		};
 		C98ED7422192D3080017A479 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,7 +450,7 @@
 		C98ED7442192D35A0017A479 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C9449F9721B10F8400446CAD /* WebViewController */,
+				C973C09E21BB5C10003D1C78 /* WebViewController */,
 				C994193C21A3B2E00010524D /* NavigationController */,
 				C9479E7821AD2E6E00878508 /* ApplicationOpenUrlHandle.h */,
 				C9479E7921AD2E6E00878508 /* ApplicationOpenUrlHandle.m */,
@@ -819,6 +818,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95E688721A7F9FA00CE5790 /* LLCollectionViewCell.m in Sources */,
+				C973C0AC21BB5C10003D1C78 /* CHWebBaseViewController.m in Sources */,
 				C95E688621A7F9FA00CE5790 /* LLPhoto.m in Sources */,
 				C994196521A4F4F60010524D /* ImageObject.m in Sources */,
 				C9479E8221AE6D3F00878508 /* TipsModel.m in Sources */,
@@ -826,20 +826,18 @@
 				C9479E8821AFC00C00878508 /* TakePhotoAlertView.m in Sources */,
 				C994193321A3A7AB0010524D /* AppDelegate+AppService.m in Sources */,
 				C98D60C121B8CF0A00C5A2A9 /* SharedItem.m in Sources */,
+				C973C0A921BB5C10003D1C78 /* CHRootViewController.m in Sources */,
 				C95E689F21AB957800CE5790 /* NSObject+CH.m in Sources */,
-				C914AA2821B11B6000BE39AD /* CHRootViewController.m in Sources */,
 				C95E688521A7F9FA00CE5790 /* LLFileManager.m in Sources */,
 				C98ED75B219331B60017A479 /* APIClient.m in Sources */,
 				C994193621A3AAC40010524D /* CameraHomeViewController.m in Sources */,
 				C9C0569221A7D0A900FE6160 /* CHBrowserBottomView.m in Sources */,
 				C994194721A3B8160010524D /* UIView+CH.m in Sources */,
-				C9449F9A21B10FF200446CAD /* CHJSHandle.m in Sources */,
 				C98ED79D219924E60017A479 /* CHTime.m in Sources */,
-				C9449FA021B1171C00446CAD /* CHWebViewController.m in Sources */,
 				C919BB1D21A660E600AE9E36 /* FMResultSet.m in Sources */,
 				C98D60C721BA13C100C5A2A9 /* Authority_SettingViewController.m in Sources */,
 				C9479E7421AD163500878508 /* CHBottomButton.m in Sources */,
-				C9449F9D21B110FE00446CAD /* CHADPageView.m in Sources */,
+				C973C0AD21BB5C10003D1C78 /* CHJSHandle.m in Sources */,
 				C9A0872B21AFE67C0042FFB2 /* CHBorderButton.m in Sources */,
 				C98D60BE21B7D49300C5A2A9 /* WXApiManager.m in Sources */,
 				C9479E7A21AD2E6E00878508 /* ApplicationOpenUrlHandle.m in Sources */,
@@ -853,7 +851,7 @@
 				C919BB1A21A660E600AE9E36 /* FMDatabaseAdditions.m in Sources */,
 				C97338C82192CF810016B440 /* AppDelegate.m in Sources */,
 				C919BB1E21A660E600AE9E36 /* JQFMDB.m in Sources */,
-				C914AA2521B1197B00BE39AD /* CHWebBaseViewController.m in Sources */,
+				C973C0AA21BB5C10003D1C78 /* CHWebViewController.m in Sources */,
 				C95E688321A7F9FA00CE5790 /* LLPhotoBrowser.m in Sources */,
 				C9A0873221B0CEDB0042FFB2 /* CHAppVersionInfo.m in Sources */,
 				C919BB1C21A660E600AE9E36 /* FMDatabasePool.m in Sources */,
@@ -861,6 +859,7 @@
 				C9479E7D21AD2FD000878508 /* ShareManager.m in Sources */,
 				C95E68A221ABD8B000CE5790 /* PhotoLibraryReusableHeaderView.m in Sources */,
 				C95E688421A7F9FA00CE5790 /* LLImageCache.m in Sources */,
+				C973C0AB21BB5C10003D1C78 /* CHADPageView.m in Sources */,
 				C994195E21A403340010524D /* ECAuthorizationTools.m in Sources */,
 				C994195021A3E5390010524D /* Debug_DevelopmentModel.m in Sources */,
 				C919BB1B21A660E600AE9E36 /* FMDatabase.m in Sources */,
